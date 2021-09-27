@@ -1,0 +1,2 @@
+//hides the app folder. can only access the public folder
+Options -Indexes
