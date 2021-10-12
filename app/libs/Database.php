@@ -9,10 +9,10 @@
 
 class Database
 {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pw = '';
-    private $dbname = 'table4u';
+    private $host = DB_HOST;
+    private $user = DB_USER;
+    private $pass = DB_PASSWORD;
+    private $dbname = DB_NAME;
 
     private $dbh;
     private $stmt;
@@ -29,7 +29,7 @@ class Database
 
         //create pdo instance
         try {
-            $this->dbh = new PDO($dsn, $this->user, $this->pw, $options);
+            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
             echo $this->error;

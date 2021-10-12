@@ -300,7 +300,7 @@
     </section>
 
     <!-- contact us -->
-    <footer>
+    <footer id="contact">
         <div class="parent">
             <div class="container">
                 <div class="sect aboutus">

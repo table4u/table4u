@@ -25,8 +25,18 @@
         <nav class="navbar">
             <a href="home.html"> Home</a>
             <a href="<?php echo URLROOT ?>/register"> Sign Up</a>
-            <a href="#login">Login</a>
+            <a href="<?php echo URLROOT ?>/login">Login</a>
         </nav>
+        <style>
+            .errors {
+                /* margin: 0.5rem; */
+                color: #c2262f;
+                font-size: 1.5rem;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+
+            }
+        </style>
     </header>
 
     <section>
@@ -38,17 +48,42 @@
 
             <div class="avatar">
                 <i class="fas fa-user"></i>
-                <!-- <img src="../public/images/pic1.jpg" alt=""> -->
             </div>
-            <div class="form-control">
+            <div>
+                <?php if (isset($_SESSION['successMsg'])) : ?>
+                    <div style="color: #006600; margin-bottom:1.5rem;padding: 0.5rem; font-weight:600; background:#99FFCC; font-size:1.5rem;">
+                        <?php echo $_SESSION['successMsg'];
+                        unset($_SESSION['successMsg']); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['unsuccessMsg'])) : ?>
+                    <div style="color: #FF0000; margin-bottom:1.5rem;padding: 0.5rem; font-weight:600; background:#FF9999; font-size:1.5rem;">
+                        <?php echo $_SESSION['unsuccessMsg'];
+                        unset($_SESSION['unsuccessMsg']); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <form class="form-control" method="POST" action="<?php echo URLROOT; ?>/login/login">
                 <div class="form-group">
                     <label for="">Username: <span class="star">*</span></label>
-                    <input type="text" required class="input-field" id="" placeholder="Enter username">
+                    <input type="text" required class="input-field" id="" placeholder="Enter username" name="username">
                 </div>
+                <div class="errors">
+                    <?php
+                    echo $data['username_err'];
+                    ?>
+                </div>
+
                 <div class="form-group">
                     <label for="">Password: <span class="star">*</span></label>
-                    <input type="password" required class="input-field" id="" placeholder="Enter password">
+                    <input type="password" required class="input-field" id="" placeholder="Enter password" name="password">
                 </div>
+                <div class="errors">
+                    <?php
+                    echo $data['pw_err'];
+                    ?>
+                </div>
+
                 <div class="forgot-pw">
                     <a href="#">Forgot password?</a>
                 </div>
@@ -56,7 +91,7 @@
                     <label for=""></label>
                     <input type="submit" value="Log in" class="submitBtn" id="" placeholder="">
                 </div>
-            </div>
+            </form>
             <p>
                 Don't have an account? <a href="<?php echo URLROOT ?>/register"> <br> Join today</a>
             </p>

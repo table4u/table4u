@@ -12,6 +12,16 @@
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sign Up</title>
+    <style>
+        .errors {
+            /* margin: 0.5rem; */
+            color: #c2262f;
+            font-size: 1.5rem;
+            /* padding-bottom: 0.5rem; */
+            /* margin-bottom: 0.5rem; */
+
+        }
+    </style>
 </head>
 
 <body>
@@ -39,33 +49,43 @@
                 <form action="<?php echo URLROOT; ?>/register/register" method="POST">
 
                     <div class="form-group">
-                        <label for="">First Name: <span class="star">*</span></label>
-                        <input name="fName" type="text" required class="input-field" id="" placeholder="Enter first name">
-
+                        <label for="">Name: <span class="star">*</span></label>
+                        <input name="name" type="text" required class="input-field" id="" placeholder="Enter full name" value="<?php echo $data['name']; ?>">
                     </div>
-                    <div style="margin:0.5rem; padding-bottom: 0.5rem; color:red; font-weight:800;">
-                        <?php
 
+                    <!-- <div class="form-group">
+                        <label for="">NIC: <span class="star">*</span></label>
+                        <input name="nic" type="text" required class="input-field" id="" placeholder="Enter NIC number" value="<?php echo $data['nic']; ?>">
+                    </div>
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        
+                    </div> -->
+
+                    <!-- <div class="form-group">
+                        <label for="">Birth Date: </label>
+                        <input name="dob" type="date" class="input-field" id="" placeholder="">
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="">Email: <span class="star">*</span></label>
+                        <input name="email" type="email" required class="input-field" id="" placeholder="Enter email" value="<?php echo $data['email']; ?>">
+                    </div>
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        <?php
+                        echo $data['email_err'];
                         ?>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Last Name: <span class="star">*</span></label>
-                        <input name="lName" type="text" required class="input-field" id="" placeholder="Enter last name">
+                        <label for="">Mobile Number: <span class="star">*</span></label>
+                        <input name="mobile" type="text" required class="input-field" id="" placeholder="Enter mobile number" value="<?php echo $data['mobile']; ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="">NIC: <span class="star">*</span></label>
-                        <input name="nic" type="text" required class="input-field" id="" placeholder="Enter NIC number">
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        <?php
+                        echo $data['mobile_err'];
+                        ?>
                     </div>
-                    <div class="form-group">
-                        <label for="">Birth Date: </label>
-                        <input name="dob" type="date" class="input-field" id="" placeholder="">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Email: <span class="star">*</span></label>
-                        <input name="email" type="email" required class="input-field" id="" placeholder="Enter email">
-                    </div>
+<!-- 
                     <div class="form-group">
                         <label for="">House No./ Name: </label>
                         <input name="houseNo" type="text" class="input-field" id="" placeholder="Enter house no/ name">
@@ -81,18 +101,35 @@
                     <div class="form-group">
                         <label for="">City: </label>
                         <input name="city" type="text" class="input-field" id="" placeholder="Enter city">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="">Username: <span class="star">*</span></label>
-                        <input name="username" type="text" required class="input-field" id="" placeholder="Enter username">
+                        <input name="username" type="text" required class="input-field" id="" placeholder="Enter username" value="<?php echo $data['username']; ?>">
                     </div>
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        <?php
+                        echo $data['username_err'];
+                        ?>
+                    </div>
+
                     <div class="form-group">
                         <label for="">Password: <span class="star">*</span></label>
                         <input name="pw" type="password" required class="input-field" id="" placeholder="Enter password">
                     </div>
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        <?php
+                        echo $data['pw_err'];
+                        ?>
+                    </div>
+
                     <div class="form-group">
                         <label for="">Confirm Password: <span class="star">*</span></label>
                         <input name="confirm_pw" type="password" required class="input-field" id="" placeholder="Enter confirm password">
+                    </div>
+                    <div class="" style="color: #c2262f; font-size: 1.5rem;">
+                        <?php
+                        echo $data['confirm_pw_err'];
+                        ?>
                     </div>
 
                     <div class="form-group terms">

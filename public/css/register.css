@@ -23,21 +23,26 @@ html {
 }
 
 body {
-    background: #f7f7f7;
+    background: url(../images/login.jpg);
+    /* height: 100%; */
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
 section {
-    padding: 10rem 9%;
-
+    /* padding: 9rem 9% 4rem 1rem; */
+    padding-top: 7.5rem;
     margin: 0;
-    padding-top: 15rem;
+    /* padding-top: 15rem; */
     /* padding-left: 300px;
     padding-right: 300px;
     padding-bottom: 5rem; */
-    height: auto;
-    background: url(../images/login.jpg);
+    /* height: auto; */
+    /* background: url(../images/login.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center; */
 
 
 }
@@ -99,11 +104,11 @@ header .navbar a:hover {
     /* border: 0.1rem sold rgba(0, 0, 0, 0.3); */
     border-radius: 0.5rem;
     /* min-width: 500px; */
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
     /* height: 100vh; */
-    padding: 30px;
-    margin: 20px auto;
+    padding: 2rem;
+    margin: 10px auto;
 }
 
 .wrapper .form-control {
@@ -111,7 +116,7 @@ header .navbar a:hover {
 }
 
 .wrapper .form-control .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
 }
@@ -139,7 +144,7 @@ hr {
     text-align: center;
     font-size: 1.5rem;
     color: rgb(102, 102, 102);
-    padding-bottom: 20px;
+    padding-bottom: 1rem;
 
 }
 
@@ -158,6 +163,7 @@ hr {
 
 .wrapper .form-control .form-group {
     margin-bottom: 15px;
+    margin-top: 15px;
     display: flex;
     align-items: center;
     /* font-weight: bolder; */
@@ -183,6 +189,7 @@ hr {
 .star {
     color: red;
 }
+
 
 .wrapper .form-control .form-group .input-field:focus {
     border: 1px solid var(--orange);

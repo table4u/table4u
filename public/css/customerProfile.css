@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,700&display=swap');
+
+* {
+    font-family: 'Poppins',
+        sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+:root {
+    --orange: #FF6000;
+}
+
+body {
+    background: #f7f7f7;
+}
+
+section {
+    padding: 10rem 9%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem 9%;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: rgb(102, 102, 102);
+}
+
+header .logo i {
+    padding-right: .5rem;
+    color: var(--orange);
+
+}
+
+header .navbar a {
+    font-size: 2rem;
+    margin-left: 2.5rem;
+    color: rgb(102, 102, 102);
+}
+
+header .navbar a:hover {
+    color: var(--orange);
+
+}
+
+#menu-bar {
+    font-size: 3rem;
+    cursor: pointer;
+    color: rgb(102, 102, 102);
+    border: .1rem solid rgb(102, 102, 102);
+    border-radius: .3rem;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+
+}
+
+.container .profile {
+    height: 100vh;
+    background: white;
+    width: 100%;
+    box-shadow: 0.5rem .5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+.container#blur.active {
+    filter: blur(1rem);
+    pointer-events: none;
+    user-select: none;
+}
+
+.heading {
+    text-align: center;
+    font-size: 2rem;
+    /* padding: 1rem; */
+    color: rgb(102, 102, 102);
+    /* margin-bottom: 25px; */
+}
+
+hr {
+    margin: auto;
+    justify-content: center;
+    height: 30px;
+    width: 50px;
+    border-style: solid;
+    border-color: var(--orange);
+    border-width: 3px 0 0 0;
+    /* border-radius: 20px; */
+}
+
+.container .feedback {
+    height: 100vh;
+    background: white;
+    width: 100%;
+    box-shadow: 0.5rem .5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+}
+
+button {
+    justify-content: center;
+}
+
+.btn {
+    background-color: #181818;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    width: 100%;
+    box-shadow: 0 0 1rem #222222;
+}
+
+.edit {
+    border: .01rem solid #48a1ad;
+    color: #48a1ad;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 10rem;
+    background: white;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: #fff;
+    background-color: #48a1ad;
+}
+
+
+.form-group,
+.modal .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    /* font-weight: bolder; */
+}
+
+.form-group label,
+.modal .form-group label {
+    width: 250px;
+    font-size: 1.5rem;
+    color: rgb(102, 102, 102);
+    margin-right: 10px;
+}
+
+.form-group input,
+.modal .form-group input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    color: rgb(102, 102, 102);
+    transition: all 0.3s ease;
+}
+
+.feedback-popup {
+    padding: 1.5rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.content p {
+    font-size: 1.5rem;
+    color: rgb(102, 102, 102);
+    padding: 1.5rem;
+
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding: 1.5rem;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+    color: rgb(102, 102, 102);
+    transition: all 0.2s ease;
+    float: right;
+    text-align: center;
+}
+
+.stars input:not(:checked)~label:hover,
+.stars input:not(:checked)~label:hover~label {
+    color: gold;
+}
+
+input:checked~label {
+    color: gold;
+}
+
+.stars input#rate-5:checked~label {
+    color: gold;
+    text-shadow: 0 0 10px #952;
+}
+
+
+form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem;
+
+}
+
+form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 0.1rem solid rgb(102, 102, 102);
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    resize: none;
+}
+
+form .submitBtn {
+    height: 4rem;
+    width: 100%;
+    margin: 2rem 0;
+
+}
+
+form .submitBtn button {
+    padding: 1rem;
+    width: 8rem;
+    border: 1px solid var(--orange);
+    outline: none;
+    color: var(--orange);
+    ;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+form .submitBtn button:hover {
+    color: white;
+    background: var(--orange);
+    transform: scale(1.1);
+}
+
+.content .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer
+}
+
+.content .close:hover {
+    transform: scale(1.1);
+}
+
+.content .post {
+    font-size: 1.5rem;
+    display: none;
+    /*background: #48a1ad;*/
+}
+
+#popup,
+#modal-popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#popup.active,
+#modal-popup.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    top: 50%;
+}
+
+.modal {
+    position: absolute;
+    top: 20rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-left: 0;
+    padding-left: 0;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal .modal-info {
+    background: white;
+    padding: 2rem 4rem;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.modal .close-edit {
+
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
