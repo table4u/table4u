@@ -81,10 +81,10 @@
                 ?>
 
                         <div class="content">
-                            <div class="rev" style="text-align:center;">
-                                <div class="date"><b>Date: </b><?php echo $d->_date; ?></div>
-                                <div class="time"><b>Time: </b><?php echo $d->reservationTime; ?></div>
-                                <div class="guests"><b>Number of guests: </b><?php echo $d->noOfGuests; ?></div>
+                            <div class="rev" style="text-align:center; width: 100%;">
+                                <div class="date"><b>Date </b><br><?php echo $d->_date; ?></div>
+                                <div class="time"><b>Time </b><br><?php echo date("g:i A ", strtotime($d->reservationTime));  ?></div>
+                                <div class="guests"><b>Number of guests </b><br><?php echo $d->noOfGuests; ?></div>
                                 <!-- <div class="food">Food ordered</div> -->
                                 <div style="text-align:center;">
                                     <button class="btn update" style="border-color: green;">Update</button>
@@ -102,10 +102,11 @@
                 <?php foreach ($data as $d) : if ($d->_date < date("Y-m-d")) : ?>
 
                         <div class="content">
-                            <div class="rev" style="text-align:center;">
-                                <div class="date"><b>Date: </b><?php echo $d->_date; ?></div>
-                                <div class="time"><b>Time: </b><?php echo $d->reservationTime; ?></div>
-                                <div class="guests"><b>Number of guests: </b><?php echo $d->noOfGuests; ?></div>
+                            <div class="rev" style="text-align:center; width: 100%;">
+                                <div class="date"><b>Date </b><br><?php echo $d->_date; ?></div>
+                                <div class="time"><b>Time </b><br><?php echo date("g:i A ", strtotime($d->reservationTime)); ?></div>
+                                <div class="guests"><b>Number of guests </b><br><?php echo $d->noOfGuests; ?></div>
+                                <hr class="break">
                                 <!-- <div class="food">Food ordered</div> -->
                             </div>
                         </div>

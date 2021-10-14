@@ -106,9 +106,10 @@ header .navbar a:hover {
     padding-top: 2rem;
     /*text-decoration: none;*/
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
     justify-content: space-around;
-    /*align-items: center;*/
+    align-items: center;
     align-content: space-around;
     grid-column-gap: 2.5rem;
     grid-row-gap: 2.5rem;
@@ -119,14 +120,31 @@ header .navbar a:hover {
     height: 7.5rem;
     line-height: 7.5rem;
     width: 100%;
-    border-radius: 1rem;
+    /* border-radius: 1rem;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.25);
-    background: #e2e2e2;
+    background: #e2e2e2; */
     text-align: center;
     font-size: 2rem;
+    position: relative;
 
 }
+.box::after{
+    content: "";
+    position: absolute;
+    bottom: -1%;
+    left: 30%;
+    /* width: 40%; */
+    width: 0;
+    height: 5px;
+    background: var(--orange);
+    border-radius: 30px;
+    transition: width 0.8s ease;
+}
 
+.box.cur::after{
+    width: 40%;
+
+}
 .box a {
     color: rgb(102, 102, 102);
     padding-top: 2rem;
@@ -137,11 +155,6 @@ header .navbar a:hover {
     color: var(--orange);
 }
 
-.box1 {}
-
-.box2 {}
-
-.box3 {}
 
 .content {
     padding: 1rem 0;
@@ -159,9 +172,12 @@ header .navbar a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: space-around;
+    align-items: center;
+    justify-items: center;
 }
 
 .rev {
+    width: 50% !important;
     background: #e1dbd6;
     margin-top: 2rem;
     font-size: 1.75rem;

@@ -35,64 +35,98 @@
                 </h1>
                 <hr>
                 <div class="info">
-                    <?php 
+                    <?php
                     // print_r($data);
-                    echo $data->name;
-                    // echo $data["name"];?>
+                    // $_SESSION['name'] = $data->name;
+                    // $_SESSION['address'] = $data->address;
+                    // $_SESSION['nic'] = $data->NIC;
+                    // $_SESSION['mobile'] = $data->mobile;
+                    // $_SESSION['dob'] = $data->dob;
+                    // echo $data["name"];
+                    $dob = date('Y-m-d', strtotime($data->dob));
+
+                    ?>
                     <div>
+                        <?php if (isset($_SESSION['successMsg'])) : ?>
+                            <div style="color: #006600; margin-bottom:1.5rem;padding: 0.5rem; font-weight:600; background:#99FFCC; font-size:1.5rem;">
+                                <?php echo $_SESSION['successMsg'];
+                                unset($_SESSION['successMsg']); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (isset($_SESSION['unsuccessMsg'])) : ?>
+                            <div style="color: #FF0000; margin-bottom:1.5rem;padding: 0.5rem; font-weight:600; background:#FF9999; font-size:1.5rem;">
+                                <?php echo $_SESSION['unsuccessMsg'];
+                                unset($_SESSION['unsuccessMsg']); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <form method="POST" action="<?php echo URLROOT; ?>/customerProfile/edit">
                         <div class="form-group">
                             <label for="">Name: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter name" value=<?php echo $data->name; ?>>
+                            <input name="name" type="text" class="input-field" id="" placeholder="Enter name" value="<?php echo $data->name; ?>">
                         </div>
 
                         <div class="form-group">
                             <label for="">NIC: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter NIC number">
+                            <input name="nic" type="text" readonly class="input-field" id="" placeholder="Enter NIC number" value="<?php echo $data->NIC; ?>">
                         </div>
                         <div class="form-group">
                             <label for="">Birth Date: </label>
-                            <input type="date" readonly class="input-field" id="" placeholder="">
+                            <input name="dob" type="date" class="input-field" id="" placeholder="" value="<?php echo date('Y-m-d', strtotime($data->dob)); ?>">
                         </div>
-
+                        <div class="form-group">
+                            <label for="">Mobile: </label>
+                            <input name="mobile" type="text" class="input-field" id="" placeholder="Enter mobile" value="<?php echo $data->mobile; ?>">
+                        </div>
                         <div class="form-group">
                             <label for="">Email: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter email">
+                            <input name="email" type="text" class="input-field" id="" placeholder="Enter email" value="<?php echo $data->email; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="">House No./ Name: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter house no/ name">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Address Line 1: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter address line 1">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Address Line 2: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter address line 2">
-                        </div>
-                        <div class="form-group">
-                            <label for="">City: </label>
-                            <input type="text" readonly class="input-field" id="" placeholder="Enter city">
+                            <label for="">Address: </label>
+                            <input name="address" type="text" class="input-field" id="" placeholder="Enter address" value="<?php echo $data->address; ?>">
                         </div>
 
-                        <div class="">
-                            <label for=""></label>
-                            <button name="" id="" class="edit">Edit</button>
+                        <div class="" style="padding:1.5rem; display: flex; justify-content: space-around">
+                            <input type="submit" class="edit" value="Edit">
+                            <input type="reset" value="Reset" class="edit" id="" placeholder="">
 
                         </div>
 
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="feedback">
+                <div class="loyalty">
+                    <h1 class="heading">
+                        Loyalty Points
+                    </h1>
+                    <hr>
+                    <div class="points">
+                        <div class="group">
+                            <p style="font-weight: 600; font-size:1.75rem;">Redeemable Points </p>
+                            <p style=" font-size:1.5rem;">100</p>
+                        </div>
+                        <div class="group">
+                            <p style="font-weight: 600; font-size:1.75rem;">Expiry Date </p>
+                            <p style=" font-size:1.5rem;">2022-10-01</p>
+                        </div>
+                        <div>
+                            <button class="redeem">
+                                Redeem Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <h1 class="heading">
                     Feedback
                 </h1>
                 <hr>
-
-                <button class="btn">
+                <button class="btn" style="border-bottom-width: 0px;border-bottom-style: solid;border-top-width: 0px;border-top-style: solid;border-left-width: 0px;border-left-style: solid;border-right-width: 0px;border-right-style: solid;">
                     Let's give feedback
                 </button>
+
+
             </div>
         </div>
 
@@ -136,56 +170,44 @@
             </div>
 
         </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="modal" id="modal-popup">
+        <!-- <div class="modal" id="modal-popup">
             <div class="modal-info" id="">
                 <div class="close-edit fas fa-times" style="padding-bottom:1rem;top: 2.5rem; right:2.5rem;" id="feedback-close"></div>
 
                 <form action="">
                     <div class="form-group">
                         <label for="">Name: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter name">
+                        <input name="name" type="text" class="input-field" id="" placeholder="Enter name" value="<?php echo $data->name; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="">NIC: </label>
-                        <input type="text" readonly class="input-field" id="" placeholder="Enter NIC number">
+                        <input name="nic" type="text" readonly class="input-field" id="" placeholder="Enter NIC number" value="<?php echo $data->NIC; ?>">
                     </div>
                     <div class="form-group">
                         <label for="">Birth Date: </label>
-                        <input type="date" readonly class="input-field" id="" placeholder="">
+                        <input name="dob" type="date" class="input-field" id="" placeholder="" value="<?php echo $data->dob; ?>">
                     </div>
 
                     <div class="form-group">
                         <label for="">Email: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter email">
+                        <input name="email" type="email" class="input-field" id="" placeholder="Enter email" value="<?php echo $data->email; ?>">
                     </div>
                     <div class="form-group">
-                        <label for="">House No./ Name: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter house no/ name">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Address Line 1: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter address line 1">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Address Line 2: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter address line 2">
-                    </div>
-                    <div class="form-group">
-                        <label for="">City: </label>
-                        <input type="text" class="input-field" id="" placeholder="Enter city">
+                        <label for="">Address: </label>
+                        <input name="address" type="text" class="input-field" id="address" placeholder="Enter address" value="<?php echo $data->address; ?>">
                     </div>
 
                     <div class="">
                         <label for=""></label>
-                        <input type="submit" value="Submit" class="edit" id="" placeholder="">
+                        <input name="submit" type="submit" value="Submit" class="edit" id="">
                     </div>
 
                 </form>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <script src="<?php echo URLROOT ?>/public/js/customerProfile.js"></script>

@@ -16,7 +16,7 @@ class Reservations extends Controller
     public function reservationDetails()
     {
         $data = $this->reservationModel->getReservationDetails($_SESSION['user_id']);
-        die($data);
+        // die($data);
         $this->view('customerReservations', $data);
     }
 

@@ -45,7 +45,8 @@ class Login extends Controller
                     // Check and set logged in user
                     $loggedInUser = $this->selfRegisteredModel->loginCustomer($data['username'], $data['password']);
                     $_SESSION['user_id'] = $loggedInUser->customerID;
-
+                    print_r($loggedInUser);
+                    // die($_SESSION['user_id']);
                     if ($loggedInUser) {
                         // Create Session
                         $_SESSION['user_role'] = 'Customer';

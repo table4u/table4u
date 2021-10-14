@@ -87,7 +87,7 @@ header .navbar a:hover {
 }
 
 .container .profile {
-    height: 100vh;
+    height: 50rem;
     background: white;
     width: 100%;
     box-shadow: 0.5rem .5rem 1rem rgba(0, 0, 0, 0.1);
@@ -131,10 +131,46 @@ button {
     justify-content: center;
 }
 
-.btn {
+.loyalty {
+    padding-bottom: 2rem;
+
+    /* justify-content: center; */
+
+}
+
+.points {
+    /* align-items: center; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    /* height: 10px; */
+    border-radius: 0.5rem;
+    position: relative;
+    font-size: 1.5rem;
+    color: rgb(102, 102, 102);
+}
+
+.feedback .loyalty .points .group {
+    padding: 0.5rem;
+}
+
+.feedback .loyalty .points .group p {
+    text-align: center;
+    padding: 1rem;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+    /* justify-content: space-around; */
+    /* justify-content: center; */
+
+}
+
+.btn,
+.redeem {
     background-color: #181818;
     color: whitesmoke;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.5rem;
     text-align: center;
     display: inline-block;
@@ -156,6 +192,7 @@ button {
     width: 10rem;
     background: white;
     cursor: pointer;
+    border-radius: 0.5rem;
 }
 
 .edit:hover {
@@ -172,12 +209,18 @@ button {
     /* font-weight: bolder; */
 }
 
-.form-group label,
+.container .profile .info .form-group label,
 .modal .form-group label {
     width: 250px;
     font-size: 1.5rem;
     color: rgb(102, 102, 102);
     margin-right: 10px;
+    font-weight: 600;
+}
+
+.form-group input:focus {
+    border-bottom: 1px solid var(--orange);
+    box-shadow: 0 0 0px var(--orange);
 }
 
 .form-group input,

@@ -12,7 +12,7 @@ let popup = document.getElementById("popup");
 
 let modal = document.getElementById("modal-popup");
 const modalContent = document.querySelector(".modal-info");
-const modalClose = document.querySelector(".close-edit");
+// const modalClose = document.querySelector(".close-edit");
 
 feedbackWindow.onclick = () => {
   blur.classList.toggle("active");
@@ -26,11 +26,11 @@ edit.onclick = () => {
   modalContent.style.display = "block";
 };
 
-modalClose.onclick = () => {
-  blur.classList.toggle("active");
-  modal.classList.remove("active");
-  modalContent.style.display = "block";
-};
+// modalClose.onclick = () => {
+//   blur.classList.toggle("active");
+//   modal.classList.remove("active");
+//   modalContent.style.display = "block";
+// };
 btn.onclick = () => {
   feedbackcontent.style.display = "none";
   post.style.display = "block";
@@ -38,6 +38,7 @@ btn.onclick = () => {
 };
 
 exit.onclick = () => {
+  console.log("exit");
   feedbackcontent.style.display = "none";
   post.style.display = "none";
   feedbackPopup.style.display = "none";

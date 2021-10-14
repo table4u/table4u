@@ -9,15 +9,38 @@ class SelfRegistered extends Customer
         $this->db = new Database;
     }
 
-    public function getUserDetails($userID){
+    public function getUserDetails(){
         $this->db->query('SELECT * FROM customer WHERE customerID = :userID');
-        $this->db->bind(':userID', $userID);
+        $this->db->bind(':userID', $_SESSION['user_id']);
 
         $row = $this->db->single();
         print_r($row);
+        // die();
+        // echo $row->dob;
+        // echo gettype($row->dob);
         return $row;
     }
 
+    public function editDetails($data){
+        $this->db->query('UPDATE customer SET name = :name,  mobile = :mobile,  email= :email, nic = :nic, dob=:dob, address = :address WHERE customerID = :user_id');
+        // $dob = 
+        // Bind values
+        $this->db->bind(':user_id', $_SESSION['user_id']);
+        $this->db->bind(':name', $data['name']);
+        $this->db->bind(':mobile', $data['mobile']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':nic', $data['nic']);
+        $this->db->bind(':dob', $data['dob']);
+        $this->db->bind(':address', $data['address']);
+
+        // Execute
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public function registerCustomer($data)
     {
         // $this->db->query('INSERT INTO customer(nic, address, mobile, name, email, username, password, dob, cust_type) 

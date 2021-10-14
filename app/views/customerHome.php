@@ -31,7 +31,7 @@
 
     <section>
         <div class="main">
-            <div class="box box1 selected">
+            <div class="box box1 cur">
                 <a href="">Upcoming Reservations</a>
             </div>
             <div class="box box2">
@@ -41,20 +41,20 @@
 
 
         <div class="content">
-            <div class="reservations">
-                <div class="rev">
+            <div class="reservations" style="align-items: center; justify-items: center;">
+                <div class="rev" style="width: 60%;">
                     <div class="date">Date</div>
                     <div class="time">Time</div>
                     <div class="guests">No of guests</div>
                     <div class="food">Food ordered</div>
                 </div>
 
-                <div class="rev">
+                <!-- <div class="rev">
                     <div class="date">Date</div>
                     <div class="time">Time</div>
                     <div class="guests">No of guests</div>
                     <div class="food">Food ordered</div>
-                </div>
+                </div> -->
 
                 <!-- <div class="rev">
                     <div class="date">No upcoming reservations</div>
@@ -109,7 +109,17 @@
     <script src="<?php echo URLROOT ?>/public/js/script.js"></script>
     <script src="<?php echo URLROOT ?>/public/js/customerHome.js"></script>
 
+    <script>
+        const tabs = document.querySelectorAll(".box")
 
+        tabs.forEach((t, index) => {
+            t.addEventListener("click", () => {
+                tabs.forEach((t) => t.classList.remove("cur"))
+
+                t.classList.add("cur")
+            })
+        })
+    </script>
 </body>
 
 </html>
