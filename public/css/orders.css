@@ -1,0 +1,140 @@
+.main_section .content{
+      display: flex;
+      justify-content: center;
+    align-items: center;
+      width: 100%;
+      height: calc(100% - 200px);;
+      padding: 20px 30px;
+  }
+  /* Order table */
+ .orders{
+      width: 100%;
+      height: auto;
+      background: #fff;
+      padding: 20px 30px;
+      margin: 0 20px 20px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .orders table{
+      margin-top: 20px;
+      width: 100%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+  }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+  } 
+  th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+  }
+  th {
+      background-color: #9da09f;
+      color: white;
+  }
+  td a{
+    display: block;
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+    font-weight: 400;
+}
+  /*Order details*/
+  .main_section .content .order_details{
+      width: auto;
+      height: auto;
+      display: grid;
+      background: #fff;
+      padding: 20px 30px;
+      margin: 0 20px 0 0;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .order_details .list{
+      margin-top: 10px;
+      width: 100%;
+      height: 100%; 
+  }
+  .list .f_item{
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding: 10px 50px 10px 30px;
+      border-bottom: 1px solid #ddd;
+  }
+  .f_item .f_image img{
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-right: 10px;
+      background: #333;
+  }
+  .f_item .f_details{
+      align-items: center;
+      padding: 10px 50px 10px 30px;
+  }
+  
+  .f_item .f_details a{
+      align-items: center;
+      text-decoration: none;
+  }
+  .f_details .food_item{
+      display: block;
+      padding-bottom: 15px;
+      font-size: 25px;
+      font-weight: 400;
+      color: #333;
+  }
+  .f_details .notes{
+      display: block;
+      padding-bottom: 5px;
+      font-size: 17px;
+      font-weight: 400;
+      color: #333;
+  }
+  .f_details .quantity{
+      display: block;
+      font-size: 17px;
+      font-weight: 400;
+      color:red;
+  }
+  .order_details .title , .orders .title{
+      background-color: #9da09f;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 20px;
+      font-weight: 500;
+      border-bottom: 1px solid #ddd;
+  }
+  .order_details .table_status{
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin: 0 auto;
+      line-height: 3;
+      overflow: hidden;
+      border-bottom: 1px solid #ddd;
+  }
+  select {
+      position: relative;
+      padding: 10px;
+      background: rgb(248, 246, 246);
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+      cursor: pointer;
+      outline: none;
+      font-weight: bold;
+      color: #545854;    
+  }
+  .order_details .cancel {
+    display: flex;
+    position: bottom;
+    align-items: left;
+    padding-left: 60px;
+    padding-top: 50px;
+  }

@@ -59,7 +59,7 @@
 
                 <div class="content-container">
                     <h3 style="display: inline;">Fried Rice</h3>
-                    <span class="price">Rs 200</span>
+                    <span class="price">Rs 500</span>
                 </div>
 
                 <div class="description">Stir fried jasmine rice, egg, prawns and chicken with carrot and
@@ -110,7 +110,7 @@
 
                 <div class="content-container">
                     <h3 style="display: inline;">Spaghetti</h3>
-                    <span class="price">Rs 200</span>
+                    <span class="price">Rs 300</span>
                 </div>
 
                 <div class="description">Delicious spaghetti with a meeting of the finest tandoori chicken and kochchi
@@ -135,7 +135,7 @@
 
                 <div class="content-container">
                     <h3 style="display: inline;">Kottu</h3>
-                    <span class="price">Rs 200</span>
+                    <span class="price">Rs 400</span>
                 </div>
 
                 <div class="description">A delicious combination of godamba roti strips, vegetables,
@@ -161,7 +161,7 @@
 
                 <div class="content-container">
                     <h3 style="display: inline;">Burger</h3>
-                    <span class="price">Rs 200</span>
+                    <span class="price">Rs 250</span>
                 </div>
 
                 <div class="description">Chicken patty with sundried tomato crème cheese
@@ -188,7 +188,7 @@
 
                 <div class="content-container">
                     <h3 style="display: inline;">Fried Chicken </h3>
-                    <span class="price">Rs 200</span>
+                    <span class="price">Rs 500</span>
                 </div>
 
                 <div class="description">Everyone's favourite crispy chicken, baked just the right amount and given the
@@ -214,7 +214,7 @@
 
         <div class="container">
             <div class="box">
-                <img src="<?php echo URLROOT ?>/public/images/pic1.jpg" alt="">
+                <img src="<?php echo URLROOT ?>/public/images/user.png" alt="">
 
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -227,7 +227,6 @@
                     The servers here are just wonderful and have great memories it seems. We sat on the ocean front
                     patio and enjoyed the view with our delicious wine and lunch. Must try!
                 </p>
-                <h3>Alice Smith</h3>
             </div>
 
             <div class="box">
@@ -245,11 +244,10 @@
                     affordable price.
                     Can totally recommend it and will definitely come back again.
                 </p>
-                <h3>Peter Parker</h3>
             </div>
 
             <div class="box">
-                <img src="<?php echo URLROOT ?>/public/images/pic3.jpg" alt="">
+                <img src="<?php echo URLROOT ?>/public/images/user.png" alt="">
 
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -262,7 +260,6 @@
                     It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and
                     service. Staff are extremely knowledgeable and make great recommendations.
                 </p>
-                <h3>Veronica Lodge</h3>
             </div>
         </div>
     </section>
@@ -304,12 +301,12 @@
         <div class="parent">
             <div class="container">
                 <div class="sect aboutus">
-                    <h2>Table4U</h2>
+                    <h2>Powered by Table4U</h2>
                     <img src="<?php echo URLROOT ?>/public/images/logoN.png" alt="">
 
                     <p>
-                        Table4U is a Restaurant Reservation System and an Order Handling System developed by a group of
-                        undergraduates.
+                        Table4U is a Restaurant Reservation Platform developed by a group of
+                        undergraduates of University of Colombo School of Computing.
                     </p>
                     <ul class="social">
                         <li> <a href="#"><i class="fab fa-facebook"></i></a></li>

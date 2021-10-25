@@ -1,0 +1,797 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-family: "Poppins",sans-serif;
+    background-color: #FFFFFF;
+}
+
+.logo {
+    position: relative;
+    width: 350px;
+    height: 40px;
+    left: 140%;
+    top: 7px;
+    font-size: 120%;
+    color:#161515; 
+    }
+    
+.logo i {
+    padding-right: .5rem;
+    color: #E1651F;
+}
+
+.header{
+    position: absolute;
+    width: 100%;
+    height: 92px;
+    left: 0px;
+    top: 0px;
+    background: #646363;
+
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    left: 0px;
+    top: 696px;
+    /* top: 90%; */
+    background: #646363;
+}
+
+.btnHome{   
+    position: absolute;
+    width: 41px;
+    height: 40px;
+    left: 1%;
+    top: 25px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.btnHome .iconHome{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    left: 3px;
+    top: 0px;
+}
+
+/* Header - Navigation */
+.desktop-nav {
+    position: absolute;
+    width: 289px;
+    height: 34px;
+    left: 42%;
+    top: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    /*@media (max-width:992px) {
+        display:block;
+    }*/
+}
+
+.desktop-nav .calendar {
+    position: absolute;
+    width: 27.09px;
+    height: 19px;
+    left: 9.42px;
+    top: 6px;
+}
+
+.desktop-nav .clock {
+    position: absolute;
+    width: 44.75px;
+    height: 20px;
+    left: 170.76px;
+    top: 5px;
+}
+
+.desktop-nav .date {
+    position: absolute;
+    width: 81px;
+    height: 15px;
+    left: 53px;
+    top: 2px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+.desktop-nav .day {
+    position: absolute;
+    width: 53px;
+    height: 15px;
+    left: 65px;
+    top: 17px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 15px;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Start of calender */
+.Mycalender{
+    visibility: hidden;
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    left: -80px;
+    top: 40px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.month {
+    padding: 10px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .month ul li {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 3px 0;
+    background-color: rgb(226, 221, 221);
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13%;
+    color: rgb(71, 67, 67);
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: rgb(194, 235, 199);
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+  }
+
+/* End of calender */
+
+.date .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+.day .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.desktop-nav .time {
+    position: absolute;
+    width: 64.77px;
+    height: 22px;
+    top: 1px;
+    left: 214px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+/* End of Header - Navigation */
+
+/* Start of Menu Bar */
+.menubar{
+    position: absolute;
+    width: 15%;
+    left: 3%;
+    top: 500%;
+    background: #C4C4C4;
+    height: 2200%;
+}
+.title{
+    position: absolute;
+    width: 192px;
+    height: 36px;
+    left: 15px;
+    top: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+h1{
+    position: absolute;
+    font-size: 20px;
+    left: 80px;
+    top: 4px;
+}
+
+img{
+    position: absolute;
+    height: 40px;
+    left: 40px;
+    top: -1px;
+}
+
+h2{
+    font-size: 16px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.btn1{
+    position: absolute;
+    width: 192px;
+    height: 40px;
+    left: 15px;
+    top: 90px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn1:hover {background-color:  #CAE759}
+
+.btn2{
+    position: absolute;
+    width: 192px;
+    height: 40px;
+    left: 15px;
+    top: 140px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+.btn2:hover {background-color:  #CAE759}
+
+.btn3{
+    position: absolute;
+    width: 192px;
+    height: 40px;
+    left: 15px;
+    top: 190px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+.btn3:hover {background-color:  #CAE759}
+
+.btn4{
+    position: absolute;
+    width: 192px;
+    height: 40px;
+    left: 15px;
+    top: 240px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+.btn4:hover {background-color:  #CAE759}
+
+/* Start coloured button */
+
+.btn11{
+  position: absolute;
+  width: 192px;
+  height: 40px;
+  left: 15px;
+  top: 90px;
+  background: #CAE759;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #000000;
+}
+
+.btn22{
+  position: absolute;
+  width: 192px;
+  height: 40px;
+  left: 15px;
+  top: 140px;
+  background: #CAE759;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.btn33{
+  position: absolute;
+  width: 192px;
+  height: 40px;
+  left: 15px;
+  top: 190px;
+  background: #CAE759;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.btn44{
+  position: absolute;
+  width: 192px;
+  height: 40px;
+  left: 15px;
+  top: 240px;
+  background: #CAE759;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* End of coloured button */
+
+/* End of Menu Bar */
+.pageBackground{
+  position: absolute;
+  width: 77%;
+  height: 2200%;
+  left: 20%;
+  top: 500%;
+  background: #646363;
+  border-radius: 5px;
+}
+
+/* Start of all customer table */
+
+input[type=text]{
+    position: absolute;
+    width: 200px;
+    padding: 7px 30px;
+    left: 30%;
+    top: 2%;
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    border-radius: 28px;
+    box-sizing: border-box;
+  }
+  
+input[type=submit]{
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    left: 80%;
+    top: -20%; 
+    background: #FFFFFF;
+    border-radius: 2000px;
+    cursor: pointer;
+  }
+
+.table-customers{
+    position: absolute;
+    height: auto;
+    width: 100%;
+    left: 3%;
+    top:20%
+} 
+
+.detailrow{
+  border-radius: 5px;
+}
+
+.column1 {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 60px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #949292;
+    color: #4e4e4c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }  
+  
+  .column2 {
+    float: left;
+    width: 12%;
+    padding: 10px;
+    height: 60px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #b1afaf;
+    color: #4e4e4c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  } 
+  
+  .column3 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 60px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #949292;
+    color: #4e4e4c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }  
+  
+  .column4 {
+    float: left;
+    width: 12%;
+    padding: 10px;
+    height: 60px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #b1afaf;
+    color: #4e4e4c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }  
+  
+  .column5 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 60px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #949292;
+    color: #4e4e4c;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }   
+  
+  .column11 {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 62px; 
+    padding-left: 15px;
+    text-align: left;
+    background-color: #cfcccc;
+  }  
+  
+  .column22 {
+    float: left;
+    width: 12%;
+    padding: 10px;
+    height: 62px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #e6e0e0;
+  } 
+  
+  .column33 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 62px; 
+    padding-left: 15px;
+    text-align: left;
+    background-color: #cfcccc;
+  }  
+  
+  .column44 {
+    float: left;
+    width: 12%;
+    padding: 10px;
+    height: 62px; 
+    padding: 10px;
+    text-align: center;
+    background-color: #e6e0e0;
+  }  
+  
+  .column55 {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 62px; 
+    padding-left: 15px;
+    text-align: left;
+    background-color: #cfcccc;
+  }  
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  } 
+/* End of all customer table */
+
+/* Start Section1 */
+.addCustomer{
+  position: absolute;
+  width: 405px;
+  height: 500px;
+  left: 35%;
+  top: 5%;
+  background: #9C9797;
+  border-radius: 5px; 
+  z-index: 1; 
+}
+
+.addCustomer .title{
+  position: absolute;
+  width: 200px;
+  height: 35px;
+  left: 110px;
+  text-align: center;
+  padding-top: 6px;
+  top: 35px;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+form{
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  
+}
+input[type=text]{
+  position: absolute;
+  width: 216px;
+  height: 35px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+
+input[type=tel]{
+  position: absolute;
+  width: 216px;
+  height: 35px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+
+input[type=submit]{
+  position: absolute;
+  width: 156.96px;
+  height: 53.68px;
+  left: 195px;
+  top: 260px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Poppins",sans-serif;
+}
+input[type=submit]:hover {
+  background-color: #469e4b;
+}
+
+input[type=reset]{
+  position: absolute;
+  width: 156.96px;
+  height: 53.68px;
+  left: 15px;
+  top: 260px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Poppins",sans-serif;
+}
+input[type=reset]:hover {
+  background-color: #ec6a53;
+}
+
+.labelname{
+  float: left;
+  width: 150px;
+  margin-top: 6px;
+}
+.inputrow{
+  float: left;
+  width: 50px;
+  margin-top: 6px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* End of Section1 */
+
+/* Profile */
+.profile .name{
+  position: absolute;
+  width: 210px;
+  height: 50px;
+  right: 3%;
+  top: 140%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.pfBtn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #E1651F;
+  border-radius: 40px;
+  right: 2%;
+  top: 70%;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+  /* The actual popup */
+ .profWindow {
+    visibility: hidden;
+    width: 210px;
+    height: 280px;
+    background-color: #FFFFFF;
+    border: 1px solid #ADA7A7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: -430px;
+    right: -20px;
+    margin-left: -80px;
+    margin-top: 500px;
+  }
+
+  .pfBtn .profWindow .head{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30%;
+    background: #a1a0a0;
+    border-radius: 5px;
+  }
+
+  .up{
+    position: absolute;
+    top: -14px;
+    right: 33px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #a1a0a0; 
+  }
+
+  .profilepic{
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    width: 70px;
+    height: 70px;
+    background: #E1651F;
+    border-radius: 50px;
+}
+
+.gotopf{
+    position: absolute;
+    text-decoration: none;
+    left: 28%;
+    top: 180%;
+    color: #555;
+}
+
+h4{
+    position: absolute;
+    color: #000000;
+    top: 150%;
+    left: 22%;
+}
+   
+.logout{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 250%;
+    left: 28%;
+    background: #a1a0a0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.logout:hover {background-color:  #5c5a59}
+
+  
+  /* Toggle this class - hide and show the popup */
+  .pfBtn .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+/* End of profile */
+

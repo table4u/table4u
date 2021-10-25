@@ -1,16 +1,25 @@
 <?php
-
+//default controller
 class RestaurantManagerHome extends Controller
 {
     public function __construct()
     {
-        //only the users with user role restaurant manager can access the method in this class
         isValidUser('Restaurant Manager');
 
     }
 
     public function index()
+    {   // $this->view('hello');
+        // $data = [
+        //     // 'title' => "WELCOME",
+        // ];
+        //return the views
+       // $this->view('home');
+       $this->view('resManager_dashboard');
+    }
+
+    public function dashboard()
     {
-        $this->view('restaurantManagerHome');
+        $this->view('resManager_dashboard');
     }
 }

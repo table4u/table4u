@@ -1,0 +1,33 @@
+.main_section .overview{
+      display: flex;
+      width: 700px;
+      height: calc(100% - 200px);;
+      padding: 20px 30px;
+  }
+.box{
+      width: 300px;
+      height: 300px;
+      padding: 20px 30px;
+      margin: 0 20px 20px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+ .box_topic{
+      background-color: #9da09f;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 30px;
+      font-weight: 500;
+  }
+.box_details{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px;
+  }
+  .number{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+  }

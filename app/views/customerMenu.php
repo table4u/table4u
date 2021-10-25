@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -14,18 +15,24 @@
 
 
 </head>
+<style>
+    * {
+        font-family: sans-serif;
+    }
+</style>
 
 <body>
-
+    <div class="bg inactive"></div>
     <header>
         <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
-            <a href="<?php echo URLROOT ?>/customerHome">Home</a>
+            <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
             <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-            <a href="#main-course">Food Package</a>
+            <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
             <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-            <a href="<?php echo URLROOT ?>/customerHome/profile"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-bell"></i></a>
+            <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
         </nav>
     </header>
 
@@ -317,9 +324,9 @@
                     </div>
                 </div>
 
-                <div class="checkout">
+                <a href=" <?php echo URLROOT ?>/customerMenu/payment" class="checkout" id="checkoutBtn">
                     Proceed to Checkout
-                </div>
+                </a>
             </div>
         </div>
 
@@ -327,6 +334,7 @@
 
         </div>
     </section>
+
     <script src="<?php echo URLROOT ?>/public/js/customerMenu.js"></script>
 </body>
 

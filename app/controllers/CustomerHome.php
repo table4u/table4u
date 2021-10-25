@@ -20,7 +20,5 @@ class CustomerHome extends Controller
     //     $this->view('customerHome',$data);
     // }
 
-    public function profile(){
-        $this->view('customerProfile');
-    }
+    
 }

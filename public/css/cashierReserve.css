@@ -1,0 +1,1485 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-family: "Poppins",sans-serif;
+    background-color: #FFFFFF;
+}
+
+.logo {
+    position: relative;
+    width: 350px;
+    height: 40px;
+    left: 140%;
+    top: 7px;
+    font-size: 120%;
+    color:#161515; 
+    }
+    
+.logo i {
+    padding-right: .5rem;
+    color: #E1651F;
+}
+
+.header{
+    position: absolute;
+    width: 100%;
+    height: 92px;
+    left: 0px;
+    top: 0px;
+    background: #646363;
+
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    left: 0px;
+    /* top: 728px; */
+    top: 696px;
+    background: #646363;
+}
+
+.btnHome{   
+    position: absolute;
+    width: 41px;
+    height: 40px;
+    left: 1%;
+    top: 25px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.btnHome .iconHome{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    left: 3px;
+    top: 0px;
+}
+
+/* Header - Navigation */
+.desktop-nav {
+    position: absolute;
+    width: 289px;
+    height: 34px;
+    left: 42%;
+    top: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    /*@media (max-width:992px) {
+        display:block;
+    }*/
+}
+
+.desktop-nav .calendar {
+    position: absolute;
+    width: 27.09px;
+    height: 19px;
+    left: 9.42px;
+    top: 6px;
+}
+
+.desktop-nav .clock {
+    position: absolute;
+    width: 44.75px;
+    height: 20px;
+    left: 170.76px;
+    top: 5px;
+}
+
+.desktop-nav .date {
+    position: absolute;
+    width: 81px;
+    height: 15px;
+    left: 53px;
+    top: 2px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+}
+
+.desktop-nav .day {
+    position: absolute;
+    width: 53px;
+    height: 15px;
+    left: 65px;
+    top: 17px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 15px;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Start of calender */
+.Mycalender{
+    visibility: hidden;
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    left: -80px;
+    top: 40px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.month {
+    padding: 10px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .month ul li {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 3px 0;
+    background-color: rgb(226, 221, 221);
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13%;
+    color: rgb(71, 67, 67);
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: rgb(194, 235, 199);
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+  }
+
+/* End of calender */
+
+/* End of calender */
+
+.date .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+.day .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.desktop-nav .time {
+    position: absolute;
+    width: 64.77px;
+    height: 22px;
+    top: 1px;
+    left: 214px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+/* End of Header - Navigation */
+
+ /* Start Menu List  */
+
+.menuList{
+    position: absolute;
+    width: 98%;
+    left: 1%;
+    top: 100px;
+    height: 50px;
+    background: #C4C4C4;
+}
+
+h1{
+    font-size: 18px;
+    padding: 10px, 10px;
+    text-align: center;
+    background-color: #FFFFFF;
+    width: 100px;
+    border-radius: 5px;
+    
+}
+
+.floor{
+    position: absolute;
+    left: 1%;
+    top: 10px;
+}
+
+.current{
+    position: absolute;
+    left: 84%;
+    top: 10px; 
+    text-decoration: none;
+    color: #000000;
+}
+
+ /* Start of select date & time */
+
+.date_time {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;  
+}
+
+.date_time .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+ .chooseDate{
+    visibility: hidden;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 80%;
+    top: 120%;
+    background: #696868;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+form{
+    position: absolute;
+    top: 10%;
+    left: 10%;   
+}
+.chooseDate input[type=date]{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+
+.chooseDate input[type=time]{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 10px;
+}
+
+input[type=submit]{
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    left: 100%;
+    top: 110%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "Poppins",sans-serif;
+}
+input[type=submit]:hover {
+    background-color: #469e4b;
+}
+
+input[type=reset]{
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    left: 0%;
+    top: 110%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+}
+input[type=reset]:hover {
+    background-color: #ec6a53;
+}
+
+.labelname{
+    float: left;
+    width: 100px;
+    margin-top: 6px;
+}
+.inputrow{
+    float: left;
+    width: 50px;
+    margin-top: 6px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.chooseDate .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+ /* End of select date & time*/
+
+.calander1{
+    position: absolute;
+    left: 92%;
+    top: 6px;
+    height: 40px; 
+}
+
+.clock1{
+    position: absolute;
+    left: 96%;
+    top: 6px;
+    height: 40px;
+}
+
+.menubutton{
+    position: absolute;
+    width: 44px;
+    height: 40px;
+    background: #646363;
+    left: 10px;
+    top: 8px;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ .menubutton .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: #FFFFFF;
+  margin: 7px 7px 4px;
+  border-radius: 5px;
+}
+
+/* End Menu List  */
+
+/* Start of reserve table */
+
+/* End of reserve table */
+/* .tableform{
+    visibility: hidden;
+    position: absolute;
+    width: 322px;
+    height: 528px;
+    left: 48px;
+    top: -1px;
+    background: #646363;
+    border-radius: 5px;
+    z-index: 1;
+ } */
+
+ .tableform{
+    position: absolute;
+    visibility: hidden;
+    width: 870%;
+    height: 1250%;
+    left: 110%;
+    top: 0%;
+    background: #9C9797;
+    border-radius: 2%; 
+    z-index: 1; 
+  }
+  
+  .tableform .title{
+    position: absolute;
+    width: 70%;
+    height: 8%;
+    left: 15%;
+    text-align: center;
+    padding-top: 1%;
+    top: 8%;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 130%;
+  }
+  
+.tableform  form{
+    position: absolute;
+    top: 25%;
+    left: 6%;
+    
+  }
+.tableform input[type=text]{
+    position: absolute;
+    width: 95%;
+    height: 12%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 5%;
+  }
+  
+.tableform input[type=tel]{
+    position: absolute;
+    width: 95%;
+    height: 12%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 5%;
+  }
+
+.tableform input[type=number]{
+    position: absolute;
+    width: 95%;
+    height: 12%;
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding-left: 5%;
+  }
+  
+.tableform input[type=submit]{
+    position: absolute;
+    width: 75%;
+    height: 18%;
+    left: 95%;
+    top: 105%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 120%;
+    font-family: "Poppins",sans-serif;
+  }
+.tableform input[type=submit]:hover {
+    background-color: #469e4b;
+  }
+  
+.tableform input[type=reset]{
+    position: absolute;
+    width: 75%;
+    height: 18%;
+    left: 0%;
+    top: 105%;
+    background: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 120%;
+    text-align: center;
+    font-family: "Poppins",sans-serif;
+  }
+.tableform input[type=reset]:hover {
+    background-color: #ec6a53;
+  }
+  
+.tableform .labelname{
+    float: left;
+    width: 150px;
+    margin-top: 6px;
+  }
+.tableform .inputrow{
+    float: left;
+    width: 50px;
+    margin-top: 6px;
+  }
+.tableform .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+/* Start of Table Layout */
+h2{
+    font-size: 17px;
+}
+h3{
+    font-size: 12px;
+}
+
+.layout{
+    position: absolute;
+    width: 98%;
+    height: 2100%;
+    left: 1%;
+    top: 160px;
+    background: #EEEEEE;
+    border: 1px solid #000000;
+    box-sizing: border-box;  
+ }
+
+/* End of Layout */
+
+/* Start of Layout one */
+
+.table1{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 100px;
+    top: 7%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table1 .text{
+    position: absolute;
+    left: 43%;
+    top: 20%;
+}
+.table1 .covers{
+    position: absolute;
+    left: 33%;
+    top: 55%;
+}
+
+.table2{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 100px;
+    top: 78%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table2 .text{
+    position: absolute;
+    left: 43%;
+    top: 20%;
+}
+.table2 .covers{
+    position: absolute;
+    left: 33%;
+    top: 55%;
+}
+
+.table3{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 180px;
+    top: 30%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table3 .text{
+    position: absolute;
+    left: 37%;
+    top: 35%;
+}
+.table3 .covers{
+    position: absolute;
+    left: 18%;
+    top: 50%;
+}
+
+.table4{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 500px;
+    top: 35%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table4 .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table4 .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+.table5{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 700px;
+    top: 35%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table5 .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table5 .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+.table6{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 900px;
+    top: 35%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table6 .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table6 .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+/* .table7{
+    position: absolute;
+     width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 8%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+/* .table7 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table7 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+} */
+
+.table8{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table8 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table8 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table9{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 710px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table9 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table9 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table10{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 910px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table10 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table10 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table11{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 67%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table11 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table11 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table12{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 710px;
+    top: 67%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table12 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table12 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table13{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 910px;
+    top: 67%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table13 .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table13 .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table14{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 73%;
+    top: 35%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table14 .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table14 .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+.table15{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 87%;
+    top: 15%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table15 .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table15 .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+.table16{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 87%;
+    top: 55%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table16 .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table16 .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+
+/* End of Layout one */
+
+/* Start of Layout two */
+
+.table1u{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 100px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table1u .text{
+    position: absolute;
+    left: 43%;
+    top: 20%;
+}
+.table1u .covers{
+    position: absolute;
+    left: 33%;
+    top: 55%;
+}
+
+.table2u{
+    position: absolute;
+    width: 340px;
+    height: 60px;
+    left: 100px;
+    top: 78%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table2u .text{
+    position: absolute;
+    left: 43%;
+    top: 20%;
+}
+.table2u .covers{
+    position: absolute;
+    left: 33%;
+    top: 55%;
+}
+
+.table3u{
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 180px;
+    top: 30%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table3u .text{
+    position: absolute;
+    left: 37%;
+    top: 35%;
+}
+.table3u .covers{
+    position: absolute;
+    left: 18%;
+    top: 50%;
+}
+
+.table4u{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 500px;
+    top: 35%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table4u .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table4u .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+.table5u{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 700px;
+    top: 35%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table5u .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table5u .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+.table6u{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 900px;
+    top: 35%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 200px;
+}
+
+.table6u .text{
+    position: absolute;
+    left: 28%;
+    top: 32%;
+}
+.table6u .covers{
+    position: absolute;
+    text-align: center;
+    width: 70%;
+    left: 15%;
+    top: 50%;
+}
+
+/* .table7u{
+    position: absolute;
+     width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 8%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+/* .table7u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table7u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+} */
+
+.table8u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 7%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table8u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table8u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table9u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 710px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table9u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table9u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table10u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 910px;
+    top: 7%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table10u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table10u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table11u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 510px;
+    top: 67%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table11u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table11u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+
+.table12u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 710px;
+    top: 67%;
+    background: #4AF8C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table12u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table12u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table13u{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 910px;
+    top: 67%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table13u .text{
+    position: absolute;
+    left: 26%;
+    top: 30%;
+}
+.table13u .covers{
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    left: 15%;
+    top: 50%;
+}
+.table14u{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 73%;
+    top: 35%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table14u .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table14u .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+.table15u{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 87%;
+    top: 15%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table15u .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table15u .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+.table16u{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 87%;
+    top: 55%;
+    background: #FF9040;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table16u .text{
+    position: absolute;
+    left: 28%;
+    top: 30%;
+}
+.table16u .covers{
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    top: 50%;
+}
+
+/* End of Layout two */
+
+.naming h4{
+    position: absolute;
+    font-size: 14px;
+    word-spacing: 60px;
+    left: 15%;
+    top: 20%;
+}
+
+.naming{
+    position: absolute;
+    width: 270px;
+    height: 35px;
+    background: #807c7c;
+    left: 81.5%;
+    top: 92%;
+}
+.available{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    bottom: 6px;
+    left: 8px;
+    background: #4AF8C4;
+}
+.unavailable{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    bottom: 6px;
+    left: 140px;
+    background: #FF9040;
+}
+
+
+
+/* Profile */
+.profile .name{
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    right: 3%;
+    top: 130%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.pfBtn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #E1651F;
+    border-radius: 40px;
+    right: 2%;
+    top: 70%;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+ /* The actual popup */
+ .pfBtn .profWindow {
+    visibility: hidden;
+    width: 210px;
+    height: 280px;
+    background-color: #FFFFFF;
+    border: 1px solid #ADA7A7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: -430px;
+    right: -20px;
+    margin-left: -80px;
+    margin-top: 500px;
+  }
+
+  .pfBtn .profWindow .head{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30%;
+    background: #a1a0a0;
+    border-radius: 5px;
+  }
+
+  .up{
+    position: absolute;
+    top: -14px;
+    right: 33px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #a1a0a0; 
+  }
+
+  .profilepic{
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    width: 70px;
+    height: 70px;
+    background: #E1651F;
+    border-radius: 50px;
+}
+
+.gotopf{
+    position: absolute;
+    text-decoration: none;
+    left: 28%;
+    top: 180%;
+    color: #555;
+}
+
+h8{
+    position: absolute;
+    color: #000000;
+    top: 150%;
+    left: 22%;
+}
+   
+.logout{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 250%;
+    left: 28%;
+    background: #a1a0a0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.logout:hover {background-color:  #5c5a59}
+
+
+  
+  /* Toggle this class - hide and show the popup */
+  .pfBtn .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+/* End of profile */
+

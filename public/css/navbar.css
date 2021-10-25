@@ -1,0 +1,84 @@
+/* main section */
+.main_section{
+    position: relative;
+    background: #ffffff;
+    min-height: 100vh;
+    width: calc(100% - 255px);
+    height: 100%;
+    left: 255px;
+}
+/* navigation */
+.navbar{
+    position: relative;
+    grid: auto;
+    height: 200px;
+    width: 100%;
+  }
+ .nav{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    position: relative;
+  }
+  .nav i{
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+    cursor:pointer
+  }
+.heading{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0 20px;
+    height: 100%;
+    width: 50%;
+  }
+.profile{
+    display: flex;
+    align-items: center;
+    min-width: 190px;
+    padding-left: 35%;
+    height: 100%;
+    width: 50%;
+    
+  }
+.profile img{
+    height: 40px;
+    width: 40px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+.profile .user{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+.main_section .navbar .search_box{
+    align-items: left;
+    position: relative;
+    height: calc(100% - 100px);;
+    width: calc(100% - 255px);
+    
+  }
+.search_box input {
+    width: 450px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 20px 30px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+  }
+#input_img {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    margin: 20px 25px;
+    width:24px;
+    height:24px;
+}

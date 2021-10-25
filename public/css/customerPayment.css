@@ -1,0 +1,165 @@
+/* payment */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --orange: #FF6000;
+}
+
+* {
+    font-family: 'Poppins',
+        sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    font-size: 65%;
+}
+
+hr {
+    margin: auto;
+    justify-content: center;
+    height: 1.5rem;
+    width: 100px;
+    border-style: solid;
+    border-color: var(--orange);
+    border-width: 3px 0 0 0;
+    /* border-radius: 20px; */
+}
+
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem;
+    color: rgb(102, 102, 102);
+}
+
+.modal-container {
+    width: 50%;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    z-index: 2;
+    padding: auto;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    justify-content: space-around;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.modal-container h1 {
+    text-align: center;
+}
+
+.modal-container .first-row,
+.modal-container .second-row {
+    display: flex;
+    padding: 1rem;
+}
+
+.modal-container .third-row {
+    padding: 1rem;
+
+}
+
+.modal-container .first-row .owner {
+    width: 100%;
+    margin-right: 40px;
+}
+
+.modal-container .first-row .owner h3,
+.modal-container .first-row .cvv h3,
+.modal-container .second-row .card-number h3,
+.modal-container .third-row h3 {
+    width: 100%;
+    margin-right: 40px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+
+}
+
+
+.modal-container .first-row .owner .input-field input,
+.modal-container .first-row .cvv .input-field input,
+.modal-container .second-row .card-number .input-field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.modal-container .third-row .selection select {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+.modal-container .third-row .selection option {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+/* .modal-container .third-row .selection select:focus{
+      border-bottom: 1px solid var(--orange);
+      box-shadow: 0 0 0px var(--orange);
+} */
+
+.modal-container .first-row .owner .input-field input:focus,
+.modal-container .first-row .cvv .input-field input:focus,
+.modal-container .second-row .card-number input:focus {
+    border-bottom: 1px solid var(--orange);
+    box-shadow: 0 0 0px var(--orange);
+}
+
+.modal-container .selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1rem; */
+    color: red;
+
+}
+
+.modal-container .third-row .selection select {
+    /* padding: 1rem 2rem; */
+}
+
+.modal-container a {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 45%;
+    display: inline;
+
+}
+
+.modal-container .third-row .selection .cards img {
+    width: 7.5rem;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    border: .3rem solid var(--orange);
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: var(--orange);
+}

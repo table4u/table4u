@@ -8,7 +8,7 @@ class CustomerProfile extends Controller
     {
         if (isValidUser('Customer')) {
             $this->selfRegisteredModel = $this->model('SelfRegistered');
-            $this->user = $this->selfRegisteredModel->getUserDetails($_SESSION['user_id']);
+            // $this->user = $this->selfRegisteredModel->getUserDetails($_SESSION['user_id']);
             // print_r($this->user);
             // die();
         }
@@ -16,11 +16,13 @@ class CustomerProfile extends Controller
 
     public function index()
     {
+        $this->user = $this->selfRegisteredModel->getUserDetails($_SESSION['user_id']);
         $this->view('customerProfile', $this->user);
     }
 
     public function profile()
     {
+        $this->user = $this->selfRegisteredModel->getUserDetails($_SESSION['user_id']);
         $this->view('customerProfile', $this->user);
     }
 
@@ -49,34 +51,36 @@ class CustomerProfile extends Controller
                 'name_err' => '',
                 'email_err' => ''
             ];
-            // die(($data['dob']));
-            // //check if email available
-            // if ($this->selfRegisteredModel->findUserByEmail($data['email'])) {
-            //     $data['email_err'] = 'Email is already taken';
-            // }
+            // die(($data['dob']));           
 
-            // //check if mobile available
-            // if ($this->selfRegisteredModel->findUserByMobile($data['mobile'])) {
-            //     $data['mobile_err'] = 'Mobile is already taken';
-            // }
-            //check nic error
-            //check name error
-            if (empty($data['email_err']) && empty($data['mobile_err'])) {
+            //validations
+            //correct name format
+            $data['name_err'] = nameValidation($data['name']);
+
+            //correct mobile number format
+            $data['mobile_err'] = mobileValidation($data['mobile']);
+
+            //nic validation
+            $data['nic_err'] = nicValidation($data['nic']);
+            // print_r($data);
+            // die();
+
+            if (empty($data['email_err']) && empty($data['mobile_err']) && empty($data['name_err']) && empty($data['nic_err'])) {
 
                 if ($this->selfRegisteredModel->editDetails($data)) {
-                    $_SESSION['editSuccessMsg'] = "SUCCESSFULLY UPDATED";
+                    $_SESSION['editSuccessMsg'] = "Successfully updated";
                     header("Location: " . URLROOT . '/customerProfile');
                 } else {
-                    $_SESSION['unsuccessMsg'] = "SOMETHING WENT WRONG. TRY AGAIN";
+                    $_SESSION['unsuccessMsg'] = "Something went wrong. Try again";
+                    header("Location: " . URLROOT . '/customerProfile');
                 }
             } else {
                 // Load view with errors
-                $this->view('customerProfile', $this->user);
-
+                $_SESSION['unsuccessMsg'] = "Edit was unsuccessful. Try again";
+                header("Location: " . URLROOT . '/customerProfile');
             }
         } else {
             $this->view('customerProfile', $this->user);
-
         }
     }
 }

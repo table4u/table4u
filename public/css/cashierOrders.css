@@ -1,0 +1,984 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins",sans-serif;
+    background-color: #FFFFFF;
+}
+
+h4{
+    font-family: "Aclonica",sans-serif;  
+}
+
+h5{
+    font-family: "Aclonica",sans-serif;  
+    color: #C52B2B; 
+}
+
+.logo {
+    position: relative;
+    width: 350px;
+    height: 40px;
+    left: 140%;
+    top: 20%;
+    font-size: 120%;
+    color:#161515; 
+    }
+    
+.logo i {
+    padding-right: 2%;
+    color: #E1651F;
+}
+
+.header{
+    position: absolute;
+    width: 100%;
+    height: 92px;
+    left: 0px;
+    top: 0px;
+    background: #646363;
+
+}
+
+.footer{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    left: 0px;
+    /* top: 728px; */
+     top: 696px; 
+    background: #646363;
+}
+
+.btnHome{   
+    position: absolute;
+    width: 41px;
+    height: 40px;
+    left: 1%;
+    top: 25px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.btnHome .iconHome{
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    left: 3px;
+    top: 0px;
+}
+
+/* Header - Navigation */
+.desktop-nav {
+    position: absolute;
+    width: 289px;
+    height: 34px;
+    left: 42%;
+    top: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    @media (max-width:992px) {
+        display:block;
+    }
+}
+
+.desktop-nav .calendar {
+    position: absolute;
+    width: 27.09px;
+    height: 19px;
+    left: 9.42px;
+    top: 6px;
+}
+
+/* Start of calender */
+.Mycalender{
+    visibility: hidden;
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    left: -80px;
+    top: 40px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.month {
+    padding: 10px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .month ul li {
+    display: inline-block;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 3px 0;
+    background-color: rgb(226, 221, 221);
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 13%;
+    color: rgb(71, 67, 67);
+    text-align: center;
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: rgb(194, 235, 199);
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+  }
+
+/* End of calender */
+
+.date .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+.day .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+.desktop-nav .clock {
+    position: absolute;
+    width: 44.75px;
+    height: 20px;
+    left: 170.76px;
+    top: 5px;
+}
+
+.desktop-nav .date {
+    position: absolute;
+    width: 81px;
+    height: 15px;
+    left: 53px;
+    top: 2px;
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    color: #000000;
+    
+}
+
+.desktop-nav .day {
+    position: absolute;
+    width: 53px;
+    height: 15px;
+    left: 65px;
+    top: 17px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 15px;
+
+    color: #000000;
+}
+
+.desktop-nav .time {
+    position: absolute;
+    width: 64.77px;
+    height: 22px;
+    top: 1px;
+    left: 214px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: #000000;
+}
+/* End of Header - Navigation */
+
+ /* Start Menu List  */
+
+.menulist{
+    position: absolute;
+    width: 70%;
+    height: 1840%;
+    left: 3%;
+    top: 900%;
+    background: #858484;
+}
+
+input{
+    position: absolute;
+    width: 200px;
+    padding: 7px 30px;
+    left: 25px;
+    top: 13px;
+    display: inline-block;
+    border: 1px solid #FFFFFF;
+    border-radius: 28px;
+    box-sizing: border-box;
+}
+
+.menulist input[type=submit]{
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    left: 230px;
+    top: 12px; 
+    background: #FFFFFF;
+    border-radius: 2000px;
+    cursor: pointer;
+}
+
+/* Start of card list */
+.crd1 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 25px;
+    top: 60px;
+}
+
+.crd2 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 175px;
+    top: 60px;
+}
+
+.crd3 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 325px;
+    top: 60px;
+}
+
+.crd4 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 475px;
+    top: 60px;
+}
+
+.crd5 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 625px;
+    top: 60px;
+}
+
+.crd6 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 775px;
+    top: 60px;
+}
+
+.crd7 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 925px;
+    top: 60px;
+}
+
+.crd8 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 25px;
+    top: 260px;
+}
+
+.crd9 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 175px;
+    top: 260px;
+}
+
+.crd10 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 325px;
+    top: 260px;
+}
+
+.crd11 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 475px;
+    top: 260px;
+}
+
+.crd12 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 625px;
+    top: 260px;
+}
+
+.crd13 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 775px;
+    top: 260px;
+}
+
+.crd14 {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 925px;
+    top: 260px;
+}
+
+.item1 .icon1 {
+    position: absolute;
+    width: 98%;
+    height: 55%;
+    /* left: 1%;
+    top:1%; */
+    padding: 3%;
+}
+.item1 .text1 {
+    position: absolute;
+    width: 105px;
+    height: 200px;
+    font-size: 13px;
+    left: 10px;
+    top: 120px;
+}
+.item1 .price1 {
+    position: absolute;
+    width: 105px;
+    height: 200px;
+    font-size: 13px;
+    left: 14px;
+    top: 140px;
+}
+
+.info{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 118px;
+    top: 218px;
+}
+
+/* End of card list */
+
+ /* Start Checkout Box  */
+
+.checkoutBox{
+    position: absolute;
+    width: 320px;
+    height: 2350%;
+    top: 400%;
+    right: 50px;
+    background: #c7c7c7;
+}
+
+h1{
+    position: absolute;
+    width: 300px;
+    height: 55px;
+    right: 10px;
+    top: 20px;
+    text-align: center;
+    background: #FFFFFF; 
+}
+
+h2{
+    position: absolute;
+    width: 94%;
+    height: 30px;
+    top: 85px;
+    left:10px;
+    padding: 5px 5px;
+    text-align: center;
+    background: #dfcb9c;
+    word-spacing: 60px;
+    font-size: 14px;
+}
+.itemList{
+    position: absolute;
+    width: 100%;
+    height: 33px;
+    background: #EFF0F6;
+    border: 1px solid #D6DBDF;
+    box-sizing: border-box;
+}
+
+.list{
+    position: absolute;
+    width: 94%;
+    height: 40%;
+    right: 3%;
+    top: 20%;
+    background: #FFFFFF;
+}
+
+.cancel{
+    position: absolute;
+    background: #AA3E3E;
+    width: 94%;
+    height: 5%;
+    right: 3%;
+    top: 94%;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 0px;
+}
+
+.paybyCash{
+    position: absolute;
+    width: 94%;
+    height: 8%;
+    right: 3%;
+    top: 76%;
+    background: #348F1D;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 2%;
+    word-spacing: 10px;
+
+}
+
+.paybyCard{
+    position: absolute;
+    width: 94%;
+    height: 8%;
+    right: 3%;
+    top: 85%;
+    background: #348F1D;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 2%;
+    word-spacing: 10px;
+}
+
+h6{
+    font-size: 23px;
+    color: #FFFFFF;
+}
+
+ .cancel .text1{
+    position: absolute;
+    color: #FFFFFF;
+    left: 40%;
+}
+
+.paybyCash .icon1{
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    height: 50%;
+    width: 10%;
+}
+
+.paybyCard .icon1{
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    height: 50%;
+    width: 10%;
+}
+
+.textTotal{
+    position: absolute;
+    font-size: 12px;
+    left: 10px;
+    top: 7px;
+}
+
+.charge{
+    position: absolute;
+    width: 94%;
+    height: 5%;
+    background: #EDF5FA;
+    border: 1px solid #ccd2f8;
+    box-sizing: border-box;
+    right: 3%;
+    top: 60%
+}
+.discount{
+    position: absolute;
+    width: 94%;
+    height: 5%;
+    background: #EDF5FA;
+    border: 1px solid #ccd2f8;
+    box-sizing: border-box;
+    right: 3%;
+    top: 65%
+}
+.total{
+    position: absolute;
+    width: 94%;
+    height: 5%;
+    background: #EDF5FA;
+    border: 1px solid #ccd2f8;
+    box-sizing: border-box;
+    right: 3%;
+    top: 70%
+}
+ /* End of Checkout Box */
+
+/* Buttons */
+/* .menutypeButtons {
+    position: absolute;
+    top: -1900%;
+    left: -1%;
+} */
+
+.btn1 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #FFD1B7;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 3%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn1:hover {background-color:  #fda45b}
+
+.btn2 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #FFD1B7;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 26.7%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn2:hover {background-color:  #fda45b}
+
+.btn3 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #FFD1B7;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 50.5%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn3:hover {background-color:  #fda45b}
+
+
+.btn1 .appertizer .icon1{   
+    position: absolute;
+    width: 75px;
+    height: 135px;
+    left: 34px;
+    top: -25px;
+   
+}
+
+.btn2 .maincourse .icon2{
+    position: absolute;
+    width: 75px;
+    height: 110px;
+    left: 25px;
+    top: -7px;
+}
+
+.btn3 .dessert .icon3{
+    position: absolute;
+    width: 60px;
+    height: 110px;
+    left: 40px;
+    top: -10px;
+
+}
+
+.btn1 .appertizer .text1{
+    position: absolute;
+    width: 131px;
+    height: 36px;
+    left: 40%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+.btn2 .maincourse .text2{
+    
+    position: absolute;
+    width: 200px;
+    height: 36px;
+    left: 35%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+.btn3 .dessert .text3{
+    position: absolute;
+    width: 131px;
+    height: 36px;
+    left: 40%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+/* End of buttons */
+
+/* Start of colured buttons */
+.btn11 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #fda45b;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 3%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn22 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #fda45b;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 26.7%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn33 {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    background: #fda45b;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 50.5%;
+    top:420%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.btn11 .appertizer .icon1{   
+    position: absolute;
+    width: 75px;
+    height: 135px;
+    left: 34px;
+    top: -25px;
+   
+}
+
+.btn22 .maincourse .icon2{
+    position: absolute;
+    width: 75px;
+    height: 110px;
+    left: 25px;
+    top: -7px;
+}
+
+.btn33 .dessert .icon3{
+    position: absolute;
+    width: 60px;
+    height: 110px;
+    left: 40px;
+    top: -10px;
+
+}
+
+.btn11 .appertizer .text1{
+    position: absolute;
+    width: 131px;
+    height: 36px;
+    left: 40%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+.btn22 .maincourse .text2{
+    
+    position: absolute;
+    width: 200px;
+    height: 36px;
+    left: 35%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+.btn33 .dessert .text3{
+    position: absolute;
+    width: 131px;
+    height: 36px;
+    left: 40%;
+    bottom: 40%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+}
+
+/* End of colured buttons */
+
+/* Profile */
+.profile .name{
+    position: absolute;
+    width: 210px;
+    height: 50px;
+    right: 3%;
+    top: 140%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.pfBtn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #E1651F;
+    border-radius: 40px;
+    right: 2%;
+    top: 70%;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* The actual popup */
+  .pfBtn .profWindow {
+    visibility: hidden;
+    width: 210px;
+    height: 280px;
+    background-color: #FFFFFF;
+    border: 1px solid #ADA7A7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: -430px;
+    right: -20px;
+    margin-left: -80px;
+    margin-top: 500px;
+  }
+
+  .pfBtn .profWindow .head{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30%;
+    background: #a1a0a0;
+    border-radius: 5px;
+  }
+
+  .up{
+    position: absolute;
+    top: -14px;
+    right: 33px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #a1a0a0; 
+  }
+
+  .profilepic{
+    position: absolute;
+    top: 50%;
+    left: 36%;
+    width: 70px;
+    height: 70px;
+    background: #E1651F;
+    border-radius: 50px;
+}
+
+.gotopf{
+    position: absolute;
+    text-decoration: none;
+    left: 28%;
+    top: 180%;
+    color: #555;
+}
+
+h4{
+    position: absolute;
+    color: #000000;
+    top: 150%;
+    left: 22%;
+}
+   
+.logout{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 250%;
+    left: 28%;
+    background: #a1a0a0;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.logout:hover {background-color:  #5c5a59}
+
+  
+  /* Toggle this class - hide and show the popup */
+  .pfBtn .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+/* End of profile */

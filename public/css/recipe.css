@@ -1,0 +1,145 @@
+.menu_item{
+    width: auto;
+    height: auto;
+    display: grid;
+    background: rgb(255, 253, 253);
+    padding: 20px 30px 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    align-self: center;
+  }
+  .menu_item .details{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+  }
+  .details .food_details{
+      justify-content: center;
+      padding: 0px 30px 10px 10px;
+  }
+  .ingredients{
+    padding-top: 20px;
+    justify-content: left;
+    padding-bottom: 20px;
+  }
+  .details .image , .details .image_upload{
+      justify-content: center;
+      padding: 10px 50px 10px 30px;
+  }
+  .details .image img{
+      height:150px;
+      width: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-right: 10px;
+      background: #333;
+  }
+  .menu_item .recipe{
+      /* width: 50%; */
+      padding: 20px 0 20px 30px;
+      border-bottom: 1px solid #ddd;
+  }
+  .menu_item .price  {
+     padding: 20px 50px 20px 30px;
+      border-bottom: 1px solid #ddd; 
+  }
+  .price .price_1{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 10px;
+  }
+  .column{
+      padding-top: 10px;
+      padding-right: 100px;
+  }
+  .food_details .topic, .price .topic{
+      padding-bottom: 10px; 
+      align-items: center;
+      font-size: 25px;
+      font-weight: 400;
+      color: #333;
+    }
+  .menu_item .edit{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 30px 20px;
+      margin-bottom: 26px;
+  }
+  .edit .button , .edit a {
+      position: relative;
+      padding: 10px;
+      background: rgb(248, 246, 246);
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+      cursor: pointer;
+      outline: none;
+      font-size: 16px;
+      color:black;
+  }
+  .details .image_upload img{
+      height:150px;
+      width: 150px;
+      border-radius: 6px;
+      object-fit: cover;
+      cursor: pointer;
+  }
+  .image_upload>input {
+      display: none;
+    }
+
+.topic_1{
+    padding-bottom: 10px; 
+      align-items: left;
+      font-size: 20px;
+      font-weight: 150;
+      color: #333;
+}
+.menu_item .cancel{
+    display: flex;
+    align-items: left;
+    padding-left: 60px;
+}
+.cancel a{
+    position: relative;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.cancel a:hover{
+    background-color: #9da09f;
+    color: white;
+}
+
+.ingredients textarea , .recipe textarea{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+.food_details .topic input {
+    width: 450px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 20px 30px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+}

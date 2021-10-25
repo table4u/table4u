@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,700&display=swap');
+
+
+*{
+     font-family: 'Poppins',
+         sans-serif;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     outline: none;
+     text-decoration: none;
+     transition: all .2s linear;
+ }
+
+ html {
+     font-size: 62.5%;
+     overflow-x: hidden;
+     scroll-behavior: smooth;
+     scroll-padding-top: 6rem;
+ }
+
+ :root {
+     --orange: #FF6000;
+ }
+
+ body {
+     background: #f7f7f7;
+ }
+
+ section {
+     padding: 10rem 9% 0 9%;
+ }
+
+ header {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     z-index: 1;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     background: #fff;
+     padding: 2rem 9%;
+     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+ }
+
+ hr {
+     margin-top: 2rem;
+     justify-content: center;
+     height: 30px;
+     width: 100%;
+     border-style: solid;
+     border-color: black;
+     border-width: 3px 0 0 0;
+     /* border-radius: 20px; */
+ }
+
+ header .logo {
+     font-size: 2.5rem;
+     font-weight: bolder;
+     color: rgb(102, 102, 102);
+ }
+
+ header .logo i {
+     padding-right: .5rem;
+     color: var(--orange);
+
+ }
+
+ header .navbar .dropdown .fas {
+     font-size: 4rem;
+     color: rgb(102, 102, 102);
+     /*color: var(--orange);*/
+     /*padding-right: 1rem;*/
+ }
+
+ header .navbar a {
+     font-size: 2rem;
+     margin-left: 2.5rem;
+     color: rgb(102, 102, 102);
+ }
+
+ header .navbar a:hover {
+     color: var(--orange);
+
+ }
+
+ header .navbar .cart-items {
+     position: absolute;
+     top: 20px;
+     right: 9%;
+     padding: 0 5px;
+     border-radius: 30%;
+     background: var(--orange);
+     color: white;
+
+ }
+
+ #menu-bar {
+     font-size: 3rem;
+     cursor: pointer;
+     color: rgb(102, 102, 102);
+     border: .1rem solid rgb(102, 102, 102);
+     border-radius: .3rem;
+     padding: .5rem 1.5rem;
+     display: none;
+ }
+
+ .btn {
+     background-color: #181818;
+     color: whitesmoke;
+     font-weight: 600;
+     font-size: 1.5rem;
+     text-align: center;
+     display: inline-block;
+     padding: 0.8rem 3rem;
+     cursor: pointer;
+     border-radius: 0.5rem;
+     position: relative;
+     overflow: hidden;
+     margin-top: 1rem;
+     width: 30%;
+     box-shadow: 0 0 1rem #222222;
+ }
+
+ .heading {
+     text-align: center;
+     font-size: 2.5rem;
+     padding: 1rem;
+     color: rgb(102, 102, 102);
+ }
+
+ .hrule {
+     margin: auto;
+     justify-content: center;
+     height: 30px;
+     width: 150px;
+     border-style: solid;
+     border-color: var(--orange);
+     border-width: 3px 0 0 0;
+ }
+
+ div table thead th {
+     width: calc(100% / 5);
+     font-size: 1.5rem;
+     text-align: center;
+     background-color: var(--orange);
+     color: #ffffff;
+     padding: 1.5rem;
+     /*border-radius: 2rem;*/
+     /*text-align: left;*/
+ }
+
+ div table td {
+     padding-top: 1.5rem;
+     font-size: 1.5rem;
+     text-align: center;
+
+ }
+
+ ul li {
+     list-style: none;
+     padding-bottom: 1rem;
+ }
+
+ table {
+     /*border: 2px;*/
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+     padding: 1rem;
+     border-radius: 1rem;
+     border-collapse: collapse;
+ }
+
+ tr {
+     border-bottom: 0.15rem solid var(--orange);
+     margin: 1rem;
+ }
+
+ /*tr:hover{*/
+ /*    background: rgba(255,96,0,0.25);*/
+ /*}*/
+ .button {
+     background: white;
+     padding: 1rem;
+     justify-content: center;
+     display: inline-block;
+     border: .01rem solid green;
+     cursor: pointer;
+     font-size: 1.5rem;
+     border-radius: 0.5rem;
+     position: relative;
+     overflow: hidden;
+     margin-top: 1rem;
+     width: 7rem;
+     /*color: green;*/
+ }
+
+ .edit {
+     color: green;
+ }
+
+ .delete {
+     border: .01rem solid #ff6961;
+     color: #ff6961;
+ }
+
+ .delete:hover {
+     color: #fff;
+     background-color: #ff6961;
+ }
+
+ .edit:hover {
+     color: #fff;
+     background-color: green;
+ }
+
+ .active {
+     display: block;
+
+ }
+
+ .bg {
+     z-index: 2;
+     padding: auto;
+     margin: auto;
+     position: absolute;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.75);
+     overflow-y: hidden;
+ }
+
+ .inactive {
+     display: none;
+ }
+

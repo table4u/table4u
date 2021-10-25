@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Colombo');
+
 //app root
 define('APPROOT', dirname(dirname(__FILE__)));
 
@@ -6,6 +8,8 @@ define('APPROOT', dirname(dirname(__FILE__)));
 define('URLROOT', 'http://localhost/gp1');
 
 define('SITENAME', 'Table4U');
+
+
 
 //DB parameter
 define('DB_HOST', 'localhost');

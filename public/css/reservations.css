@@ -1,0 +1,29 @@
+.reservations{
+    width: 100%;
+    background: #fff;
+    padding: 20px 30px 20px 30px;
+    margin: 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.reservations table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    width: 100%;
+} 
+.th, .td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.th {
+    background-color: #9da09f;
+    color: white;
+}
+.td a{
+    display: block;
+    text-decoration: none;
+    color: rgb(32, 32, 32);
+    font-weight: 400;
+}

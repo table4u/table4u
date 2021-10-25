@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',
+    sans-serif;
+    font-size: x-small;
+}
+.popup{
+    position: absolute;
+    top: 0px;
+    left: 440px;
+    margin: 20px;
+    margin-bottom: 20px;
+    
+    width: 30%;
+    height: 100%;
+    
+
+
+}
+body{
+    background-color: #b1b3b5
+}
+.popuptopic{
+    background-color: antiquewhite;
+    padding: 10px;
+}
+.popuptopic h2{
+    font-size: large;
+}
+.popupcontent{
+    background-color: rgb(238, 238, 238);
+    padding:10px;
+    margin-bottom: 20px;
+}
+.subtopic{
+    padding: 5px;
+    font-weight: bolder;
+    font-size: medium;
+}
+.answer{
+    padding-left: 5px;
+    font-size: small;
+}
+
+.updateEmployee,.deleteEmployee, addEmployee{
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: small;
+}
+
+.updateEmployee{
+    position: relative;
+    background-color: rgb(158, 255, 2);
+
+}
+
+.deleteEmployee{
+    position:absolute ;
+    right: 20px;
+    background-color: rgb(255, 73, 73);
+}
+.addEmployee{
+    width: 150px;
+    height: 30px;
+    background-color: greenyellow;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.field{
+    padding: 7px;
+}
+.inputfield{
+    width: 300px;
+    height: 30px;
+}
+.popupform{
+    background-color: rgb(238, 238, 238);
+    padding:10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    
+    
+}
+.popupform label{
+    font-size: medium;
+}
+#display{
+    position: absolute;
+    top:180px;
+    left:30px;
+}

@@ -45,8 +45,8 @@ class SelfRegistered extends Customer
     {
         // $this->db->query('INSERT INTO customer(nic, address, mobile, name, email, username, password, dob, cust_type) 
         //                 VALUES(:nic, :address, :mobile, :name, :email, :username, :password, :dob, :cust_type)');
-        $this->db->query('INSERT INTO customer( mobile, name, email, username, password,  cust_type) 
-                        VALUES( :mobile, :name, :email, :username, :password,  :cust_type)');
+        $this->db->query('INSERT INTO customer( mobile, name, email, username, password,  cust_type, vkey) 
+                        VALUES( :mobile, :name, :email, :username, :password,  :cust_type, :vkey)');
         // Bind values
         // $this->db->bind(':nic', $data['nic']);
         // $this->db->bind(':address', $data['address']);
@@ -55,7 +55,7 @@ class SelfRegistered extends Customer
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':username', $data['username']);
         $this->db->bind(':password', $data['password']);
-        // $this->db->bind(':dob', $data['dob']);
+        $this->db->bind(':vkey', $data['vkey']);
         $this->db->bind(':cust_type', 'SR');
 
         // Execute
@@ -96,6 +96,21 @@ class SelfRegistered extends Customer
         }
     }
 
+    // public function isVerified($userID)
+    // {
+    //     $this->db->query('SELECT verified FROM customer WHERE customer = :userID');
+    //     // Bind value
+    //     $this->db->bind(':userID', $userID);
+
+    //     $row = $this->db->single();
+
+    //     // Check row
+    //     if ($this->db->rowCount() > 0) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
     public function findUserByUsername($username)
     {
         $this->db->query('SELECT * FROM customer WHERE username = :username');
@@ -144,6 +159,30 @@ class SelfRegistered extends Customer
         }
     }
 
-    
+    public function verifyEmail($vkey){
+        $this->db->query('SELECT verified, vkey FROM customer WHERE vkey = :vkey');
+        // Bind value
+        $this->db->bind(':vkey', $vkey);
+
+        $row = $this->db->single();
+
+     
+        if ($this->db->rowCount() > 0) {
+            $this->db->query('UPDATE customer SET verified = :verified WHERE vkey = :vkey');
+            
+            $this->db->bind(':vkey', $vkey);
+            $this->db->bind(':verified', 1);
+
+            // Execute
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+           
+        } else {
+            return false;
+        }
+    }
 
 }

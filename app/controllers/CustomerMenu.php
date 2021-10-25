@@ -16,4 +16,9 @@ class CustomerMenu extends Controller
     {
         $this->view('customerMenu');
     }
+
+    public function payment()
+    {
+        $this->view('customerPayment');
+    }
 }

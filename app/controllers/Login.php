@@ -45,18 +45,27 @@ class Login extends Controller
                     // Check and set logged in user
                     $loggedInUser = $this->selfRegisteredModel->loginCustomer($data['username'], $data['password']);
                     $_SESSION['user_id'] = $loggedInUser->customerID;
-                    print_r($loggedInUser);
+                    
+                    // print_r($loggedInUser);
+                    // echo gettype($_SESSION['verified']);
                     // die($_SESSION['user_id']);
-                    if ($loggedInUser) {
-                        // Create Session
-                        $_SESSION['user_role'] = 'Customer';
-                        $this->createUserSession($loggedInUser);
-                        // die($_SESSION['user_role']);
-                        header("Location: " . URLROOT . '/customerHome');
-                    } else {
-                        $data['pw_err'] = 'Password incorrect';
+                    if($loggedInUser->verified == '1'){
+                        if ($loggedInUser) {
+                            // Create Session
+                            $_SESSION['user_role'] = 'Customer';
+                            $this->createUserSession($loggedInUser);
+                            // die($_SESSION['user_role']);
+                            header("Location: " . URLROOT . '/customerHome');
+                        } else {
+                            $data['pw_err'] = 'Password incorrect';
+                            $this->view('login', $data);
+                        }
+                    }
+                    else{
+                        $_SESSION['verified'] = "Please verify your email address to login";
                         $this->view('login', $data);
                     }
+                    
                 } else {
                     // Load view with errors
                     $this->view('login', $data);
@@ -83,7 +92,7 @@ class Login extends Controller
                             $_SESSION['user_role'] = 'Kitchen Manager';
                             // print_r($loggedInUser);
                             // die($_SESSION['user_role']);
-                            header("Location: " . URLROOT . '/kitchenManagerHome');
+                            header("Location: " . URLROOT . '/pages/index');
                         } else if ($loggedInUser->empType == 'Restaurant Manager') {
                             $_SESSION['user_role'] = 'Restaurant Manager';
                             header("Location: " . URLROOT . '/restaurantManagerHome');

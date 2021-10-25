@@ -39,24 +39,16 @@ class Register extends Controller
 
             // Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            $address = array();
-            if (isset($_POST['houseNo']) or isset($_POST['line1']) or isset($_POST['line2']) or isset($_POST['city'])) {
-                if(isset($_POST['houseNo'])){}
-                $address = array(trim($_POST['houseNo']), trim($_POST['line1']), trim($_POST['line2']), trim($_POST['city']));
-                $address = implode(', ', $address);
-            }
+
 
             $data = [
                 'name' => trim($_POST['name']),
-                // 'nic' => trim($_POST['nic']),
-                // 'dob' => trim($_POST['dob']),
                 'email' => trim($_POST['email']),
                 'mobile' => trim($_POST['mobile']),
-                // 'address' => $address,
                 'username' => trim($_POST['username']),
                 'password' => trim($_POST['pw']),
                 'confirm_password' => trim($_POST['confirm_pw']),
-                // 'nic_err' => '',
+                'vkey' => '',
                 'mobile_err' => '',
                 'name_err' => '',
                 'username_err' => '',
@@ -65,9 +57,12 @@ class Register extends Controller
                 'confirm_pw_err' => ''
             ];
 
+            $data['vkey'] = md5(time() . $data['username']);
+            // die($data['vkey']);
+
             //check if email available
             if ($this->selfRegisteredModel->findUserByEmail($data['email'])) {
-                $data['email_err'] = 'Email is already taken';
+                $data['email_err'] = 'An account already exists with this email address. Please try login';
             }
 
             //check if mobile available
@@ -80,23 +75,27 @@ class Register extends Controller
                 $data['username_err'] = 'Username is already taken';
             }
 
-            //check if nic available
-            // if ($this->selfRegisteredModel->findUserByNIC($data['nic'])) {
-            //     $data['nic_err'] = 'NIC is already taken';
-            // }
-            // else{
-            //     echo "free email";
-            // }
+            //validations
+            //correct name format
+            $data['name_err'] = nameValidation($data['name']);
+
+            //correct mobile number format
+            $data['mobile_err'] = mobileValidation($data['mobile']);
+
 
             //validate the strength of the password
-            $data['pw_err'] = $this->checkPasswordStrength($data['password']);
+            $data['pw_err'] = checkPasswordStrength($data['password']);
 
             // Validate Confirm Password
             if ($data['password'] != $data['confirm_password']) {
                 $data['confirm_pw_err'] = 'Passwords do not match';
             }
 
-            if (empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+            //validate email
+            $vkey = md5(time() . $data['username']);
+            $data['vkey'] = $vkey;
+
+            if (empty($data['email_err']) && empty($data['mobile_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                 // Validated
 
                 // Hash Password
@@ -104,8 +103,36 @@ class Register extends Controller
 
                 // Register User
                 if ($this->selfRegisteredModel->registerCustomer($data)) {
-                    $_SESSION['successMsg'] = "SUCCESSFULLY REGISTERED. YOU CAN LOG IN NOW";
-                    header("Location: " . URLROOT . '/login');
+                    //send verification mail
+                    $mail = new Mailer();
+                    $subject = "Verification Link";
+                    $body = "<strong>Dear Mr./Ms. " . $data['name'] . ",</strong></br></br>
+                    Please verify your account to proceed with. </br>
+                    <a href='http://localhost/gp1/register/verifyEmail/$vkey'>Verification Link</a>
+                    </br></br>
+
+                    Best Regards, </br>
+                    Team Table4U
+                    ";
+
+                    $mail->mailto($subject, $data['email'], $body);
+
+                    header("Location: " . URLROOT . '/register/thankyou');
+
+                    // $mail->mailto($subject, $data['email'], $body);
+                    // $_SESSION['successMsg'] = "SUCCESSFULLY REGISTERED. YOU CAN LOG IN NOW";
+
+                    // //ON SUCCESS, send an email to customer address
+                    // $mail = new Mailer();
+
+                    // $subject = "Welcome to Hotel De Luna!";
+                    // $body = "<strong>Dear Mr./Mrs.".$data['name'].",</strong></br>
+                    // Thank you for registering with Hotel de Luna! Now you can log in and make reservations and order food.
+                    // Bon apetit";
+
+                    // //call function in class
+                    // $mail->mailto($subject, $data['email'], $body);
+                    // header("Location: " . URLROOT . '/login');
                 } else {
                     $_SESSION['unsuccessMsg'] = "SOMETHING WENT WRONG. TRY AGAIN";
                 }
@@ -135,17 +162,22 @@ class Register extends Controller
         }
     }
 
-    public function checkPasswordStrength($pw)
+    public function thankyou()
     {
-        $uppercase = preg_match('@[A-Z]@', $pw);
-        $lowercase = preg_match('@[a-z]@', $pw);
-        $number    = preg_match('@[0-9]@', $pw);
-        $specialChars = preg_match('@[^\w]@', $pw);
+        $this->view('thankyou');
+    }
 
-        if (!$uppercase || !$lowercase || !$number || !$specialChars || strlen($pw) < 8) {
-            return 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+    public function verifyEmail($vkey)
+    {
+        // die($vkey);
+        if ($this->selfRegisteredModel->verifyEmail($vkey)) {
+            $_SESSION['successMsg'] = "Successfully registered. You can log in now";
+
+            header("Location: " . URLROOT . '/login');
         } else {
-            return '';
+            $_SESSION['unsuccessMsg'] = "Email verification failed. Try Again";
+            // die($_SESSION['unsuccessMsg']);
+            header("Location: " . URLROOT . '/register');
         }
     }
 }

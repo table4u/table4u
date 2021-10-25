@@ -3,6 +3,17 @@ let mainContainer = document.getElementsByTagName("tbody")[0];
 let quantity = document.getElementsByClassName("quantity ");
 let removeBtn = document.getElementsByClassName("remove-btn");
 
+let checkoutBtn = document.getElementById("checkoutBtn");
+let modal = document.querySelector(".modal");
+let bg = document.querySelector(".bg");
+// checkoutBtn.style.color="red"
+checkoutBtn.addEventListener("click", function () {
+  console.log("close");
+  modal.classList.remove("active");
+  bg.classList.remove("active");
+  modal.classList.add("inactive");
+  bg.classList.add("inactive");
+});
 for (let i = 0; i < addToCartBtn.length; i++) {
   addToCartBtn[i].addEventListener("click", addToCart.bind(i), false);
 }
