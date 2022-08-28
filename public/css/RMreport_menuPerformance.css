@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:poppins;
+    font-size: small;
+    
+}
+.dashboard{
+    border : 2px solid black;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+  h1{
+    font-size: x-large;
+}
+
+
+
+.line{
+    background-color: #000;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 3px;
+    
+}
+.logo{
+    position: absolute;
+    left: 35%;
+}
+.logo-image{
+    width: 170px;
+     height: 150px;
+     top: 0;
+}
+.topic-report{
+    position: absolute;
+    left: 22%;
+    top: 12%;
+
+}
+.topic-report p{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bar-chart01{
+    width:100%;
+    max-width:600px;
+   
+}
+.out-line{
+    border: 2px solid black;
+    margin: 20px 90px 48px 90px;
+}
+table th {
+    background-color: rgb(208, 249, 255);
+    padding: 10px;
+    
+}
+table td{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+table{
+    border: 1px solid rgb(138, 138, 138);
+}

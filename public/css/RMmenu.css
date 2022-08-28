@@ -1,41 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,700&display=swap');
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',
-    sans-serif;
+    font-family:poppins;
     font-size: small;
     
 }
 ul {
     list-style-type: none;
     margin: 0;
-    padding-top: 40px;
-    width: 20%;
+    padding-top: 20px;
+    width: 100%;
     height: 100%; 
+    text-align: left;
    
     
   }
 
   h1{
-    font-size: x-large;
+    font-size: 2rem;
 }
 li a {
     display: block;
     color: #000;
     padding: 10px 120px 10px 80px;
     text-decoration: none;
-    font-size:medium;
-    width: 20%
+    font-size:1.5rem;
+    width: 100%
  
   }
   li a:hover {
     background-color: #555;
     color: white;
-    width: max-content;
+    width: 100%;
   }
   .menu-navigation{
       background-color:#c2c1c0;
@@ -43,25 +40,37 @@ li a {
   }
 
 
-th,td{
+th{
     
-    text-align: center;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 1.5rem;
 }
 table{
     margin-top: 20px;
     width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: 1.5rem;
+    
 }
 td{
     margin :10px;
-    background-color: rgb(255, 247, 239);
+    background-color: rgb(255, 255, 255);
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 1.5rem;
 }
 .table-menu thead tr{
 
-    background-color: rgb(180, 180, 180);
+    background-color: #FF6000;
+    color: white;
     padding-top: 50px;
     height: 40px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 1.5rem;
 
 }
 .main_area{
@@ -80,7 +89,7 @@ td{
     margin-left: auto;
     margin-right: auto;
     border: 5px;
-    background-color:#F3F2EE;
+    background-color:#e7e6e2;
     float: left;
     width: 20%;
     height: 1500px;
@@ -88,35 +97,29 @@ td{
     overflow: auto;
     text-align: center;
 }
+.details-total{
+    position: absolute; 
+    top: 0px;
+    left: 300px;
+      display: grid;
+grid-template-columns: auto auto auto;
+}
 .matirial01, .matirial02 ,.matirial03,.matirial04{
-    background-color: rgb(150, 150, 148);
-    border-style: solid;
-    border-width: medium;
+    background-color: rgb(255, 255, 255);
+    margin: 50px;
+    border: 5px solid #FF6000 ;
+    color: rgb(59, 59, 59);
     border-radius: 15px;
-    width: 250px;
-    height: 100px;
-    position: absolute;
-    top: 70px;
+    width: 400px;
+    height: 120px;
+
     text-align: center;
     display: inline;
 }
-
-.matirial01{
-    
-    left: o;
+.matirial01 h1, .matirial02 h1 ,.matirial03 h1 ,.matirial04 h1 {
+    padding: 3px;
 }
-.matirial02{
 
-    left: 590px;
-}
-.matirial03{
-
-    right: 280px;
-}
-.matirial04{
-
-    right: 20px;
-}
 .topic{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -124,10 +127,19 @@ td{
 
 .search{
     padding-top: 10px;
+    font-size: 1.5rem;
 }
 .search input{
-    border-radius: 20px;
-    border: 1px solid black;
+    width: 450px;
+    align-self: left;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 5px 10px 5px 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .menutopic{
     position: absolute;
@@ -150,3 +162,203 @@ td{
 .menu-topic-main{
     margin-top: 50px;
 }
+
+#logout{
+    margin-left: 12rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #F3F2EE;
+    border: 1px solid #F3F2EE;
+    border-radius: 1rem;
+
+}
+.login_name{
+    position:absolute;
+    right: 55px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.user-image{
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.popup{
+    position: absolute;
+    left: 480px;
+    margin: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    
+    width: 30%;
+    height: 50%;
+    
+}
+
+.popuptopic{
+    background-color: antiquewhite;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.popuptopic h2{
+    font-size: large;
+}
+.popupcontent{
+    background-color: rgb(238, 238, 238);
+    padding: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+.subtopic{
+    padding: 2px;
+    font-weight: bolder;
+    font-size: medium;
+}
+.answer{
+    padding-left: 5px;
+    font-size: small;
+}
+
+.updateEmployee,.deleteEmployee, addEmployee{
+    padding: 2px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: small;
+}
+
+.updateEmployee{
+    position: relative;
+    background-color: green;
+    border: 2px solid green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.deleteEmployee{
+    position:absolute ;
+    right: 20px;
+    background-color: #ff6961;
+    border: 2px solid #ff6961;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.addEmployee{
+    width: 150px;
+    height: 30px;
+    background-color: greenyellow;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.field{
+    padding: 7px;
+}
+
+.popupform{
+    background-color: rgb(238, 238, 238);
+    padding:5px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    
+    
+}
+
+#display{
+    position: absolute;
+    top:180px;
+    left:30px;
+}
+.close-btn{
+    position: absolute;
+    left: 380px;
+    width: 20px;
+    background-color: antiquewhite;
+    border: 1px solid antiquewhite;
+
+}
+#popup-topic{
+    visibility: hidden;
+    z-index: 1000;
+}
+#popUp-content{
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.menu-accept{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid green ;
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.menu-accept:hover{
+    background-color: green;
+    color: white;
+    
+}
+.available-btn{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid green;
+    padding: 5px;
+    border-radius: 5px;
+}
+.unavailable-btn{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #ff6961;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.available-btn:hover{
+    background-color: green;
+    color: white;
+}
+.unavailable-btn:hover{
+    background-color: #ff6961;
+    color: white;
+}
+
+.more_btn{
+    background-color: green;
+    border: 2px solid green;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+
+}
+.popUp-to-update-delete{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgb(243, 94, 94);
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    visibility: hidden;
+    z-index: 1;
+}
+.Msg{
+    font-size: large;
+}
+.Delete-update{
+    
+    color: white;
+}
+html
+{
+	font-size: 62.5%;
+}
+

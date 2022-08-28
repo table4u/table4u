@@ -1,51 +1,133 @@
-.menu{
+.main_section .content .class{
     width: 100%;
-    background: #fff;
-    padding: 20px 30px 20px 30px;
-    margin: 20px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
+    padding: 20px 30px;
+    position: top;
+    /* background-color: aqua; */
+    
 }
-.menu table {
+.class .menu{
+    width: 100%;
+    /* background: #fff; */
+    padding: 20px 30px;
+    height: auto;
+    border-radius: 12px;
+    /* margin-bottom: 100px; */
+    /* box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1); */
+    justify-self: top;
+    margin: 0px auto;
+    
+}
+.menu .menu table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
-    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } 
-.th, .td {
+.menu table .th, .td {
     text-align: left;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
-.th {
-    background-color: #9da09f;
+.menu table .th {
+    background-color: var(--orange);
     color: white;
 }
-.td a{
+.menu table .td a{
     display: block;
     text-decoration: none;
     color: rgb(32, 32, 32);
     font-weight: 400;
 }
+.tablerow{
+    background-color: rgb(211, 240, 211);
+}
+.food_n:hover{
+    /* background-color: #f1f1f1; */
+    color: red;
+}
 .menu .buttons{
     display: flex;
     justify-content: space-between;
+    /* padding-top: 20px;
+    margin-bottom: 20px; */
+}
+.buttons .filters{
+    float: left;
+}
+.buttons .add_item{
+    float:right;
 }
 .buttons .add_item a{
-    position: relative;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  color: black;
+  /* background-color: #fff; */
+  border: .01rem solid var(--orange);
+    color: var(--orange);
   font-size: 16px;
   padding: 16px 30px;
   text-decoration: none;
-  border: none;
+  
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
 }
 .add_item a:hover{
-    background-color: #9da09f;
-    color: white;
+    color: #fff;
+    background-color: var(--orange);
 }
+.menu .tabs button{
+    background-color: inherit;
+    border: 1px solid gray;
+    float: left;
+    border-bottom: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    background-color: #ddd;
+    /* position: relative; */
+  }
+  
+  .tabs button:hover {
+    background-color: #fff;
+  }
+  
+  .tabs button .active {
+    background-color: #fff;
+  }
+.th .select_menu  {
+    background-color:.01rem solid var(--orange);
+  border-color: #fff;
+  color: #fff;
+}
+.listI {
+    color:var(--orange);
+}
+.changeunavl{  
+    color: green;
+    font-size: 15px;
+    padding: 14px 20px;
+    background-color: #fff;
+    border: .01rem solid green;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .changeunavl:hover{
+    color: #fff;
+    background-color: green;
+  }
+  .changeavl{  
+    color: #ff6961;
+    font-size: 15px;
+    padding: 14px 20px;
+    background-color: #fff;
+    border: .01rem solid #ff6961;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .changeavl:hover{
+    color: #fff;
+    background-color: #ff6961;
+  }

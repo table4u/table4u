@@ -1,0 +1,20 @@
+section table thead th {
+    text-align: center;
+}
+
+section table tbody tr td {
+    text-align: center;
+    padding-right: 3rem;
+}
+
+section table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+section div.checkoutTable {
+    /* width: 50%; */
+    margin-left: auto;
+    margin-right: 0;
+    padding-bottom: 1rem;
+}

@@ -11,6 +11,8 @@
 
     <!-- custom styling sheet -->
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customerMenu.css">
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/toast.css">
+
     <title>Menu</title>
 
 
@@ -19,276 +21,102 @@
     * {
         font-family: sans-serif;
     }
+
+    /* tab link  */
+    .tab {
+        overflow: hidden;
+        /* border: 1px solid #ccc; */
+        background-color: #fff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+    }
+
+    .tab button {
+        background-color: inherit;
+        border: 1px solid #ccc;
+        float: left;
+        border: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        width: fit-content;
+        font-size: 2rem;
+        color: rgb(102, 102, 102);
+    }
+
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    .tab button.active {
+        background-color: #fff;
+    }
+
+    .tab button.active {
+        background-color: #FF6000;
+        color: white;
+    }
 </style>
+<?php if (isset($_SESSION['itemAlreadyIn'])) : ?>
 
-<body>
-    <div class="bg inactive"></div>
-    <header>
-        <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-        <div id="menu-bar" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
-            <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-            <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
-            <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-            <a href="#"><i class="fas fa-bell"></i></a>
-            <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-        </nav>
-    </header>
+    <body onload="Toast.show('<?php echo $_SESSION['itemAlreadyIn']; ?>' , 'error')">
+        <?php unset($_SESSION['itemAlreadyIn']); ?>
 
-    <section>
-        <div class="container">
+    <?php elseif (isset($_SESSION['notAvailable'])) : ?>
 
-            <div class="menu-container">
-                <h3 class="heading">APPETIZERS</h3>
-                <hr>
-                <div class="menu">
-                    <div class="menu-item">
-                        <img src="../public/images/a1.jpg" alt="">
+        <body onload="Toast.show('<?php echo $_SESSION['notAvailable']; ?>' , 'error')">
+            <?php unset($_SESSION['notAvailable']); ?>
+        <?php elseif (isset($_SESSION['success'])) : ?>
 
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+            <body onload="Toast.show('<?php echo $_SESSION['success']; ?>' , 'success')">
+                <?php unset($_SESSION['success']); ?>
+
+
+            <?php else : ?>
+
+                <body onload="getMenuItems()">
+                <?php endif; ?>
+                <div class="bg inactive"></div>
+
+                <?php
+                require APPROOT . '/views/customer/header.php';
+                ?>
+                <section>
+                    <div class="filter">
+                        <div class="search">
+                            <form action="">
+                                <input type="text" id="search" name="search" spellcheck='false' placeholder="Search..." autocomplete="off">
+                                <button type="submit" class="searchButton">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </form>
                         </div>
+                        <!-- <div class="filters">
+                            <ul>
+                                <li class='active' id="all">All</li>
+                                <li id="veg">Veg</li>
+                                <li id="nonveg">Non Veg</li>
+                            </ul>
+                        </div> -->
 
-                        <div class="content-container">
-                            <h3 style="display: inline;">Tomato Soup </h3>
-                            <span class="price">Rs 500</span>
-                        </div>
-
-                        <div class="description">Everyone's favourite crispy chicken, baked just the right amount and given
-                            the
-                            tangy flavour of BBQ sauce to tantalize your tastebuds.
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
                     </div>
-                    <div class="menu-item">
-                        <img src="../public/images/a2.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <div class="container">
+                        <div class="tab">
+                            <button id="menu-search" class="defaultOpen tablink active" onclick="loadAll(event)">All</button>
+                            <?php
+                            // print_r($data);
+                            foreach ($data as $d) : ?>
+                                <button id="<?php str_replace(' ', '', $d->name) ?>" class="tablinks" onclick="opentab(event, '<?php echo $d->name ?>')"> <?php echo $d->name ?></button>
+                            <?php endforeach; ?>
                         </div>
+                        <div id="all" class="menu-container order allItems"></div>
+                        <?php
+                        foreach ($data as $d) : ?>
+                            <div class="menu-container order" id="<?php echo $d->name ?>">
 
-                        <div class="content-container">
-                            <h3 style="display: inline;">Pumpkin Soup</h3>
-                            <span class="price">Rs 200</span>
-                        </div>
-
-                        <div class="description">Everyone's favourite crispy chicken, baked just the right amount and given
-                            the
-                            tangy flavour of BBQ sauce to tantalize your tastebuds.
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <img src="../public/images/a3.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Garlic Bread </h3>
-                            <span class="price">Rs 250</span>
-                        </div>
-
-                        <div class="description">Everyone's favourite crispy chicken, baked just the right amount and given
-                            the
-                            tangy flavour of BBQ sauce to tantalize your tastebuds.
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <h3 class="heading">MAIN COURSE</h3>
-                <hr>
-                <div class="menu">
-                    <div class="menu-item">
-                        <img src="../public/images/p1.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Fried Rice</h3>
-                            <span class="price">Rs 750</span>
-                        </div>
-
-                        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque
-                            debitis eaque expedita facere facilis fugiat fugit harum ipsa ipsum laudantium!
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="../public/images/p2.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Pizza</h3>
-                            <span class="price">Rs 1000</span>
-                        </div>
-
-                        <div class="description">Topped with a combination of chicken bacon, chicken sausage, BBQ chicken
-                            and
-                            spicy chicken with a double layer of mozzarella cheese.
-
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="../public/images/p3.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Spaghetti</h3>
-                            <span class="price">Rs 1200</span>
-                        </div>
-
-                        <div class="description">Delicious spaghetti with a meeting of the finest tandoori chicken and
-                            kochchi
-                            chicken sausage meat along with a spicy Italian sauce and mozzarella cheese.
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="heading">DESSERT</h3>
-                <hr>
-                <div class="menu">
-                    <div class="menu-item">
-                        <img src="../public/images/d1.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Cheese Cake</h3>
-                            <span class="price">Rs 300</span>
-                        </div>
-
-                        <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque
-                            debitis eaque expedita facere facilis fugiat fugit harum ipsa ipsum laudantium !
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="../public/images/d2.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Fruit Salad</h3>
-                            <span class="price">Rs 500</span>
-                        </div>
-
-                        <div class="description">Topped with a combination of chicken bacon, chicken sausage, BBQ chicken
-                            and
-                            spicy chicken with a double layer of mozzarella cheese.
-
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <img src="../public/images/d3.jpg" alt="">
-
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-
-                        <div class="content-container">
-                            <h3 style="display: inline;">Ice-Cream</h3>
-                            <span class="price">Rs 100</span>
-                        </div>
-
-                        <div class="description">Delicious spaghetti with a meeting of the finest tandoori chicken and
-                            kochchi
-                            chicken sausage meat along with a spicy Italian sauce and mozzarella cheese.
-                        </div>
-
-                        <div style="display: flex; justify-content: center;">
-                            <a href="#" class="btn"> Order Now</a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="cart">
+                            </div>
+                        <?php endforeach; ?>
+                        <!-- <div class="cart">
                 <h3 class="heading">Your cart</h3>
                 <hr>
                 <div class="small-container">
@@ -327,16 +155,19 @@
                 <a href=" <?php echo URLROOT ?>/customerMenu/payment" class="checkout" id="checkoutBtn">
                     Proceed to Checkout
                 </a>
-            </div>
-        </div>
+            </div> -->
 
-        <div class="hoverDetails">
+                        <div id='result' class="menu-container">
 
-        </div>
-    </section>
+                        </div>
+                        <div class="hoverDetails">
 
-    <script src="<?php echo URLROOT ?>/public/js/customerMenu.js"></script>
-</body>
+                        </div>
+                </section>
+                <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>
+
+                <script src="<?php echo URLROOT ?>/public/js/customerMenu.js"></script>
+                </body>
 
 
 </html>

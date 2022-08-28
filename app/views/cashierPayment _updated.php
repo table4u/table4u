@@ -17,7 +17,7 @@
 <body>
 
 <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
+    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome">
       <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
       <div class="logo">
         <i class="fas fa-utensils"></i> Hotel De Luna
@@ -118,78 +118,96 @@
 </div>
 <!-- End of profile -->
   <!-- End of navigation -->
+
 <div class="backgroundPay">
-  <a class="back"  href="<?php echo URLROOT ?>/CashierPayment/backtoOrder">  
-    <img src="<?php echo URLROOT ?>/public/images/back.svg" alt=""/>
-  </a>
+  <form class="search" action="<?php echo URLROOT ?>/CashierPayment/searchpayments">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
 
-  <div class="paymentType">
-    Card payment
-  </div>
+    <!-- Start of menu buttons -->
+    <div class="menutypeButtons">
+      <a class="btn11"  href="<?php echo URLROOT ?>/CashierHome/payment">
+        <div class="pendingbtn">
+        <img class="icon1" src="<?php echo URLROOT ?>/public/images/pendingPayment.png" alt=""/>
+            <h3 class="text1">Pending Payments </h3>
+        </div>
+      </a>
 
-  <!-- Start Card Payment -->
-  <div class="margin">
-     <div class="background">
-      <h1>Payment Details</h1>
+      <a class="btn22"  href="<?php echo URLROOT ?>/CashierHome/payments">
+        <div class="completebtn">
+          <img class="icon2" src="<?php echo URLROOT ?>/public/images/completedPayments.png" alt=""/>
+          <h3 class="text2"> Completed Payments</h3>
+        </div>
+      </a>
+    </div>  
+  <!-- End of menu buttons -->
 
-      <!-- <select id="cardtype">
-        <option>masterCard</option>
-        <option>visaCard</option>
-        <option>creditCard</option>
-      </select>   -->
-
-      <div class="cardtype">
-      <img class="type1" src="<?php echo URLROOT ?>/public/images/mastercard.svg" alt=""/>
-      <img class="type2" src="<?php echo URLROOT ?>/public/images/visacard.svg" alt=""/>
-      <img class="type3" src="<?php echo URLROOT ?>/public/images/creditcard.svg" alt=""/>
+  <!-- Start of payment details -->
+  <div class="detailtable">
+    <div class="row">
+      <div class="column1">
+        <h2>Date</h2>
       </div>
+      <div class="column2">
+        <h2>Time</h2>
+      </div>
+      <div class="column3">
+        <h2>Type</h2>
+      </div>
+      <div class="column4">
+        <h2>Name</h2>
+      </div>
+      <div class="column5">
+        <h2>Amount</h2>
+      </div>
+      <div class="column6">
+        <h2>Status</h2>
+      </div>
+    <div>     
 
-      <form>
-        <div class="row">
-          <div class="labelname">
-            <label for="cardNo"><b>Card Number</b></label>
-          </div></br>
-          <div class="inputrow">
-            <input type="text" id="cardNo" name="cardNo" placeholder="Valid card number" required></br></br>
-          </div>
-         </div>
-            
-        <div class="row1">
-          <div class="labelname1">
-            <label for="EXP">Expiration Date</label>
-          </div></br>
-          <div class="inputrow1">
-            <input type="text" id="EXP" name="EXP" placeholder="MM / YY" required></br></br>
-          </div>
-        </div>
-        
-        <div class="row2">
-          <div class="labelname2">
-            <label for="CV">CV code</label></br>
-          </div></br>
-          <div class="inputrow2">
-            <input type="text" id="CV" name="CV" placeholder="CVC" required></br></br>
-          </div>
-        </div>
+    <div class="row">
+      <div class="column11">
+        </br><p>12.08.2021</p></br>
+        <p>12.08.2021</p></br>
+        <p>12.08.2021</p></br>
+        <p>05.07.2021</p></br>
+      </div>
+      <div class="column22">
+        </br><p>08 . 12 PM</p></br>
+        <p>03 . 50 PM</p></br>
+        <p>08 . 44 PM</p></br>
+        <p>03 . 11 PM</p></br>
+      </div>
+      <div class="column33">
+        </br><p>Cash</p></br>
+        <p>Card</p></br>
+        <p>Cash</p></br>
+        <p>Cash</p></br>
+      </div>
+      <div class="column44">
+        </br><p>P.S.D.Pathirana</p></br>
+        <p>K.P.P.Devid</p></br>
+        <p>M.J.F.Zoyza</p></br>
+        <p>J.Y.S.Athapaththu</p></br>
+      </div>
+      <div class="column55">
+        </br><p>1200.00</p></br>
+        <p>1642.00</p></br>
+        <p>2540.00</p></br>
+        <p>5800.00</p></br>
+      </div>
+      <div class="column66">
+        </br><div class="complete" > Completed</div></br></a>
+        <p class="complete">Completed</p></br>
+        <p class="complete">Completed</p></br>
+        <p class="complete">Completed</p></br>
 
-        <div class="row">
-          <div class="labelname">
-            <label for="Name">Card Owner</label></br>
-          </div></br>
-          <div class="inputrow">
-            <input type="text" id="Name" name="Name" placeholder="Card owner name" required></br></br>
-          </div>
-        </div>
-            
-        <div class="Confirmation">
-          <input type="submit" value="Confirm payment">
-        </div>
-      </form> 
-
-    </div>
-  </div>
-<!-- End of Card Payment -->
-</div> 
+      </div>
+    <div>     
+  </div>  
+</div>  
+<!-- End of payment details -->
 
   <script src="<?php echo URLROOT ?>/public/js/cashierPayment.js"></script>  
 </body>

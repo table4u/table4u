@@ -1,4 +1,4 @@
-const btn = document.querySelector(".submitBtn");
+// const btn = document.querySelector(".submitBtn");
 const post = document.querySelector(".post");
 const edit = document.querySelector(".edit");
 const feedbackcontent = document.querySelector(".feedback-content");
@@ -31,11 +31,11 @@ edit.onclick = () => {
 //   modal.classList.remove("active");
 //   modalContent.style.display = "block";
 // };
-btn.onclick = () => {
-  feedbackcontent.style.display = "none";
-  post.style.display = "block";
-  return false;
-};
+// btn.onclick = () => {
+//   feedbackcontent.style.display = "none";
+//   post.style.display = "block";
+//   return false;
+// };
 
 exit.onclick = () => {
   console.log("exit");

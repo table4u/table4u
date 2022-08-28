@@ -1,18 +1,27 @@
 .menu_item{
-    width: auto;
+    width: 700px;
     height: auto;
     display: grid;
     background: rgb(255, 253, 253);
     padding: 20px 30px 20px 30px;
     border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    align-self: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+    margin: 20px auto;
+  }
+  .food_name{
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    color: brown;
+    padding: 20px;
   }
   .menu_item .details{
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-evenly;
       border-bottom: 1px solid #ddd;
+      /* margin-top: 10px; */
   }
   .details .food_details{
       justify-content: center;
@@ -22,17 +31,19 @@
     padding-top: 20px;
     justify-content: left;
     padding-bottom: 20px;
+    width: 300px;
   }
   .details .image , .details .image_upload{
       justify-content: center;
-      padding: 10px 50px 10px 30px;
+      padding: 10px 10px 10px 30px;
+      width: 200px;
   }
   .details .image img{
       height:150px;
       width: 150px;
       object-fit: cover;
       border-radius: 15px;
-      margin-right: 10px;
+      /* margin-right: 10px; */
       background: #333;
   }
   .menu_item .recipe{
@@ -53,73 +64,80 @@
       padding-top: 10px;
       padding-right: 100px;
   }
+
   .food_details .topic, .price .topic{
       padding-bottom: 10px; 
       align-items: center;
       font-size: 25px;
       font-weight: 400;
-      color: #333;
+      /* color: #333; */
     }
   .menu_item .edit{
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      padding: 30px 20px;
-      margin-bottom: 26px;
+      padding-top: 40px;
+      padding-left: 100px;
+      margin-top: 10px;
   }
   .edit .button , .edit a {
-      position: relative;
-      padding: 10px;
-      background: rgb(248, 246, 246);
-      border-radius: 10px;
-      text-decoration: none;
-      border: 1px solid rgba(0,0,0,0.15);
-      box-shadow: 0 1px 1px rgba(50,50,50,0.1);
-      cursor: pointer;
-      outline: none;
-      font-size: 16px;
-      color:black;
+      justify-self: center;
+      /* padding-top: 40px; */
   }
   .details .image_upload img{
-      height:150px;
-      width: 150px;
+      height:100px;
+      width: 100px;
       border-radius: 6px;
       object-fit: cover;
       cursor: pointer;
   }
-  .image_upload>input {
-      display: none;
+  .image_upload button {
+  border: .03rem solid var(--orange);
+  color: var(--orange);
+  font-size: 1.0rem;
+  padding: 10px;
+  background-color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  }
+  .image_upload input {
+    font-size: 1.0rem;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
     }
 
 .topic_1{
     padding-bottom: 10px; 
-      align-items: left;
-      font-size: 20px;
-      font-weight: 150;
-      color: #333;
+    align-items: left;
+    font-size: 20px;
+    font-weight: 150;
+    color: #333;
 }
 .menu_item .cancel{
-    display: flex;
     align-items: left;
-    padding-left: 60px;
+    padding-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
-.cancel a{
-    position: relative;
+.cancel a ,.edit .button , .edit a {
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  color: black;
-  font-size: 16px;
+  border: .03rem solid var(--orange);
+  color: var(--orange);
+  font-size: 1.5rem;
   padding: 16px 30px;
+  background-color: #fff;
   text-decoration: none;
-  border: none;
   cursor: pointer;
   border-radius: 5px;
   text-align: center;
+  /* box-shadow: 0 1px 1px rgba(50,50,50,0.1); */
 }
-.cancel a:hover{
-    background-color: #9da09f;
-    color: white;
+.cancel a:hover , .edit a:hover , .edit .button:hover {
+  color: #fff;
+  background-color: var(--orange);
 }
 
 .ingredients textarea , .recipe textarea{
@@ -134,12 +152,195 @@
     resize: none;
 }
 .food_details .topic input {
-    width: 450px;
+    width: 300px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     margin: 20px 30px;
-    background-color: white;
+    background-color: #f8f8f8;
     padding: 12px 20px 12px 40px;
 }
+.table_status {
+    display: flex;
+    padding-left: 60px;
+}
+.table_status .submit{
+  background-color: #fff;
+  border: .01rem solid var(--orange);
+  color: var(--orange);
+  font-size: 14px;
+  padding: 10px 10px;
+  text-decoration: none;
+  /* border: none; */
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  /* box-shadow: 0 1px 1px rgba(50,50,50,0.1); */
+}
+.submit:hover {
+  color: #fff;
+  background-color: var(--orange);
+}
+.info {
+    padding: 20px 50px 20px 30px;
+      border-bottom: 1px solid #ddd;
+      display: grid;
+}
+.info input{
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    margin: 10px 10px;
+    background-color: white;
+    padding: 8px;
+}
+.info .menu_type{
+    padding-bottom: 30px;
+}
+
+.veg .select_menu, .menu_type .select_menu{
+  padding: 10px;
+  /* background: #fff; */
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 1px rgba(50,50,50,0.1);
+  cursor: pointer;
+  outline: none;
+  /* font-weight: bold; */
+  color: #333;  
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff6961;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: green;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px green;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  input:disabled + .slider {
+    pointer-events: none;
+    /* background-color: gray; */
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .container {
+    /* display: block; */
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* margin-top: 10px;
+    margin-left: 30px; */
+    margin: 10px 0 20px 30px;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--orange);
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }

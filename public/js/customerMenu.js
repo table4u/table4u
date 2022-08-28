@@ -1,109 +1,263 @@
-let addToCartBtn = document.getElementsByClassName("btn");
-let mainContainer = document.getElementsByTagName("tbody")[0];
-let quantity = document.getElementsByClassName("quantity ");
-let removeBtn = document.getElementsByClassName("remove-btn");
+let allFilter = document.querySelector("#all");
+let vegFilter = document.querySelector("#veg");
+let nonvegFilter = document.querySelector("#nonveg");
+let searchbar = document.getElementById("search");
 
-let checkoutBtn = document.getElementById("checkoutBtn");
-let modal = document.querySelector(".modal");
-let bg = document.querySelector(".bg");
-// checkoutBtn.style.color="red"
-checkoutBtn.addEventListener("click", function () {
-  console.log("close");
-  modal.classList.remove("active");
-  bg.classList.remove("active");
-  modal.classList.add("inactive");
-  bg.classList.add("inactive");
+//arrays to hold data
+let Menu = [];
+let Veg = [];
+let Picture = [];
+let Name = [];
+let PriceSmall = [];
+let PriceMedium = [];
+let PriceLarge = [];
+let Description = [];
+let Id = [];
+
+searchbar.addEventListener("keyup", () => {
+  console.log("search");
+  var temp = [];
+  let val = searchbar.value.toLowerCase();
+  console.log(val);
+  if (val != "") {
+    Name.forEach((i) => {
+      if (i.toLowerCase().includes(val)) {
+        temp.push(Name.indexOf(i));
+      }
+      // console.log(i);
+      // console.log(Name.indexOf(i));
+      displayFiltered(temp);
+    });
+    if (val == "") {
+      location.reload();
+    }
+  }
+
+  console.log(temp);
 });
-for (let i = 0; i < addToCartBtn.length; i++) {
-  addToCartBtn[i].addEventListener("click", addToCart.bind(i), false);
+// console.log(allFilter);
+var tab = document.getElementsByClassName("tab");
+document.querySelector(".defaultOpen").click();
+
+async function loadAll(event) {
+  let tabname = "all";
+  opentab(event, tabname);
+  let items = await getMenuItems();
+  console.log(items.ItemName);
+  let html = "";
+  items.forEach((item) => {
+    let htmlSegment = "";
+
+    if (item.veg_NonVeg == "Veg") {
+      htmlSegment += `<div class="menu-item veg">`;
+    } else {
+      htmlSegment += `<div class="menu-item">`;
+    }
+
+    htmlSegment += `     
+                        <img src="../public/images/${item.picture}" alt="">
+
+                        <div class="content-container">
+                            <h3 style="display: inline;">${item.name} </h3>
+                        </div>
+
+                        <div class="description">
+                            ${item.description}                            
+                        </div>
+
+                        <div class="price">
+                            Starting from <b> ${item.priceSmall} LKR</b>
+                        </div>
+                        <form method="POST" action="http://localhost/gp1/customerCart/loadCart">
+                          <div style="display: flex; justify-content: center;">
+                              <input type="submit" value='Order Now'class="btn" style=""> </input>
+                          </div>
+                          <input type='hidden' name='product_id' value='${item.menuItemID}'>
+                          <input type='hidden' name='product_name' value='${item.name}'>
+                          <input type='hidden' name='product_small' value='${item.priceSmall}'>
+                          <input type='hidden' name='product_medium' value='${item.priceMedium}'>
+                          <input type='hidden' name='product_large' value='${item.priceLarge}'>
+                          <input type='hidden' name='product_description' value='${item.description}'>
+                          <input type='hidden' name='product_picture' value='${item.picture}'>
+                        </form>
+                    </div>
+    `;
+    html += htmlSegment;
+  });
+
+  let menucontainer = document.getElementById(tabname);
+  menucontainer.innerHTML = html;
 }
-
-function addToCart(e, i) {
-  let btn = e.target;
-  let btnParent = btn.parentElement;
-  let btnGrandParent = btn.parentElement.parentElement;
-
-  let menuItemName = btnGrandParent.children[2].children[0].innerText;
-  let menuItemPrice = btnGrandParent.children[2].children[1].innerText;
-  let menuItemImg = btnGrandParent.children[0].src;
-
-  let menuItemContainer = document.createElement("tr");
-  menuItemContainer.innerHTML = `<tr>
-                        <td>
-                            <div>
-                                <div class="cart-info">
-                                    <div style="line-height: 150%">
-                                        <p>${menuItemName}</p>
-                                        <small style="display:none;" class="item-price" >${menuItemPrice}</small>
-                                        <button class="remove-btn">Remove</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div >
-<!--                                <button class="btn-dec" onclick="dec(${i})">-</button>-->
-                                <input class="quantity" name=${i} type="number"  value="1" min="1" max="9999" maxlength="4" oninput="this.value=this.value.slice(0,this.maxLength||1/1);this.value=(this.value   < 1) ? (1/1) : this.value;">
-<!--                                <button class="btn-inc" onclick="inc(${i})">+</button>-->
-                            </div>
-                        </td>
-                        <td class="sub-total">${menuItemPrice}</td>
-                    </tr>`;
-
-  mainContainer.append(menuItemContainer);
-
-  // console.log(btn)
-  // console.log(btnParent)
-  // console.log(btnGrandParent)
-  // console.log(menuItemName)
-  // console.log(menuItemPrice)
-
-  for (let i = 0; i < quantity.length; i++) {
-    quantity[i].addEventListener("change", updateTotal);
-    // console.log('in')
+//opening tab
+console.log(Name);
+function opentab(evt, tabname) {
+  console.log("open tab");
+  var i, tabcontent, tablinks;
+  // document.getElementsByClassName("allItems").toggle();
+  tabcontent = document.getElementsByClassName("menu-container");
+  console.log(tabcontent);
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
-
-  for (let i = 0; i < removeBtn.length; i++) {
-    removeBtn[i].addEventListener("click", removeItem);
+  tablinks = document.getElementsByClassName("tablinks");
+  console.log(tablinks);
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-
-  grandTotal();
+  console.log(tabname);
+  document.getElementById(tabname).style.display = "inline-flex";
+  displayMenuItems(tabname);
+  evt.currentTarget.className += " active";
 }
 
-function updateTotal(e) {
-  let numberOfItems = e.target;
-  let numberOfItemsGP = numberOfItems.parentElement.parentElement.parentElement;
-  let price = numberOfItemsGP.getElementsByClassName("item-price")[0];
-  let subtotal = numberOfItemsGP.children[2];
-  let priceContent = price.innerText.replace("Rs", "");
-  subtotal.innerText = "Rs " + numberOfItems.value * priceContent;
-  grandTotal();
-}
-
-function grandTotal() {
-  let total = 0;
-  let netTotal = document.getElementsByClassName("net-total")[0];
-  let tax = document.getElementsByClassName("tax")[0];
-  let grandTotal = document.getElementsByClassName("grand-total")[0];
-  let totalPrice = document.getElementsByClassName("sub-total");
-  for (let i = 0; i < totalPrice.length; i++) {
-    let totalPriceContent = Number(totalPrice[i].innerText.replace("Rs", ""));
-    total += totalPriceContent;
+async function getMenuItems() {
+  let url = "http://localhost/gp1/CustomerMenu/loadMenuItems";
+  try {
+    let res = await fetch(url);
+    console.log(res);
+    return await res.json();
+  } catch (e) {
+    console.log(e);
   }
-  netTotal.innerText = "Rs " + total;
-  let taxAmount = 0.05 * total;
-  tax.innerText = "Rs " + taxAmount;
-  let grandTotalAmount = total + taxAmount;
-  grandTotal.innerText = "Rs " + grandTotalAmount;
 }
 
-function removeItem(e) {
-  let removeBtn = e.target;
-  let removeBtnGP =
-    removeBtn.parentElement.parentElement.parentElement.parentElement
-      .parentElement;
-  console.log(removeBtnGP);
-  removeBtnGP.remove();
-  grandTotal();
-  console.log("remove");
+async function displayMenuItems(tabname) {
+  let items = await getMenuItems();
+  console.log(items.ItemName);
+  let html = "";
+  items.forEach((item) => {
+    Menu.push(item.MenuName);
+    Veg.push(item.veg_NonVeg);
+    Picture.push(item.picture);
+    Name.push(item.name);
+    PriceSmall.push(item.priceSmall);
+    PriceMedium.push(item.priceMedium);
+    PriceLarge.push(item.priceLarge);
+    Description.push(item.description);
+    Id.push(item.menuItemID);
+
+    if (item.MenuName == tabname) {
+      let htmlSegment = "";
+
+      if (item.veg_NonVeg == "Veg") {
+        htmlSegment += `<div class="menu-item veg">`;
+      } else {
+        htmlSegment += `<div class="menu-item">`;
+      }
+
+      htmlSegment += `     
+                        <img src="../public/images/${item.picture}" alt="">
+
+                        <div class="content-container">
+                            <h3 style="display: inline;">${item.name} </h3>
+                        </div>
+
+                        <div class="description">
+                            ${item.description}                            
+                        </div>
+
+                        <div class="price">
+                            Starting from <b> ${item.priceSmall} LKR</b>
+                        </div>
+                        <form method="POST" action="http://localhost/gp1/customerCart/loadCart">
+                          <div style="display: flex; justify-content: center;">
+                              <input type="submit" value='Order Now'class="btn" style=""> </input>
+                          </div>
+                          <input type='hidden' name='product_id' value='${item.menuItemID}'>
+                          <input type='hidden' name='product_name' value='${item.name}'>
+                          <input type='hidden' name='product_small' value='${item.priceSmall}'>
+                          <input type='hidden' name='product_medium' value='${item.priceMedium}'>
+                          <input type='hidden' name='product_large' value='${item.priceLarge}'>
+                          <input type='hidden' name='product_description' value='${item.description}'>
+                          <input type='hidden' name='product_picture' value='${item.picture}'>
+                        </form>
+                    </div>
+    `;
+      html += htmlSegment;
+    }
+  });
+
+  let menucontainer = document.getElementById(tabname);
+  menucontainer.innerHTML = html;
 }
+
+function displayFiltered(arr) {
+  let tabName;
+  let html = "";
+
+  arr.forEach((i) => {
+    // if (Menu[i] == tabname) {
+    let htmlSegment = "";
+
+    if (Veg[i] == "Veg") {
+      htmlSegment += `<div class="menu-item veg">`;
+    } else {
+      htmlSegment += `<div class="menu-item">`;
+    }
+
+    htmlSegment += `     
+                        <img src="../public/images/${Picture[i]}" alt="">
+
+                        <div class="content-container">
+                            <h3 style="display: inline;">${Name[i]} </h3>
+                        </div>
+
+                        <div class="description">
+                            ${Description[i]}                            
+                        </div>
+
+                        <div class="price">
+                            Starting from <b> ${PriceSmall[i]} LKR</b>
+                        </div>
+                        <form method="POST" action="http://localhost/gp1/customerCart/loadCart">
+                          <div style="display: flex; justify-content: center;">
+                              <input type="submit" value='Order Now'class="btn" style=""> </input>
+                          </div>
+                          <input type='hidden' name='product_id' value='${Id[i]}'>
+                          <input type='hidden' name='product_name' value='${Name[i]}'>
+                          <input type='hidden' name='product_small' value='${PriceSmall[i]}'>
+                          <input type='hidden' name='product_medium' value='${PriceMedium[i]}'>
+                          <input type='hidden' name='product_large' value='${PriceLarge[i]}'>
+                          <input type='hidden' name='product_description' value='${Description[i]}'>
+                          <input type='hidden' name='product_picture' value='${Picture[i]}'>
+                        </form>
+                    </div>
+    `;
+    html += htmlSegment;
+    // }
+  });
+  let menucontainer = document.getElementById("all");
+  // menucontainer.style.display = "inline-flex";
+  menucontainer.innerHTML = html;
+}
+
+// allFilter.addEventListener("click", function () {
+//   console.log("all");
+//   allFilter.classList.add("active");
+//   allFilter.classList.remove("inactive");
+//   vegFilter.classList.remove("active");
+//   nonvegFilter.classList.remove("active");
+//   vegFilter.classList.add("inactive");
+//   nonvegFilter.classList.add("inactive");
+// });
+
+// vegFilter.addEventListener("click", function () {
+//   console.log("veg");
+//   vegFilter.classList.add("active");
+//   vegFilter.classList.remove("inactive");
+//   allFilter.classList.remove("active");
+//   nonvegFilter.classList.remove("active");
+//   allFilter.classList.add("inactive");
+//   nonvegFilter.classList.add("inactive");
+// });
+
+// nonvegFilter.addEventListener("click", function () {
+//   console.log("nonveg");
+
+//   nonvegFilter.classList.add("active");
+//   nonvegFilter.classList.remove("inactive");
+//   allFilter.classList.remove("active");
+//   vegFilter.classList.remove("active");
+//   allFilter.classList.add("inactive");
+//   vegFilter.classList.add("inactive");
+// });

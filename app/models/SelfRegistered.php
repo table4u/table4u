@@ -9,7 +9,8 @@ class SelfRegistered extends Customer
         $this->db = new Database;
     }
 
-    public function getUserDetails(){
+    public function getUserDetails()
+    {
         $this->db->query('SELECT * FROM customer WHERE customerID = :userID');
         $this->db->bind(':userID', $_SESSION['user_id']);
 
@@ -21,7 +22,8 @@ class SelfRegistered extends Customer
         return $row;
     }
 
-    public function editDetails($data){
+    public function editDetails($data)
+    {
         $this->db->query('UPDATE customer SET name = :name,  mobile = :mobile,  email= :email, nic = :nic, dob=:dob, address = :address WHERE customerID = :user_id');
         // $dob = 
         // Bind values
@@ -32,7 +34,7 @@ class SelfRegistered extends Customer
         $this->db->bind(':nic', $data['nic']);
         $this->db->bind(':dob', $data['dob']);
         $this->db->bind(':address', $data['address']);
-
+        // die("in");
         // Execute
         if ($this->db->execute()) {
             return true;
@@ -40,7 +42,7 @@ class SelfRegistered extends Customer
             return false;
         }
     }
-    
+
     public function registerCustomer($data)
     {
         // $this->db->query('INSERT INTO customer(nic, address, mobile, name, email, username, password, dob, cust_type) 
@@ -66,7 +68,8 @@ class SelfRegistered extends Customer
         }
     }
 
-    public function loginCustomer($username, $pw){
+    public function loginCustomer($username, $pw)
+    {
         $this->db->query('SELECT * FROM customer WHERE username = :username');
         $this->db->bind(':username', $username);
 
@@ -96,21 +99,6 @@ class SelfRegistered extends Customer
         }
     }
 
-    // public function isVerified($userID)
-    // {
-    //     $this->db->query('SELECT verified FROM customer WHERE customer = :userID');
-    //     // Bind value
-    //     $this->db->bind(':userID', $userID);
-
-    //     $row = $this->db->single();
-
-    //     // Check row
-    //     if ($this->db->rowCount() > 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
     public function findUserByUsername($username)
     {
         $this->db->query('SELECT * FROM customer WHERE username = :username');
@@ -159,30 +147,77 @@ class SelfRegistered extends Customer
         }
     }
 
-    public function verifyEmail($vkey){
+    public function verifyEmail($vkey)
+    {
         $this->db->query('SELECT verified, vkey FROM customer WHERE vkey = :vkey');
         // Bind value
         $this->db->bind(':vkey', $vkey);
 
         $row = $this->db->single();
 
-     
+
         if ($this->db->rowCount() > 0) {
             $this->db->query('UPDATE customer SET verified = :verified WHERE vkey = :vkey');
-            
             $this->db->bind(':vkey', $vkey);
             $this->db->bind(':verified', 1);
 
+            // $this
             // Execute
             if ($this->db->execute()) {
                 return true;
             } else {
                 return false;
             }
-           
         } else {
             return false;
         }
     }
 
+    public function resetPassword($data)
+    {
+        $this->db->query('DELETE FROM resetpw WHERE email = :email');
+        $this->db->bind(':email', $$data['email']);
+
+        if ($this->db->execute()) {
+            $this->db->query('INSERT INTO resetpw( pwdResetEmail, pwdResetSelector, pwdResetToken, pwdResetExpires) 
+                        VALUES( :pwdResetEmail, :pwdResetSelector, :pwdResetToken, :pwdResetExpires');
+            $this->db->bind(':pwdResetEmail', $$data['email']);
+            $this->db->bind(':pwdResetSelector', $$data['email']);
+            $this->db->bind(':pwdResetToken', $$data['email']);
+            $this->db->bind(':pwdResetExpires', $$data['email']);
+
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function getNextReservationID(){
+        $this->db->query('SELECT MAX(reservationID) AS reservationID FROM reservation');
+        $row = $this->db->single();
+        // print_r($row);
+        // die();
+       
+        if ($this->db->rowCount() > 0) {
+            return $row->reservationID;
+        } else {
+            return 0;
+        }
+    }
+    public function getNextOrderID()
+    {
+        $this->db->query('SELECT MAX(orderID) AS orderID FROM order_menu_item');
+        $row = $this->db->single();
+        
+        if ($this->db->rowCount() > 0) {
+            return $row->orderID;
+        } else {
+            return 0;
+        }
+        
+    }
 }

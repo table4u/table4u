@@ -8,317 +8,213 @@
     <title>Table4U</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/cashierOrders.css">
-
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/cashierOrderMenu.css">
+    <title>Table4U</title>
+   
 </head>
 <body>
-  <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
-      <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
-      <div class="logo">
-        <i class="fas fa-utensils"></i> Hotel De Luna
-      </div>
-    </a>
-  </div>
+    <div class="dashboard"> <!--Dashboard start-->
 
-  <div class="footer">
-  </div>
+        <section class="navigation"> <!--Section navigation start-->
+            <div class="logo">
+            <img src="<?php echo URLROOT ?>/public/images/logo_table4u.png" width="270px" height="150px">
 
-  <!-- Navigation Bar -->
-  <div class="desktop-nav">
-      <a href="#">
-        <img class="calendar" src="<?php echo URLROOT ?>/public/images/calendar.svg" alt=""/>
-        <img class="clock" src="<?php echo URLROOT ?>/public/images/clock.svg" alt=""/>
-      </a>
-      <div class="date" onclick="showCalender()">22/10/2021
-        <div class="Mycalender" id="popupCalen">
-          <div class="month">      
-            <ul>
-              <li class="prev">&#10094;</li>
-              <li class="next">&#10095;</li>
-              <li>
-                Octomber<br>
-                <span style="font-size:18px">2021</span>
-              </li>
-            </ul>
+            <h7>Table 4U<br> Cashier Panel</h7>
+         </div>
+                <div>
+                    <ul>
+                    <!-- <li> <a href="<?php echo URLROOT ?>/CashierReserveTable/showPendingReservations"> Reservation</a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierOrderMenu/showOrderDetails">Orders </a> </li> -->
+                    <li> <a href="<?php echo URLROOT ?>/CashierReserveTable">Reservations </a> </li>
+                    <li class="menu-navigation"> <a href="<?php echo URLROOT ?>/CashierOrderMenu">Orders </a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierGuests/loadAddCustomer">Customers </a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierPayment/showCompletedpayments">Payments </a> </li>
+                
+                    <br><br>
+                    <!-- <li> <a href="<?php echo URLROOT ?>/Login/logout">Logout </a> </li> -->
+
+                    </ul>
+                </div>
+                <a class="logout" a href="<?php echo URLROOT ?>/Login/logout">Log Out</a>
+                
+        </section><!--Section navigation end-->
+
+
+        <section class="main_area"> <!--Section main area start-->
+        <div class="login_name"><p>Cashier</p></div>
+        <div class="user-image"><img src="<?php echo URLROOT ?>/public/images/profile.png" width="30px" height="30px">  </div>
+
+        <!-- Start of menu buttons -->
+        <div class="menutypeButtons">
+          <a class="btn1"  href="<?php echo URLROOT ?>/CashierOrderMenu">
+            <div class="appertizer">
+            <img class="icon1" src="<?php echo URLROOT ?>/public/images/fast-food.svg" alt=""/>
+                <h3 class="text1">Appetizers </h3>
+            </div>
+          </a>
+
+          <a class="btn2"  href="<?php echo URLROOT ?>/CashierOrderMenu/showMaincourse">
+            <div class="maincourse">
+              <img class="icon2" src="<?php echo URLROOT ?>/public/images/dinner.svg" alt=""/>
+              <h3 class="text2"> Main Course</h3>
+            </div>
+          </a>
+
+          <a class="btn33"  href="<?php echo URLROOT ?>/CashierHome/dorders">
+            <div class="dessert">
+              <img class="icon3" src="<?php echo URLROOT ?>/public/images/desert.svg" alt=""/>
+              <h3 class="text3">Dessert</h3>
+            </div>
+          </a>
+        </div>
+    <!-- End of menu buttons -->
+
+  <div id="list1">
+
+    <!-- Start Menu List -->
+
+    <div class="menulist">
+      <form class="search" action="<?php echo URLROOT ?>/CashierOrders/searchMenuItem">
+        <input type="text" placeholder="Search.." name="search">
+        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+      </form>
+
+        <!-- Start of Section2 -->
+
+      <table class="table-menuItems">
+        <tbody>
+        <?php foreach($data as $d ): ?>
+        <tr class="row">
+            <td class="column"><?php echo $d->name; ?></td>
+        </tr>
+        <tr class="row">
+            <td class="column"><?php echo $d->	pricePerServing; ?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+      </table>
+
+
+      <div class="menuItems">
+        <div class="row">
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
+              <h5 class="text1">Milk Pudding</h5>
+              <h5 class="price1">Rs . <span class="price">200.00</span></h5>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert1.jpg" alt=""/>
+              <h5 class="text1">Ice Cream</h5>
+              <h5 class="price1">Rs . <span class="price">270.00</span></h5>
+              <!-- <input type="number" class="Itemquantity" value="1"> -->
+            </div>
           </div>
           
-          <ul class="weekdays">
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-            <li>Su</li>
-          </ul>
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert4.jpg" alt=""/>
+              <h5 class="text1">Buiscuit Pudding</h5>
+              <h5 class="price1">Rs . <span class="price">280.00</span></h5>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert5.jpg" alt=""/>
+              <h5 class="text1">Sprinkle Balls</h5>
+              <h5 class="price1">Rs . <span class="price">230.00</span></h5>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+         
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert7.jpg" alt=""/>
+              <h5 class="text1">Lava Cake</h5>
+              <h5 class="price1">Rs . <span class="price">400.00</span></h5>
+            </div>
+          </div>
           
-          <ul class="days">  
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <li><span class="active">22</span></li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <li>29</li>
-            <li>30</li>
-            <li>31</li>
-          </ul>
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert9.jpg" alt=""/>
+              <h5 class="text1">Fruit Salad</h5>
+              <h5 class="price1">Rs . <span class="price">410.00</span></h5>
+            </div>
+          </div>
+          
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert11.jpg" alt=""/>
+              <h5 class="text1">Summer Pudding</h5>
+              <h5 class="price1">Rs . <span class="price">475.00</span></h5>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/desert10.jpg" alt=""/>
+              <h5 class="text1">Oreo Truffles</h5>
+              <h5 class="price1">Rs . <span class="price">420.00</span></h5>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="day" onclick="showCalender()">Tuesday
-        <div class="Mycalender" id="popupCalen"></div>
-      </div>
-      <div class="time">15 : 45</div>
+      </div>  
+
+
+        <!-- <div class="info"  onclick="addToCartClicked()">
+              <img class="iconinfo" src="<?php echo URLROOT ?>/public/images/information.svg" alt=""/>
+          </div>
+        </div> -->
+
     </div>
-  </div>
 
-  <!-- Profile -->
-  <div class="profile">
-    <h6 class="name">A.S.M. Adhikari</h6>
-    <div class="pfBtn"  onclick="showProfile()">
-
-      <div class="profWindow" id="myPopup">
-        <div class="head">
-          <div class="profilepic"></div>
-          <h4>A.S.M. Adhikari</h4>
-          <a class="gotopf"  href="<?php echo URLROOT ?>/CashierHome/gotoProfile">Go to profile</a>
-          <a class="logout"  href="<?php echo URLROOT ?>/CashierHome/logout">Log out</a>
-          <div class="up"></div>
-
-        </div>
-      </div>
-
-      </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- End of profile -->
-  <!-- End of navigation -->
-
-  <!-- Start Menu List -->
-
-  <div class="menulist">
-      <form>
-        <input type="text" placeholder="Search" name="search">
-        <input type="submit" value="" src="<?php echo URLROOT ?>/public/images/search.svg"> 
-      </form>
-  
-
-      <div class="crd1"  onclick="funcCd1()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd2"  onclick="funcCd2()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd3"  onclick="funcCd3()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd4"  onclick="funcCd4()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd5"  onclick="funcCd5()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd6"  onclick="funcCd6()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd7"  onclick="funcCd7()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd8"  onclick="funcCd8()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd9"  onclick="funcCd9()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd10"  onclick="funcCd10()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd11"  onclick="funcCd11()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd12"  onclick="funcCd12()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd13"  onclick="funcCd13()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="crd14"  onclick="funcCd14()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/desert.jpg" alt=""/>
-            <h4 class="text1">Milk Pudding</h4>
-            <h5 class="price1">Rs . 200.00</h5>
-        </div>
-      </div>
-
-      <div class="info"  onclick="funcCd15()">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/information.svg" alt=""/>
-        </div>
-      </div>
+    <!-- End of Menu List -->
 
   </div>
-
-  <!-- End of Menu List -->
-
 
   <!-- Start Checkout Box -->
 
   <div class="checkoutBox">
     <h1>Checkout</h1>
-    <h2>Name  Qty  Price(Rs.)</h2>
+    <h2>Item Price(Rs.) Qty</h2>
     
     <div class="list">
-      <div class="itemList">
-        <img class="trash" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
-        <h8 class="itemName">Expresso Shot </h8>
-        <h9></h9>
-      </div>
+      <section class="container content-section">
+            <div class="cart-items">
+            </div>
+        </section>
+    </div>
+    <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">00000.00</span>
+        
     </div>
 
-    <div class="cancel"  onclick="cancelOrder()">
-          <!-- <img class="icon1" src="<?php echo URLROOT ?>/public/images/cancel.svg" alt=""/> -->
-          <div class="text1">Cancel</div>
-    </div>
+    <div id="total" ></div>
     
-    <a class="paybyCash"  href="<?php echo URLROOT ?>/cashierOrders/paybyCash">
-      <img class="icon1" src="<?php echo URLROOT ?>/public/images/cash.png" alt=""/>
+    <!-- <a class="paybyCash" id=""  href="<?php echo URLROOT ?>/CashierOrderMenu/paybyCash">
+      <img class="iconpay" src="<?php echo URLROOT ?>/public/images/cash.png" alt=""/>
       <h6 class="text1">Cash Pay</h3>
-    </a>
+    </a> -->
 
-    <a class="paybyCard"  href="<?php echo URLROOT ?>/cashierOrders/paybyCard">
-      <img class="icon1" src="<?php echo URLROOT ?>/public/images/card.png" alt=""/>
+    <a class="paybyCard"  href="<?php echo URLROOT ?>/CashierOrderMenu/paybyCard">
+      <img class="iconpay" src="<?php echo URLROOT ?>/public/images/card.png" alt=""/>
       <h6 class="text1">Card Pay</h3>
     </a>
-
-      <div class="charge">
-        <h7 class="textTotal">Service charge (if any)</h7>
-      </div>
-      <div class="discount">
-        <h7 class="textTotal">Discount</h7>
-      </div>
-      <div class="total">
-        <h7 class="textTotal">Total</h7>
-      </div>
   </div>
 
   <!-- End of Checkout Box -->
-
-<!-- Start of menu buttons -->
-<div class="menutypeButtons">
-  <a class="btn1"  href="<?php echo URLROOT ?>/cashierOrders/index">
-    <div class="appertizer">
-    <img class="icon1" src="<?php echo URLROOT ?>/public/images/fast-food.svg" alt=""/>
-        <h3 class="text1">Appetizers </h3>
-    </div>
-  </a>
-
-  <a class="btn2"  href="<?php echo URLROOT ?>/cashierOrders/showMaincourse">
-    <div class="maincourse">
-      <img class="icon2" src="<?php echo URLROOT ?>/public/images/dinner.svg" alt=""/>
-      <h3 class="text2"> Main Course</h3>
-    </div>
-  </a>
-
-  <a class="btn33"  href="<?php echo URLROOT ?>/cashierOrders/showDessert">
-    <div class="dessert">
-      <img class="icon3" src="<?php echo URLROOT ?>/public/images/desert.svg" alt=""/>
-      <h3 class="text3">Dessert</h3>
-    </div>
-  </a>
-</div>
-<!-- End of menu buttons -->
 
   <script src="<?php echo URLROOT ?>/public/js/cashierOrders.js"></script>  
 </body>

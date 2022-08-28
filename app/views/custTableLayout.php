@@ -35,41 +35,70 @@
         <body onload="Toast.show('<?php echo $_SESSION['unsuccessReservation']; ?>' , 'error')">
             <?php unset($_SESSION['unsuccessReservation']); ?>
 
-        <?php else : ?>
+        <?php elseif (isset($_SESSION['noReservation'])) : ?>
 
-            <body>
-            <?php endif; ?>
+            <body onload="Toast.show('<?php echo $_SESSION['noReservation']; ?>' , 'error')">
+                <?php unset($_SESSION['noReservation']); ?>
 
-            <header>
-                <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-                <div id="menu-bar" class="fas fa-bars"></div>
-                <nav class="navbar">
-                    <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
-                    <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-                    <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
-                    <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-                    <a href="#"><i class="fas fa-bell"></i></a>
-                    <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-                </nav>
-            </header>
+            <?php else : ?>
 
-            <form class="res-details" method="POST" action="<?php echo URLROOT ?>/reservations/verifyDateAndTime">
-                <div class="form-group">
-                    <label for="">Date </label>
-                    <input required name="date" class="date" type="date" class="input-field" id="" placeholder="" value="<?php echo $data['date']; ?>">
+                <body>
+                <?php endif; ?>
+
+                <?php
+                require APPROOT . '/views/customer/header.php';
+                ?>
+
+                <form class="res-details" method="POST" action="<?php echo URLROOT ?>/customerReservations/verifyDateAndTime">
+                    <div class="form-group">
+                        <label for="">Date </label>
+                        <input required name="date" class="date" type="date" class="input-field" id="" placeholder="" value="<?php echo $data['date']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Time </label>
+                        <input required name="time" class="time" type="time" class="input-field" id="" placeholder="" value="<?php echo $data['time']; ?>">
+                    </div>
+                    <div class="form-group">
+                        <input name="submit" class="btn btn-check" type="submit" value="Check" id="" placeholder="" style="color: white; padding-left: 2rem; padding-right:  2rem;">
+                    </div>
+                </form>
+
+                <div>
+                    <form class="openingTime" action="">
+                        <div class="form-group">
+                            <!-- <?php print_r($data['openTime']); ?> -->
+                            <label for="">Opening Time </label>
+                            <!-- <input readonly name="openTime" class="time" type="time" class="input-field" id="" placeholder="" " value=" <?php print_r($data['openTime']) ?>"> -->
+                            <input readonly name="closeTime" class="time" type="time" class="input-field" id="" placeholder="" value="<?php echo $data['openTime']; ?>">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Closing Time </label>
+                            <input readonly name="closeTime" class="time" type="time" class="input-field" id="" placeholder="" value="<?php echo $data['closeTime']; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Holidays </label>
+                            <?php if (count($data['holidays'])) :
+                                foreach ($data['holidays'] as $h) :
+                                    if (($h->date > date("Y-m-d"))) :
+                            ?>
+                                        <div style="font-size:1.5rem">
+                                            <?php echo date("l, jS \of F Y", strtotime($h->date)); ?>
+                                        </div>
+                                <?php endif;
+                                endforeach; ?>
+                            <?php else : ?>
+                                <div style="font-size:1.5rem">
+                                    Restaurant Open
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="">Time </label>
-                    <input required name="time" class="time" type="time" class="input-field" id="" placeholder="" value="<?php echo $data['time']; ?>">
-                </div>
-                <div class="form-group">
-                    <input name="submit" class="btn btn-check" type="submit" value="Check" id="" placeholder="" style="color: white; padding-left: 2rem; padding-right:  2rem;">
-                </div>
-            </form>
 
-            <script src="<?php echo URLROOT ?>/public/js/customerTable.js"></script>
-            <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>
+                <script src="<?php echo URLROOT ?>/public/js/customerTable.js"></script>
+                <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>
 
-            </body>
+                </body>
 
 </html>

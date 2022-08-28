@@ -1,19 +1,24 @@
-.main_section .overview{
-      display: flex;
-      width: 700px;
-      height: calc(100% - 200px);;
-      padding: 20px 30px;
-  }
+.overview{
+  display: flex;
+  flex-wrap: wrap;
+  width: inherit;
+  height: auto;
+  padding: 20px 30px;
+  justify-content: center;
+}
 .box{
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       padding: 20px 30px;
-      margin: 0 20px 20px 20px;
+      margin: 40px 40px;
+      /* margin-right: 20px; */
       border-radius: 12px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      border: .2rem solid var(--orange);
+      /* background: #fff; */
+      /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
   }
  .box_topic{
-      background-color: #9da09f;
+      background-color: var(--orange);
       color: white;
       text-align: center;
       padding: 8px;
@@ -22,12 +27,12 @@
   }
 .box_details{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     padding: 15px;
   }
   .number{
     text-align: center;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 600;
   }

@@ -49,7 +49,8 @@ class CustomerProfile extends Controller
                 'nic_err' => '',
                 'mobile_err' => '',
                 'name_err' => '',
-                'email_err' => ''
+                'email_err' => '',
+                'dob_err' => ''
             ];
             // die(($data['dob']));           
 
@@ -65,7 +66,19 @@ class CustomerProfile extends Controller
             // print_r($data);
             // die();
 
-            if (empty($data['email_err']) && empty($data['mobile_err']) && empty($data['name_err']) && empty($data['nic_err'])) {
+            //dob validation
+            $dob = date("Y-m-d", strtotime($data['dob']));
+            $todayDate = date("Y-m-d");
+            // echo $dob;
+            // echo $todayDate;
+            // echo $dob >= $todayDate;
+            // die();
+            // print_r($data);
+            // die();
+            if ($dob >= $todayDate) {
+                $data['dob_err'] = "Please select a valid date";
+            }
+            if (empty($data['email_err']) && empty($data['mobile_err']) && empty($data['name_err']) && empty($data['nic_err']) && empty($data['dob_err'])) {
 
                 if ($this->selfRegisteredModel->editDetails($data)) {
                     $_SESSION['editSuccessMsg'] = "Successfully updated";

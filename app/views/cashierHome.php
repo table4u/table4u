@@ -19,87 +19,19 @@
     <i class="fas fa-utensils"></i> Hotel De Luna
   </div>
 
-   <div class="desktop-nav">
-      <a href="#">
-        <img class="calendar" src="<?php echo URLROOT ?>/public/images/calendar.svg" alt=""/>
-        <img class="clock" src="<?php echo URLROOT ?>/public/images/clock.svg" alt=""/>
-      </a>
-      <div class="date" onclick="showCalender()">22/10/2021
-        <div class="Mycalender" id="popupCalen">
-          <div class="month">      
-            <ul>
-              <li class="prev">&#10094;</li>
-              <li class="next">&#10095;</li>
-              <li>
-                Octomber<br>
-                <span style="font-size:18px">2021</span>
-              </li>
-            </ul>
-          </div>
-          
-          <ul class="weekdays">
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-            <li>Su</li>
-          </ul>
-          
-          <ul class="days">  
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <li><span class="active">22</span></li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <li>29</li>
-            <li>30</li>
-            <li>31</li>
-          </ul>
-        </div>
-      </div>
-      <div class="day" onclick="showCalender()">Tuesday
-        <div class="Mycalender" id="popupCalen"></div>
-      </div>
-      <div class="time">15 : 45</div>
-    </div>
-  </div>
-
   <!-- Profile -->
   <div class="profile">
-    <h6 class="name">A.S.M. Adhikari</h6>
+    <h6 class="name">Cashier</h6>
     <div class="pfBtn"  onclick="showProfile()">
-
+      <img class="profileimage" src="<?php echo URLROOT ?>/public/images/profile.png" alt=""/>
       <div class="profWindow" id="myPopup">
         <div class="head">
-          <div class="profilepic"></div>
-          <h8>A.S.M. Adhikari</h8>
+          <div class="profilepic">
+            <img class="profileimage" src="<?php echo URLROOT ?>/public/images/profile.png" alt=""/>
+          </div>
+          <h8>Cashier</h8>
           <a class="gotopf"  href="<?php echo URLROOT ?>/CashierHome/gotoProfile">Go to profile</a>
-          <a class="logout"  href="<?php echo URLROOT ?>/login/logout">Log out</a>
+          <a class="logout"  href="<?php echo URLROOT ?>/CashierHome/logout">Log out</a>
           <div class="up"></div>
         </div>
       </div>
@@ -125,17 +57,17 @@
   </div>
 </a>
 
-<a class="btn3"  href="<?php echo URLROOT ?>/CashierHome/payment">
+<a class="btn3"  href="<?php echo URLROOT ?>/CashierPayment/showPendingpayments">
   <div class="payments">
     <img class="icon3" src="<?php echo URLROOT ?>/public/images/payment.svg" alt=""/>
     <h3 class="text3">Payments</h3>
   </div>
 </a>
 
-<a class="btn4"  href="<?php echo URLROOT ?>/CashierGuests/showallcustomers">
+<a class="btn4"  href="<?php echo URLROOT ?>/CashierGuests/loadAddCustomer">
   <div class="guests">
       <img class="icon4" src="<?php echo URLROOT ?>/public/images/guest.svg" alt=""/>
-      <h3 class="text4">Guests</h3>
+      <h3 class="text4">Customers</h3>
   </div>
 </a>
 

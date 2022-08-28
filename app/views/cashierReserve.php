@@ -17,7 +17,7 @@
 <body>
 
   <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
+    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome">
       <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
       <div class="logo">
         <i class="fas fa-utensils"></i> Hotel De Luna
@@ -134,7 +134,7 @@
       <img class="clock1" src="<?php echo URLROOT ?>/public/images/clock2.svg">
         <!-- Start Select date & time -->
         <div class="chooseDate" id="popupdateform">
-          <form action="<?php echo URLROOT ?>/CashierHome/index">
+          <form action="<?php echo URLROOT ?>/CashierReserve/reserves" method="POST">
             <div class="row">
               <div class="labelname">
                 <label for="reserveDate">Date </label>
@@ -152,14 +152,9 @@
                 <input type="time" id="reserveTime" name="reserveTime"></br></br>
               </div>
             </div>
-            
-            <div class="ok">
-              <input type="submit" value="OK">
-            </div>
-            <div class="Cancel">
-              <input type="reset" value="Cancel">
-            </div>
 
+            <input type="submit" value="OK">
+            <input type="button" value="Cancel" onclick="closeFormtime_date()"> 
           </form> 
         </div>
         <!-- End Select date & time -->
@@ -172,16 +167,59 @@
 
 <!--  Start layout  -->
 <div class="layout">
-  <div class="menubutton"  onclick="showreserveList()">
+  <div class="menubutton"  onclick="showreservedList()">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
     
-      <!-- Start of reserve table -->
-    <div class="tableform" id="Tform">
-      <div class="title">Reserve Table</div>
+    <!-- Start of reservation list -->
+    <div class="reservationList" id="popupupReservations">
+      <div class="title">Reservation List</div>
+      <div class="listItem1">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem2">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem3">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem4">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem5">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem6">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+      <div class="listItem7">
+        10:00AM    Reserved
+        <img class="delReservation" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
+        <img class="editReservation" src="<?php echo URLROOT ?>/public/images/edit.jpg">
+      </div>
+    </div>
+    <!-- End of reservation list -->
+  </div> 
 
-      <form>
+  <!-- Start of reserve table1 form -->
+  
+  <div class="tableform" id="Tform1">
+      <div class="title">Reserve Table 1</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
         <div class="row">
           <div class="labelname">
             <label for="custName">Customer name</label>
@@ -202,19 +240,42 @@
 
         <div class="row">
           <div class="labelname">
-            <label for="NIC">NIC No</label>
+            <label for="noOfCovers">Number of covers</label>
           </div>
           <div class="inputrow">
-            <input type="text" id="NIC" name="NIC" required></br></br>
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
           </div>
         </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable1()">
 
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm1()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table1 form -->
+
+       <!-- Start of reserve table2 form -->
+  
+  <div class="tableform" id="Tform2">
+      <div class="title">Reserve Table 2</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
         <div class="row">
           <div class="labelname">
-            <label for="custAddress">Address</label>
+            <label for="custName">Customer name</label>
           </div>
           <div class="inputrow">
-            <input type="text" id="custAddress" name="custAddress" required></br></br>
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
           </div>
         </div>
 
@@ -226,93 +287,341 @@
             <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
           </div>
         </div>
-          
-        <input type="submit" value="OK">
-        <input type="reset" value="Cancel">
-      
+         <input type="submit" value="OK" onclick="changetoUnavailable2()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm2()">
       </form> 
     </div>
-  </div>  
 
-<!-- End  of reserve table -->
+      <!-- End of reserve table2 form -->
+
   
+  <!-- Start of reserve table3 form -->
+  
+  <div class="tableform" id="Tform3">
+      <div class="title">Reserve Table 3</div>
 
-  <div class="table1"  onclick="func()">
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
+        <div class="row">
+          <div class="labelname">
+            <label for="custName">Customer name</label>
+          </div>
+          <div class="inputrow">
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="labelname">
+            <label for="noOfCovers">Number of covers</label>
+          </div>
+          <div class="inputrow">
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
+          </div>
+        </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable3()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm3()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table3 form -->
+
+        <!-- Start of reserve table6 form -->
+  
+  <div class="tableform" id="Tform6">
+      <div class="title">Reserve Table 6</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
+        <div class="row">
+          <div class="labelname">
+            <label for="custName">Customer name</label>
+          </div>
+          <div class="inputrow">
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="labelname">
+            <label for="noOfCovers">Number of covers</label>
+          </div>
+          <div class="inputrow">
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
+          </div>
+        </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable6()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm6()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table6 form -->
+
+      <!-- Start of reserve table12 form -->
+  
+  <div class="tableform" id="Tform12">
+      <div class="title">Reserve Table 12</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
+        <div class="row">
+          <div class="labelname">
+            <label for="custName">Customer name</label>
+          </div>
+          <div class="inputrow">
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="labelname">
+            <label for="noOfCovers">Number of covers</label>
+          </div>
+          <div class="inputrow">
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
+          </div>
+        </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable12()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm12()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table12 form -->
+
+           <!-- Start of reserve table15 form -->
+  
+  <div class="tableform" id="Tform15">
+      <div class="title">Reserve Table 15</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
+        <div class="row">
+          <div class="labelname">
+            <label for="custName">Customer name</label>
+          </div>
+          <div class="inputrow">
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="labelname">
+            <label for="noOfCovers">Number of covers</label>
+          </div>
+          <div class="inputrow">
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
+          </div>
+        </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable15()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm15()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table15 form -->
+
+      <!-- Start of reserve table16 form -->
+  
+  <div class="tableform" id="Tform16">
+      <div class="title">Reserve Table 16</div>
+
+      <form action="<?php echo URLROOT ?>/CashierReserve/reserve" method="POST">
+        <div class="row">
+          <div class="labelname">
+            <label for="custName">Customer name</label>
+          </div>
+          <div class="inputrow">
+            <input type="text" id="custName" name="custName" required></br></br>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="labelname">
+            <label for="telNo">Contact No</label>
+          </div>
+          <div class="inputrow">
+            <input type="tel" id="telNo" name="telNo" required></br></br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="labelname">
+            <label for="noOfCovers">Number of covers</label>
+          </div>
+          <div class="inputrow">
+            <input type="number" id="noOfCovers" name="noOfCovers" required></br></br>
+          </div>
+        </div>
+         <input type="submit" value="OK" onclick="changetoUnavailable16()">
+
+        <!-- <button type="button" value="OK" onclick="changetoUnavailable()"></button> -->
+        <input type="button" value="Cancel" onclick="closereserveForm16()">
+      </form> 
+    </div>
+
+      <!-- End of reserve table16 form -->
+      
+  
+  <div class="table1" id="unavailableT1"  onclick="showreserveForm1()">
         <h2 class="text">Table 1</h2>
         <h3 class="covers">Covers Range (7 - 10)</h3>
   </div>
 
-  <div class="table2"  onclick="func()">
+  <div class="table2" id="unavailableT2"  onclick="showreserveForm2()">
     <h2 class="text">Table 2</h2>
     <h3 class="covers">Covers Range (7 - 10)</h3>
   </div>
 
-  <div class="table3"  onclick="func()">
+  <div class="table3" id="unavailableT3" onclick="showreserveForm3()">
     <h2 class="text">Table 3</h2>
     <h3 class="covers">Covers Range (5 - 8)</h3>
   </div>
 
-  <div class="table4"  onclick="func()">
+  <div class="table4" id="unavailableT4" onclick="showalreadyReservedT4()">
     <h2 class="text">Table 4</h2>
     <h3 class="covers">Covers Range (1 - 4)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT4">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT4()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table5"  onclick="func()">
+  <div class="table5" id="unavailableT5" onclick="showalreadyReservedT5()">
     <h2 class="text">Table 5</h2>
     <h3 class="covers">Covers Range (1 - 4)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT5">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT5()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table6"  onclick="func()">
+  <div class="table6"  id="unavailableT6" onclick="showreserveForm6()">
     <h2 class="text">Table 6</h2>
     <h3 class="covers">Covers Range (1 - 4)</h3>
   </div>
 
-  <!-- <div class="table7"  onclick="func()">
-    <h2 class="text">Table 7</h2>
-    <h3 class="covers">Covers Range (3 - 6)</h3>
-  </div> -->
-
-  <div class="table8"  onclick="func()">
+  <div class="table8"  id="unavailableT8" onclick="showalreadyReservedT8()">
     <h2 class="text">Table 8</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT8">
+        <h5>Already reserved !</h5> 
+        <button class="availability" onclick="changetoAvailableT8()">Available</button>
+    </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table9"  onclick="func()">
+  <div class="table9" id="unavailableT9" onclick="showalreadyReservedT9()">
     <h2 class="text">Table 9</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT9">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT9()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table10"  onclick="func()">
+  <div class="table10" id="unavailableT10" onclick="showalreadyReservedT10()">
     <h2 class="text">Table 10</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT10">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT10()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table11"  onclick="func()">
+  <div class="table11" id="unavailableT11" onclick="showalreadyReservedT11()">
     <h2 class="text">Table 11</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT11">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT11()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table12"  onclick="func()">
+  <div class="table12"  id="unavailableT12"  onclick="showreserveForm12()">
     <h2 class="text">Table 12</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
   </div>
 
-  <div class="table13"  onclick="func()">
+  <div class="table13"  id="unavailableT13" onclick="showalreadyReservedT13()">
     <h2 class="text">Table 13</h2>
     <h3 class="covers">Covers Range (3 - 6)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT13">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT13()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table14"  onclick="func()">
+  <div class="table14"  id="unavailableT14" onclick="showalreadyReservedT14()">
     <h2 class="text">Table 14</h2>
     <h3 class="covers">Covers Range (4 - 8)</h3>
+    <!-- End Already reserved message -->
+    <div class="message" id="popupmessageT14">
+          <h5>Already reserved !</h5> 
+          <button class="availability" onclick="changetoAvailableT14()">Available</button>
+      </div>
+    <!-- End  of reserve table -->
   </div>
 
-  <div class="table15"  onclick="func()">
+  <div class="table15"  id="unavailableT15"  onclick="showreserveForm15()">
     <h2 class="text">Table 15</h2>
     <h3 class="covers">Covers Range (4 - 8)</h3>
   </div>
 
-  <div class="table16"  onclick="func()">
+  <div class="table16"  id="unavailableT16"  onclick="showreserveForm16()">
     <h2 class="text">Table 16</h2>
     <h3 class="covers">Covers Range (4 - 8)</h3>
   </div>

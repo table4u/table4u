@@ -31,11 +31,12 @@ function checkPasswordStrength($pw)
     }
 
 function nicValidation($nic){
-    if (strlen($nic) == 10 and ($nic[9] == 'v' or $nic[9] == 'V' or $nic[9] == 'x' or $nic[9] == 'X')) {
+    if (strlen($nic) == 10 and preg_match('/^[0-9]{9}[vVxX]$/', $nic)) {
         return "";
-    } elseif (preg_match('/^[0-9]{12}$/', $nic)) {
+    } elseif (strlen($nic) == 12 and preg_match('/^[0-9]{12}$/', $nic)) {
         return "";
     } else {
         return "Invalid NIC format";
     }
 }
+

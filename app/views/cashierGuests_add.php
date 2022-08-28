@@ -8,200 +8,131 @@
     <title>Table4U</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/cashierGuests.css">
-
+    <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/toast.css">
+    <title>Table4U</title>
+   
+   
 </head>
 <body>
+    <div class="dashboard"> <!--Dashboard start-->
 
-<div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
-      <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
-      <div class="logo">
-        <i class="fas fa-utensils"></i> Hotel De Luna
-      </div>
-    </a>
-  </div>
+        <section class="navigation"> <!--Section navigation start-->
+            <div class="logo">
+            <img src="<?php echo URLROOT ?>/public/images/logo_table4u.png" width="270px" height="150px">
 
-  <div class="footer">
-  </div>
+            <h1>Table 4U<br> Cashier Panel</h1>
+         </div>
+                <div>
+                    <ul>
+                    <!-- <li> <a href="<?php echo URLROOT ?>/CashierReserveTable/showPendingReservations"> Reservation</a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierOrderMenu/showOrderDetails">Orders </a> </li> -->
+                    <li> <a href="<?php echo URLROOT ?>/CashierReserveTable">Reservations </a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierOrderMenu">Orders </a> </li>
+                    <li class="customer-navigation"> <a href="<?php echo URLROOT ?>/CashierGuests/loadAddCustomer">Customers </a> </li>
+                    <li> <a href="<?php echo URLROOT ?>/CashierPayment/showCompletedpayments">Payments </a> </li>
+                
+                    <br><br>
+                    <!-- <li> <a href="<?php echo URLROOT ?>/Login/logout">Logout </a> </li> -->
 
-  <!-- Navigation Bar -->
-  <div class="desktop-nav">
-      <a href="#">
-        <img class="calendar" src="<?php echo URLROOT ?>/public/images/calendar.svg" alt=""/>
-        <img class="clock" src="<?php echo URLROOT ?>/public/images/clock.svg" alt=""/>
-      </a>
-      <div class="date" onclick="showCalender()">08/08/202
-      <div class="Mycalender" id="popupCalen">
-          <div class="month">      
-            <ul>
-              <li class="prev">&#10094;</li>
-              <li class="next">&#10095;</li>
-              <li>
-                Octomber<br>
-                <span style="font-size:18px">2021</span>
-              </li>
-            </ul>
-          </div>
-          
-          <ul class="weekdays">
-            <li>Mo</li>
-            <li>Tu</li>
-            <li>We</li>
-            <li>Th</li>
-            <li>Fr</li>
-            <li>Sa</li>
-            <li>Su</li>
-          </ul>
-          
-          <ul class="days">  
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>10</li>
-            <li>11</li>
-            <li>12</li>
-            <li>13</li>
-            <li>14</li>
-            <li>15</li>
-            <li>16</li>
-            <li>17</li>
-            <li>18</li>
-            <li>19</li>
-            <li>20</li>
-            <li>21</li>
-            <li><span class="active">22</span></li>
-            <li>23</li>
-            <li>24</li>
-            <li>25</li>
-            <li>26</li>
-            <li>27</li>
-            <li>28</li>
-            <li>29</li>
-            <li>30</li>
-            <li>31</li>
-          </ul>
-        </div>
-      </div>
-      <div class="day" onclick="showCalender()">Tuesday
-        <!-- <div class="Mycalender" id="popupCalen"></div> -->
-      </div>
-      <div class="time">15 : 45</div>
-    </div>
-  </div>
+                    </ul>
+                </div>
+                <a class="logout" a href="<?php echo URLROOT ?>/Login/logout">Log Out</a>
 
-  <!-- Profile -->
-  <div class="profile">
-    <h6 class="name">A.S.M. Adhikari</h6>
-    <div class="pfBtn"  onclick="showProfile()">
+        </section><!--Section navigation end-->
 
-      <div class="profWindow" id="myPopup">
-        <div class="head">
-          <div class="profilepic"></div>
-          <h4>A.S.M. Adhikari</h4>
-          <a class="gotopf"  href="<?php echo URLROOT ?>/CashierHome/gotoProfile">Go to profile</a>
-          <a class="logout"  href="<?php echo URLROOT ?>/CashierHome/logout">Log out</a>
-          <div class="up"></div>
 
-        </div>
-      </div>
+        <section class="main_area"> <!--Section main area start-->
+        <div class="login_name"><p>Cashier</p></div>
+        <div class="user-image"><img src="<?php echo URLROOT ?>/public/images/profile.png" width="30px" height="30px">  </div>
 
-      </div>
+        <div class="topic-customer"><h1>Customers</h1></div>
 
-      </div>
-    </div>
-  </div>
-  <!-- End of profile -->
-  <!-- End of navigation -->
+            <br>
+            <div class="btns_addcust">
+                <div class="grid-container-customer">
+                    <a class="grid-item" id="clickedBtn" href="<?php echo URLROOT ?>/CashierGuests/loadAddCustomer">Add Customer</a>
+                    <a class="grid-item"  href="<?php echo URLROOT ?>/CashierGuests/showRegisterCustomers">Registered</a>
+                    <a class="grid-item" href="<?php echo URLROOT ?>/CashierGuests/showUnregisterCustomers">UnRegistered</a>
+                </div>
+            </div>
 
-  <!-- Start Menu Bar -->
-  <div class="menubar">
-    <div class="title">
-      <h1>Guests</h1>
-      <img src="<?php echo URLROOT ?>/public/images/guest.svg">
-    </div>
+                    
+            <div class="pageBackground">
+            <!-- Start Section1 -->
+            <div class="addCustomer" id="addcust">
+                <!-- <div class="title">Add Customer</div> -->
+                <div class="heading">
+                    Add Customer
+                    <hr>
+                </div>
 
-    <a class="btn11"  href="<?php echo URLROOT ?>/CashierGuests/addCustomer">
-      <h2>Add Customer</h2>
-    </a>
+                <?php if (isset($_SESSION['error'])) : ?>
+                <div style="color: #9b0606; margin-top:-2%;margin-left:7%;margin-right:10%;padding: 2%; width:80%; font-weight:8%; font-size:80%;text-align:center;  background-color: #f7858f; ">
+                    <?php echo $_SESSION['error'];
+                    unset($_SESSION['error']); ?>
+                </div>
+                <?php endif; ?>
 
-    <a class="btn2"  href="<?php echo URLROOT ?>/CashierGuests/showallcustomers">
-      <h2>All Customers</h2>
-    </a>
+            
 
-    <a class="btn3"  href="<?php echo URLROOT ?>/CashierGuests/showRegisterCustomers">
-      <h2>Registered</h2>
-    </a>
+            
 
-    <a class="btn4"  href="<?php echo URLROOT ?>/CashierGuests/showUnregisterCustomers">
-      <h2>Unregistered</h2>
-    </a>
-  </div>
-   <!-- End of Menu Bar -->
- 
-  <div class="pageBackground">
-   <!-- Start Section1 -->
-   <div class="addCustomer" id="addcust">
-    <div class="title">Add Customer</div>
+                <form class="addForm" method="POST" action="<?php echo URLROOT ?>/CashierGuests/addCustomer">
+                <div class="row">
+                    <div class="labelname">
+                    <label for="custName">Customer name</label>
+                    </div>
+                    <div class="inputrow">
+                    <input type="text" id="custName" name="custName" value="<?php echo $data['custName'];?>" required></br></br>
+                    </div>
+                </div>
+                    
+                <div class="row">
+                    <div class="labelname">
+                    <label for="telNo">Contact No</label>
+                    </div>
+                    <div class="inputrow">
+                    <input type="tel" id="telNo" name="telNo" value="<?php echo $data['telNo'];?>" required></br></br>
+                    </div>
+                </div>
 
-    <form>
-      <div class="row">
-        <div class="labelname">
-          <label for="custName">Customer name</label>
-        </div>
-        <div class="inputrow">
-          <input type="text" id="custName" name="custName" required></br></br>
-        </div>
-      </div>
-        
-      <div class="row">
-        <div class="labelname">
-          <label for="telNo">Contact No</label>
-        </div>
-        <div class="inputrow">
-          <input type="tel" id="telNo" name="telNo" required></br></br>
-        </div>
-      </div>
+                <div class="row">
+                    <div class="labelname">
+                    <label for="NIC">NIC No</label>
+                    </div>
+                    <div class="inputrow">
+                    <input type="text" id="NIC" name="NIC" value="<?php echo $data['NIC'];?>" ></br></br>
+                    </div>
+                </div>
 
-      <div class="row">
-        <div class="labelname">
-          <label for="NIC">NIC No</label>
-        </div>
-        <div class="inputrow">
-          <input type="text" id="NIC" name="NIC" required></br></br>
-        </div>
-      </div>
+                <div class="row">
+                    <div class="labelname">
+                    <label for="custAddress">Address</label>
+                    </div>
+                    <div class="inputrow">
+                    <input type="text" id="custAddress" name="custAddress" value="<?php echo $data['custAddress'];?>" required></br></br>
+                    </div>
+                </div>
+                    
+                <div class="Submit">
+                    <input type="submit" value="OK">
+                </div>
+                <div class="Cancel">
+                    <input type="reset" value="Cancel">
+                </div>
+                
+                </form> 
+                </div>
+            </div>  
+                    
+           
+            <script src=" <?php echo URLROOT?>/public/js/cashierGuests.js"></script>
+        </section><!--Section main area end-->
 
-      <div class="row">
-        <div class="labelname">
-          <label for="custAddress">Address</label>
-        </div>
-        <div class="inputrow">
-          <input type="text" id="custAddress" name="custAddress" required></br></br>
-        </div>
-      </div>
-        
-      <div class="Submit">
-        <input type="submit" value="OK">
-      </div>
-      <div class="Cancel">
-        <input type="reset" value="Cancel">
-      </div>
+    </div> <!--Dashboard End-->
     
-    </form> 
-    </div>
-  </div>  
-<!-- End of Section1 -->
-
-  <script src="<?php echo URLROOT ?>/public/js/cashierGuests.js"></script>  
 </body>
 </html>

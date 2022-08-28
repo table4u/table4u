@@ -5,12 +5,15 @@ class CustomerHome extends Controller
     public function __construct()
     {
         isValidUser('Customer');
-
+        $this->reservationModel = $this->model('Reservation');
     }
 
     public function index()
     {
-        $this->view('customerHome');
+        $res = $this->reservationModel->getReservationDetails($_SESSION['user_id']);
+        $data['resDetails'] = $res;
+        
+        $this->view('customerHome', $data);
     }
 
     // public function getReservationDetails()
@@ -20,5 +23,5 @@ class CustomerHome extends Controller
     //     $this->view('customerHome',$data);
     // }
 
-    
+
 }

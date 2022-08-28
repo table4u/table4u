@@ -1,0 +1,330 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:poppins;
+    font-size: small;
+    
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%; 
+    text-align: left;
+   
+    
+  }
+
+  h1{
+    font-size: 2rem;
+}
+li a {
+    display: block;
+    color: #000;
+    padding: 10px 120px 10px 80px;
+    text-decoration: none;
+    font-size:1.5rem;
+    width: 100%
+ 
+  }
+  li a:hover {
+    background-color: #555;
+    color: white;
+    width: 100%;
+  }
+  .menu-navigation{
+      background-color:#c2c1c0;
+      width:300px
+  }
+
+.main_area{
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px;
+    /*background-color: rgb(255, 255, 255);*/
+    float: right;
+    width: 78%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 1500px;
+
+}
+.navigation{
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px;
+    background-color:#e7e6e2;
+    float: left;
+    width: 20%;
+    height: 1500px;
+    position: fixed;
+    overflow: auto;
+    text-align: center;
+}
+.details-total{
+    position: absolute; 
+    top: 0px;
+    left: 300px;
+      display: grid;
+grid-template-columns: auto auto auto;
+}
+.matirial01, .matirial02 ,.matirial03,.matirial04{
+    background-color: rgb(255, 255, 255);
+    margin: 50px;
+    border: 5px solid #FF6000 ;
+    color: rgb(59, 59, 59);
+    border-radius: 15px;
+    width: 400px;
+    height: 120px;
+
+    text-align: center;
+    display: inline;
+}
+.matirial01 h1, .matirial02 h1 ,.matirial03 h1 ,.matirial04 h1 {
+    padding: 3px;
+}
+
+.topic{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search{
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+.search input{
+    width: 450px;
+    align-self: left;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 5px 10px 5px 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.menutopic{
+    position: absolute;
+    width: 1000px;
+    left: 340px;
+    background-color: rgb(255, 171, 60);
+    text-align: center;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.line{
+    background-color: #000;
+    height: 1px;
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 3px;
+    
+}
+.menu-topic-main{
+    margin-top: 50px;
+}
+
+#logout{
+    margin-left: 12rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color:#e7e6e2;
+    border: 1px solid #e7e6e2;
+    border-radius: 1rem;
+
+}
+.login_name{
+    position:absolute;
+    right: 55px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.user-image{
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.grid-container-menuAccept{
+    display: grid;
+    padding: 10px;
+    width: 50%;
+    
+}
+.grid-item {
+    background-color: #FF6000;
+    background-image: linear-gradient(to right, #FF6000, #ffffff);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    color: rgb(255, 255, 255);
+    padding: 5px 20px 5px 20px;
+    font-size: 20px;
+    text-align: left;
+    margin:5px 2px 5px 2px;
+    border-radius: 10px;
+  }
+  .grid-item:hover{
+      border: 2px solid black;
+  }
+
+  .popup{
+    position: absolute;
+    top: 0;
+    left: 480px;
+    margin: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    
+    width: 30%;
+    height: 50%;
+    
+}
+
+.popuptopic{
+    background-color: antiquewhite;
+    padding-left: 10px;
+    padding-top: 5px;
+    z-index: 1;
+}
+.popuptopic h2{
+    font-size: large;
+}
+.popupcontent{
+    z-index: 1;
+    background-color: rgb(238, 238, 238);
+    padding: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+.subtopic{
+    padding: 2px;
+    font-weight: bolder;
+    font-size: medium;
+}
+.answer{
+    padding-left: 5px;
+    font-size: small;
+}
+
+.updateEmployee,.deleteEmployee, addEmployee{
+    padding: 2px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: small;
+}
+
+.updateEmployee{
+    position: relative;
+    background-color: green;
+    border: 2px solid green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+.deleteEmployee{
+    position:absolute ;
+    right: 20px;
+    background-color: #ff6961;
+    border: 2px solid #ff6961;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.addEmployee{
+    width: 150px;
+    height: 30px;
+    background-color: greenyellow;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.field{
+    padding: 7px;
+}
+
+.popupform{
+    background-color: rgb(238, 238, 238);
+    padding:5px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    
+    
+}
+
+#display{
+    position: absolute;
+    top:180px;
+    left:30px;
+}
+.close-btn{
+    position: absolute;
+    left: 380px;
+    width: 20px;
+    background-color: antiquewhite;
+    border: 1px solid antiquewhite;
+
+}
+#popup-topic{
+    visibility:hidden;
+}
+#popUp-content{
+    visibility: hidden;
+}
+ #small-price, #medium-price , #large-price{
+     width: 200px;
+     border-radius: 10px;
+     padding: 6px 3px 6px 3px;
+
+ }
+ 
+ .pop-up-btn{
+     padding: 3px;
+     background-color: #FF6000;;
+     color: white;
+     border: 1px solid #FF6000; ;
+     border-radius: 10px;
+     
+ }
+.pop-up-btn:hover{
+    border:2px solid black;
+
+}
+.popUp-to-update-delete{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgb(243, 94, 94);
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: rgb(255, 255, 255);
+    visibility: hidden;
+    z-index: 1;
+}
+.Msg{
+    font-size: large;
+}
+.Delete-update{
+    
+    color: white;
+}
+
+html
+{
+	font-size: 62.5%;
+}
+

@@ -17,7 +17,7 @@
 <body>
 
 <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
+    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome">
       <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
       <div class="logo">
         <i class="fas fa-utensils"></i> Hotel De Luna
@@ -125,50 +125,49 @@
 <!-- End of profile -->
   <!-- End of navigation -->
 
-  <!-- Start Menu List -->
-  <nav class="menuList">
+   <!-- Start Menu List -->
+   <nav class="menuList">
     <h1 class="floor">Floor 1</h1>
-    <a class="current"  href="<?php echo URLROOT ?>/CashierReserve/index"><h1>Current</h1></a>
+    <a class="current"  href="<?php echo URLROOT ?>/CashierHome/reserve"><h1>Current</h1></a>
     <div class="date_time" onclick="selectdate_time()">
       <img class="calander1" src="<?php echo URLROOT ?>/public/images/calendar2.svg">
       <img class="clock1" src="<?php echo URLROOT ?>/public/images/clock2.svg">
+        <!-- Start Select date & time -->
+        <div class="chooseDate" id="popupdateform">
+          <form action="<?php echo URLROOT ?>/cashierReserve/showUpdatedLayout">
+            <div class="row">
+              <div class="labelname">
+                <label for="reserveDate">Date </label>
+              </div>
+              <div class="inputrow">
+                <input type="date" id="reserveDate" name="reserveDate"></br></br>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="labelname">
+                <label for="reserveTime">Time </label>
+              </div>
+              <div class="inputrow">
+                <input type="time" id="reserveTime" name="reserveTime"></br></br>
+              </div>
+            </div>
+            
+            <div class="ok">
+              <input type="submit" value="OK">
+            </div>
+            <div class="Cancel">
+              <input type="button" value="Cancel" onclick="closeForm()">
+            </div>
+
+          </form> 
+        </div>
+        <!-- End Select date & time -->
     </div>
     
   </nav>
       
   <!-- End of Menu List -->
-
-  <!-- Start Select date & time -->
-<div class="chooseDate" id="popupdateform">
-  <form>
-    <div class="row">
-      <div class="labelname">
-        <label for="reserveDate">Date </label>
-      </div>
-      <div class="inputrow">
-        <input type="date" id="reserveDate" name="reserveDate"></br></br>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="labelname">
-        <label for="reserveTime">Time </label>
-      </div>
-      <div class="inputrow">
-        <input type="time" id="reserveTime" name="reserveTime"></br></br>
-      </div>
-    </div>
-    
-    <div class="ok">
-      <input type="submit" value="OK">
-    </div>
-    <div class="Cancel">
-      <input type="cancel" value="Cancel">
-    </div>
-
-  </form> 
-</div>
-<!-- End Select date & time -->
 
   <!-- Start Layout One -->
 
@@ -178,9 +177,7 @@
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
-    <!-- <div class="tableform" id="Tform">
-
-    </div> -->
+    
   </div>
 
   <div class="table1u"  onclick="func()">

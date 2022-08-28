@@ -6,7 +6,7 @@ define('APPROOT', dirname(dirname(__FILE__)));
 
 //url root
 define('URLROOT', 'http://localhost/gp1');
-
+//change the cart js one
 define('SITENAME', 'Table4U');
 
 

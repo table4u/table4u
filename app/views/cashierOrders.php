@@ -16,7 +16,7 @@
 </head>
 <body>
   <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
+    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome">
       <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
       <div class="logo">
         <i class="fas fa-utensils"></i> Hotel De Luna
@@ -95,8 +95,8 @@
         <div class="Mycalender" id="popupCalen"></div>
       </div>
       <div class="time">15 : 45</div>
-    </div>
   </div>
+  <!-- </div> -->
 
   <!-- Profile -->
   <div class="profile">
@@ -125,128 +125,149 @@
   <!-- Start Menu List -->
 
   <div class="menulist">
-      <form>
-        <input type="text" placeholder="Search" name="search">
-        <input type="submit" value="" src="<?php echo URLROOT ?>/public/images/search.svg"> 
-      </form>
-  
+    <form class="search" action="<?php echo URLROOT ?>/CashierOrders/searchMenuItem">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
 
-      <div class="crd1"  onclick="funcCd1()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+
+    <div class="menuItems">
+      <div class="row">
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+              <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
+              <h5 class="text1">Spicy Shrimp</h5>
+              <h5 class="price1">Rs . <span class="price">400.00</span></h5>
+              <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer2.jpg" alt=""/>
+            <h5 class="text1">French Bread</h5>
+            <h5 class="price1">Rs . <span class="price">200.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+        
+        <!-- <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer3.jpg" alt=""/>
+            <h5 class="text1">Garlic Prawn</h5>
+            <h5 class="price1">Rs . 500.00</h5>
+            <input type="number" class="Itemquantity" value="1">
+          </div>
+        </div> -->
+        
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer4.jpg" alt=""/>
+            <h5 class="text1">Chil Macaroni</h5>
+            <h5 class="price1">Rs . <span class="price">420.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer5.jpg" alt=""/>
+            <h5 class="text1">Crab Cake</h5>
+            <h5 class="price1">Rs . <span class="price">600.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer6.jpg" alt=""/>
+            <h5 class="text1">Pot Stickers</h5>
+            <h5 class="price1">Rs . <span class="price">300.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer7.jpg" alt=""/>
+            <h5 class="text1">Mini Quiche</h5>
+            <h5 class="price1">Rs . <span class="price">200.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
         </div>
       </div>
 
-      <div class="crd2"  onclick="funcCd2()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
+      <div class="row">
+        <!-- <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer8.jpg" alt=""/>
+            <h5 class="text1">Potato Skins</h5>
+            <h5 class="price1">Rs . 350.00</h5>
+            <input type="number" class="Itemquantity" value="1">
+          </div>
+        </div> -->
 
-      <div class="crd3"  onclick="funcCd3()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer9.jpg" alt=""/>
+            <h5 class="text1">Deviled Egg</h5>
+            <h5 class="price1">Rs . <span class="price">300.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
         </div>
-      </div>
+        
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer10.jpg" alt=""/>
+            <h5 class="text1">Roasted Meat</h5>
+            <h5 class="price1">Rs . <span class="price">700.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer11.jpg" alt=""/>
+            <h5 class="text1">Hot Wings</h5>
+            <h5 class="price1">Rs . <span class="price">800.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
+        </div>
 
-      <div class="crd4"  onclick="funcCd4()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer12.jpg" alt=""/>
+            <h5 class="text1">Spring Roll</h5>
+            <h5 class="price1">Rs . <span class="price">200.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
         </div>
-      </div>
 
-      <div class="crd5"  onclick="funcCd5()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer13.jpg" alt=""/>
+            <h5 class="text1">French Burger</h5>
+            <h5 class="price1">Rs . <span class="price">500.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
         </div>
-      </div>
 
-      <div class="crd6"  onclick="funcCd6()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+        <div class="column">
+          <div class="card"  onclick="addToCartClicked()">
+            <img class="icon" src="<?php echo URLROOT ?>/public/images/apertizer14.jpg" alt=""/>
+            <h5 class="text1">Chicken Roll</h5>
+            <h5 class="price1">Rs . <span class="price">200.00</span></h5>
+            <!-- <input type="number" class="Itemquantity" value="1"> -->
+          </div>
         </div>
       </div>
+    </div>  
 
-      <div class="crd7"  onclick="funcCd7()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
 
-      <div class="crd8"  onclick="funcCd8()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
+      <!-- <div class="info"  onclick="addToCartClicked()">
+            <img class="iconinfo" src="<?php echo URLROOT ?>/public/images/information.svg" alt=""/>
         </div>
-      </div>
-
-      <div class="crd9"  onclick="funcCd9()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="crd10"  onclick="funcCd10()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="crd11"  onclick="funcCd11()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="crd12"  onclick="funcCd12()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="crd13"  onclick="funcCd13()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="crd14"  onclick="funcCd14()">
-        <div class="item1">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/apertizer.jpg" alt=""/>
-            <h4 class="text1">Spicy Shrimp</h4>
-            <h5 class="price1">Rs . 400.00</h5>
-        </div>
-      </div>
-
-      <div class="info"  onclick="funcCd15()">
-            <img class="icon1" src="<?php echo URLROOT ?>/public/images/information.svg" alt=""/>
-        </div>
-      </div>
+      </div> -->
 
   </div>
 
@@ -257,61 +278,53 @@
 
   <div class="checkoutBox">
     <h1>Checkout</h1>
-    <h2>Name  Qty  Price(Rs.)</h2>
+    <h2>Item Price(Rs.) Qty</h2>
     
     <div class="list">
-      <div class="itemList">
-        <img class="trash" src="<?php echo URLROOT ?>/public/images/trash-bin.svg">
-        <h8 class="itemName">Expresso Shot </h8>
-        <h9></h9>
-      </div>
+      <section class="container content-section">
+            <div class="cart-items">
+            </div>
+        </section>
+    </div>
+    <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">00000.00</span>
     </div>
 
-    <div class="cancel"  onclick="cancelOrder()">
-          <!-- <img class="icon1" src="<?php echo URLROOT ?>/public/images/cancel.svg" alt=""/> -->
-          <div class="text1">Cancel</div>
-    </div>
+    <a class="cancel"  href="<?php echo URLROOT ?>/CashierHome/payment">
+      <div class="text1">Save Order</div>
+    </a>
     
-    <a class="paybyCash"  href="<?php echo URLROOT ?>/cashierOrders/paybyCash">
-      <img class="icon1" src="<?php echo URLROOT ?>/public/images/cash.png" alt=""/>
+    <a class="paybyCash"  href="<?php echo URLROOT ?>/CashierOrders/paybyCash">
+      <!-- <img class="iconpay" src="<?php echo URLROOT ?>/public/images/cash.png" alt=""/> -->
       <h6 class="text1">Cash Pay</h3>
     </a>
 
-    <a class="paybyCard"  href="<?php echo URLROOT ?>/cashierOrders/paybyCard">
-      <img class="icon1" src="<?php echo URLROOT ?>/public/images/card.png" alt=""/>
+    <a class="paybyCard"  href="<?php echo URLROOT ?>/CashierOrders/paybyCard">
+      <!-- <img class="iconpay" src="<?php echo URLROOT ?>/public/images/card.png" alt=""/> -->
       <h6 class="text1">Card Pay</h3>
     </a>
-
-      <div class="charge">
-        <h7 class="textTotal">Service charge (if any)</h7>
-      </div>
-      <div class="discount">
-        <h7 class="textTotal">Discount</h7>
-      </div>
-      <div class="total">
-        <h7 class="textTotal">Total</h7>
-      </div>
   </div>
 
   <!-- End of Checkout Box -->
 
 <!-- Start of menu buttons -->
 <div class="menutypeButtons">
-  <a class="btn11"  href="<?php echo URLROOT ?>/cashierOrders/index">
+  <a class="btn11"  href="<?php echo URLROOT ?>/CashierHome/orders">
     <div class="appertizer">
     <img class="icon1" src="<?php echo URLROOT ?>/public/images/fast-food.svg" alt=""/>
         <h3 class="text1">Appetizers </h3>
     </div>
   </a>
 
-  <a class="btn2"  href="<?php echo URLROOT ?>/cashierOrders/showMaincourse">
+  <a class="btn2"  href="<?php echo URLROOT ?>/CashierHome/morders">
     <div class="maincourse">
       <img class="icon2" src="<?php echo URLROOT ?>/public/images/dinner.svg" alt=""/>
       <h3 class="text2"> Main Course</h3>
     </div>
   </a>
 
-  <a class="btn3"  href="<?php echo URLROOT ?>/cashierOrders/showDessert">
+  <a class="btn3"  href="<?php echo URLROOT ?>/CashierHome/dorders">
     <div class="dessert">
       <img class="icon3" src="<?php echo URLROOT ?>/public/images/desert.svg" alt=""/>
       <h3 class="text3">Dessert</h3>

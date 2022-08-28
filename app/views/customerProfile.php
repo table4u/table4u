@@ -36,88 +36,91 @@
         <body onload="Toast.show('<?php echo $_SESSION['unsuccessMsg']; ?>' , 'error')">
             <?php unset($_SESSION['unsuccessMsg']); ?>
 
-        <?php else : ?>
-
-            <body>
-            <?php endif; ?>
+        <?php elseif (isset($_SESSION['successFeedback'])) : ?>
 
 
-            <!-- navigation menu -->
-            <header>
-                <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-                <div id="menu-bar" class="fas fa-bars"></div>
-                <nav class="navbar">
-                    <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
-                    <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-                    <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
-                    <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-                    <a href="#"><i class="fas fa-bell"></i></a>
-                    <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-                </nav>
-            </header>
+            <body onload="Toast.show('<?php echo $_SESSION['successFeedback']; ?>' , 'success')">
+                <?php unset($_SESSION['successFeedback']); ?>
 
-            <section>
-                <!-- <div class="toast toast-visible toast-success">
-            sample toast message
-        </div> -->
-                <div class="container" id="blur">
-                    <div class="profile">
-                        <h1 class="heading">
-                            Profile
-                        </h1>
-                        <hr>
-                        <div class="info">
-                            <?php
-                            // print_r($data);
-                            // $_SESSION['name'] = $data->name;
-                            // $_SESSION['address'] = $data->address;
-                            // $_SESSION['nic'] = $data->NIC;
-                            // $_SESSION['mobile'] = $data->mobile;
-                            // $_SESSION['dob'] = $data->dob;
-                            // echo $data["name"];
-                            $dob = date('Y-m-d', strtotime($data->dob));
+            <?php elseif (isset($_SESSION['unsuccessFeedback'])) : ?>
 
-                            ?>
-                            <div>
+                <body onload="Toast.show('<?php echo $_SESSION['unsuccessFeedback']; ?>' , 'error')">
+                    <?php unset($_SESSION['unsuccessFeedback']); ?>
 
+                <?php else : ?>
+
+                    <body>
+                    <?php endif; ?>
+
+
+                    <!-- navigation menu -->
+                    <?php
+                    require APPROOT . '/views/customer/header.php';
+                    ?>
+
+                    <section>
+
+                        <div class="container" id="blur">
+                            <div class="profile">
+                                <h1 class="heading">
+                                    Profile
+                                </h1>
+                                <hr>
+                                <div class="info">
+                                    <?php
+                                    // print_r($data);
+                                    // $_SESSION['name'] = $data->name;
+                                    // $_SESSION['address'] = $data->address;
+                                    // $_SESSION['nic'] = $data->NIC;
+                                    // $_SESSION['mobile'] = $data->mobile;
+                                    // $_SESSION['dob'] = $data->dob;
+                                    // echo $data["name"];
+                                    $dob = date('Y-m-d', strtotime($data->dob));
+
+                                    ?>
+                                    <div>
+
+                                    </div>
+                                    <form method="POST" action="<?php echo URLROOT; ?>/customerProfile/edit">
+                                        <div class="form-group">
+                                            <label for="">Name: </label>
+                                            <input name="name" type="text" class="input-field" id="" placeholder="Enter name" value="<?php echo $data->name; ?>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">NIC: </label>
+                                            <input name="nic" type="text" class="input-field" id="" placeholder="Enter NIC number" value="<?php echo $data->NIC; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Birth Date: </label>
+                                            <input name="dob" type="date" class="input-field" id="" placeholder="" value="<?php echo date('Y-m-d', strtotime($data->dob)); ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Mobile: </label>
+                                            <input name="mobile" type="text" class="input-field" id="" placeholder="Enter mobile" value="<?php echo $data->mobile; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Email: </label>
+                                            <input name="email" type="text" class="input-field" id="" placeholder="Enter email" value="<?php echo $data->email; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Address: </label>
+                                            <input name="address" type="text" class="input-field" id="" placeholder="Enter address" value="<?php echo $data->address; ?>">
+                                        </div>
+
+                                        <div class="" style="padding:1.5rem; display: flex; justify-content: space-around">
+                                            <input type="submit" class="edit" value="Edit">
+                                            <input type="reset" value="Reset" class="edit" id="" placeholder="" onclick="Toast.show('No changes were made' , 'normal')">
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <!-- <div class="pw-reset">
+                            <a href=""> <i class="fas fa-lock"></i> Password Reset</a>
+                        </div> -->
                             </div>
-                            <form method="POST" action="<?php echo URLROOT; ?>/customerProfile/edit">
-                                <div class="form-group">
-                                    <label for="">Name: </label>
-                                    <input name="name" type="text" class="input-field" id="" placeholder="Enter name" value="<?php echo $data->name; ?>">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">NIC: </label>
-                                    <input name="nic" type="text" class="input-field" id="" placeholder="Enter NIC number" value="<?php echo $data->NIC; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Birth Date: </label>
-                                    <input name="dob" type="date" class="input-field" id="" placeholder="" value="<?php echo date('Y-m-d', strtotime($data->dob)); ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Mobile: </label>
-                                    <input name="mobile" type="text" class="input-field" id="" placeholder="Enter mobile" value="<?php echo $data->mobile; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Email: </label>
-                                    <input name="email" type="text" class="input-field" id="" placeholder="Enter email" value="<?php echo $data->email; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Address: </label>
-                                    <input name="address" type="text" class="input-field" id="" placeholder="Enter address" value="<?php echo $data->address; ?>">
-                                </div>
-
-                                <div class="" style="padding:1.5rem; display: flex; justify-content: space-around">
-                                    <input type="submit" class="edit" value="Edit">
-                                    <input type="reset" value="Reset" class="edit" id="" placeholder="" onclick="Toast.show('No changes were made' , 'normal')">
-
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                    <div class="feedback">
+                            <!-- <div class="feedback">
                         <div class="loyalty">
                             <h1 class="heading">
                                 Loyalty Points
@@ -138,70 +141,57 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="feedback-box">
-                            <h1 class="heading">
-                                Feedback
-                            </h1>
-                            <hr>
-                            <button class="btn" style="border-bottom-width: 0px;border-bottom-style: solid;border-top-width: 0px;border-top-style: solid;border-left-width: 0px;border-left-style: solid;border-right-width: 0px;border-right-style: solid;">
-                                Let's give feedback
-                            </button>
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-                <div class="feedback-popup" id="popup">
-                    <div class="content">
-                        <div class="post">
-                            <div class="text">
-                                Thanks for rating us!
+                        </div> -->
+                            <div class="feedback-box">
+                                <h1 class="heading">
+                                    Feedback
+                                </h1>
+                                <hr>
+                                <button class="btn" style="border-bottom-width: 0px;border-bottom-style: solid;border-top-width: 0px;border-top-style: solid;border-left-width: 0px;border-left-style: solid;border-right-width: 0px;border-right-style: solid;">
+                                    Let's give feedback
+                                </button>
                             </div>
-                            <div class="close fas fa-times"></div>
+
+
+
                         </div>
-                        <div class="feedback-content">
-                            <h1 class="heading">Feedback</h1>
-                            <p>We value your feedback and it will help us better deliver our services</p>
-                            <div class="close fas fa-times" style="top: 2.5rem; right:2.5rem;" id="feedback-close"></div>
-                            <form action="">
-                                <div class="stars">
-                                    <input type="radio" name="rate" id="rate-5">
-                                    <label for="rate-5" class="fas fa-star"></label>
-                                    <input type="radio" name="rate" id="rate-4">
-                                    <label for="rate-4" class="fas fa-star"></label>
-                                    <input type="radio" name="rate" id="rate-3">
-                                    <label for="rate-3" class="fas fa-star"></label>
-                                    <input type="radio" name="rate" id="rate-2">
-                                    <label for="rate-2" class="fas fa-star"></label>
-                                    <input type="radio" name="rate" id="rate-1">
-                                    <label for="rate-1" class="fas fa-star"></label>
+                        </div>
+
+                        <div class="feedback-popup" id="popup">
+                            <div class="content">
+                                <div class="post">
+                                    <div class="text">
+                                        Thanks for rating us!
+                                    </div>
+                                    <div class="close fas fa-times"></div>
                                 </div>
-                                <!--                </form>-->
+                                <div class="feedback-content">
+                                    <h1 class="heading">Feedback</h1>
+                                    <p>We value your feedback and it will help us better deliver our services</p>
+                                    <div class="close fas fa-times" style="top: 2.5rem; right:2.5rem;" id="feedback-close"></div>
+                                    <form method="POST" action="<?php echo URLROOT; ?>/customerFeedback/addFeedback">
+                                        <div>
+                                            <div class="textarea">
+                                                <textarea placeholder="Describe your experience" name="comment" id="" cols="30" rows="10" required></textarea>
+                                            </div>
+                                            <div class="submitBtn">
+                                                <button name="" id="" type="submit">Rate</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
 
-                                <div>
-                                    <!--                    <form action="">-->
-                                    <div class="textarea">
-                                        <textarea placeholder="Describe your experience" name="" id="" cols="30" rows="10" required></textarea>
-                                    </div>
-                                    <div class="submitBtn">
-                                        <button name="" id="" type="submit">Rate</button>
-                                    </div>
-                            </form>
                         </div>
-                    </div>
-
-                </div>
-                <!-- </div> -->
 
 
-            </section>
 
-            <script src="<?php echo URLROOT ?>/public/js/customerProfile.js"></script>
-            <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>
 
-            </body>
+                    </section>
+
+                    <script src="<?php echo URLROOT ?>/public/js/customerProfile.js"></script>
+                    <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>
+
+                    </body>
 
 </html>

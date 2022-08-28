@@ -10,7 +10,6 @@
     <!-- custom styling sheet -->
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customerReservations.css">
     <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/toast.css">
-    <!-- <link rel="stylesheet" href="<?php echo URLROOT ?>/public/css/customerTable.css"> -->
 
     <!-- font awesome cdn link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -201,18 +200,9 @@
 
 
         <!-- navigation menu -->
-        <header>
-            <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-            <div id="menu-bar" class="fas fa-bars"></div>
-            <nav class="navbar">
-                <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
-                <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-                <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
-                <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-                <a href="#"><i class="fas fa-bell"></i></a>
-                <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-            </nav>
-        </header>
+        <?php
+        require APPROOT . '/views/customer/header.php';
+        ?>
 
         <section>
 
@@ -232,43 +222,142 @@
                         <hr style="margin-top: 1rem;">
                     </div>
 
-                    <?php foreach ($data as $d) :
-                        if ($d->_date >= date("Y-m-d")) :
-                    ?>
+                    <!-- <?php foreach ($data as $d) :
+                                if ($d->_date >= date("Y-m-d")) :
+                            ?> -->
+                    <!-- <div style="display: grid; grid-template-columns:1fr 1fr;">
+                                <div class="content">
+                                    <div class="rev" style="text-align:center; width: 100%;">
+                                        <div class="date"><b>Date </b><br> <br><?php echo date("l, jS \of F Y", strtotime($d->_date)); ?></div>
+                                        <div class="time"><b>Time </b><br> <br><?php echo date("g:i A ", strtotime($d->reservationTime));  ?></div>
+                                        <div class="guests"><b>Number of guests </b><br> <br><?php echo $d->noOfGuests; ?></div>
+                                        <div class="food">Food ordered</div>
+                                        <div style="text-align:center;">
+                                            <button class="btn update" style="border-color: green;">Update</button>
+                                            <button class="btn delete">Cancel</button>
+                                        </div>
 
-                            <div class="content">
-                                <div class="rev" style="text-align:center; width: 100%;">
-                                    <div class="date"><b>Date </b><br> <br><?php echo date("l, jS \of F Y", strtotime($d->_date)); ?></div>
-                                    <div class="time"><b>Time </b><br> <br><?php echo date("g:i A ", strtotime($d->reservationTime));  ?></div>
-                                    <div class="guests"><b>Number of guests </b><br> <br><?php echo $d->noOfGuests; ?></div>
-                                    <!-- <div class="food">Food ordered</div> -->
-                                    <div style="text-align:center;">
-                                        <button class="btn update" style="border-color: green;">Update</button>
-                                        <button class="btn delete">Cancel</button>
                                     </div>
-
                                 </div>
-                            </div>
-                    <?php endif;
-                    endforeach; ?>
-                    <div class="heading" id="past">
+                            </div> -->
+
+                    <!-- <?php endif;
+                            endforeach; ?> -->
+
+
+
+
+
+                    <!-- upcoming reservation -->
+
+                    <table style="width: 100%;">
+                        <thead style="border: 0; ">
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Number of guests</th>
+                            <th>Table Number</th>
+                            <th></th>
+
+                            <!-- <th>Price</th> -->
+
+                        </thead>
+                        <tbody style="overflow-y:auto; height:30%; ">
+                            <?php
+                            // asort($data['date']);
+                            // print_r($data);
+                            // print(date("H:i:s", $_SERVER['REQUEST_TIME']));
+                            foreach ($data as $d) :
+                                // print_r($d);
+                                // echo '<br>';
+                                // if ($d->_date >= date("Y-m-d") and $d->reservationTime >= date("H:i:s", $_SERVER['REQUEST_TIME'])) :
+                                if (($d->_date > date("Y-m-d") and $d->status != 'Cancel') || ($d->_date == date("Y-m-d") and $d->reservationTime >= date("H:i:s", $_SERVER['REQUEST_TIME']) and $d->status != 'Cancel')) :
+
+                            ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo date("l, jS \of F Y", strtotime($d->_date)); ?>
+                                            <form action=''>
+                                                <input id='reservationID' type='hidden' value='<?php echo $d->reservationID ?>'>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <?php echo date("g:i A ", strtotime($d->reservationTime)); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $d->noOfGuests; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $d->tableNo; ?>
+                                        </td>
+                                        <td style="display: flex;">
+                                            <!-- <button class="btn update" style="border-color: green;">Update</button> -->
+                                            <!-- </td> -->
+                                            <!-- <td> -->
+                                            <button class="menu-details btn update" style="border-color: green; text-align:center" onclick=" viewMenuItems('<?php echo $d->reservationID ?>')">Food</button>
+                                            <button class="btn delete" onclick="cancelReservation('<?php echo $d->reservationID ?>')">Cancel</button>
+                                        </td>
+                                    </tr>
+                            <?php endif;
+                            endforeach; ?>
+                        </tbody>
+                    </table>
+                    <div class="heading" id="past" style="padding-top: 5rem;">
                         Past Reservations
                         <hr style="margin-top: 1rem;">
                     </div>
-                    <?php foreach ($data as $d) : if ($d->_date < date("Y-m-d")) : ?>
 
-                            <div class="content">
+                    <div style="padding-bottom: 2rem; ">
+                        <!-- <div class="content">
                                 <div class="rev" style="text-align:center; width: 100%;">
                                     <div class="date"><b>Date </b><br> <br><?php echo date("l, jS \of F Y", strtotime($d->_date)); ?></div>
                                     <div class="time"><b>Time </b><br> <br><?php echo date("g:i A ", strtotime($d->reservationTime)); ?></div>
                                     <div class="guests"><b>Number of guests </b><br> <br><?php echo $d->noOfGuests; ?></div>
                                     <hr class="break">
-                                    <!-- <div class="food">Food ordered</div> -->
+                                    <div class="food">Food ordered</div>
                                 </div>
-                            </div>
+                            </div> -->
+                        <table style="width: 100%;">
+                            <thead style="border: 0;">
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Number of guests</th>
+                                <th>Table Number</th>
+                                <th></th>
+                                <!-- <th>Price</th> -->
 
-                <?php endif;
-                    endforeach;
+                            </thead>
+                            <tbody style="overflow-y:auto; ">
+
+                                <?php foreach ($data as $d) : if (
+                                        $d->_date < date("Y-m-d") or
+                                        $d->status == 'Cancel' or
+                                        ($d->_date == date("Y-m-d")  and $d->reservationTime <= date("H:i:s", $_SERVER['REQUEST_TIME']))
+                                    ) : ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo date("jS \of F Y", strtotime($d->_date)); ?>
+                                            </td>
+                                            <td>
+                                                <?php echo date("g:i A ", strtotime($d->reservationTime)); ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $d->noOfGuests; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $d->tableNo; ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($d->status == 'Cancel') : ?>
+                                                    <p style="font-size:1.5rem; color:red">Cancelled</p>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                <?php endif;
+                                endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php
                 endif; ?>
 
 
@@ -279,45 +368,16 @@
 
         <div class="bg inactive"></div>
 
-        <div class="modal inactive">
-            <div class="close fas fa-times"></div>
-            <h3 class="heading">Reserve Table</h3>
-            <hr>
-            <form action="">
-                <div class="form-group">
-                    <label for="">Date: <span class="star">*</span></label>
-                    <input name="date" type="date" required class="input-field" id="" placeholder="" value="">
-                </div>
-                <div class="form-group">
-                    <label for="">Time: <span class="star">*</span></label>
-                    <input name="time" type="time" required class="input-field" id="" placeholder="" value="">
-                </div>
-                <div class="form-group">
-                    <label for="">Covers: <span class="star">*</span></label>
-                    <input name="covers" type="number" min=2 max=6 required class="input-field" id="" placeholder="Covers" value="">
-                </div>
+        <div class="modal inactive" id="menu-items">
 
-                <button class="modal-btn" id="confirm-btn">
-                    Confirm
-                </button>
-            </form>
         </div>
 
 
-        <div class="cancel-modal inactive">
-            <div class=" fas fa-times close-cancel"></div>
-            <div class="content">
-                Are you sure to cancel the reservation?
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-                <button class="modal-btn" id="confirm-btn" style="width: 35%;">
-                    No
-                </button>
-                <button class="modal-btn" id="confirm-btn" style="width: 35%;">
-                    Yes
-                </button>
-            </div>
+        <div class="cancel-modal inactive" id="cancelRes">
+
+
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
         <script src="<?php echo URLROOT ?>/public/js/customerReservations.js"></script>
         <script src="<?php echo URLROOT ?>/public/js/toast.js"></script>

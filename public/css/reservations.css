@@ -1,16 +1,19 @@
 .reservations{
+    justify-self: top;
     width: 100%;
-    background: #fff;
-    padding: 20px 30px 20px 30px;
-    margin: 20px 20px;
+    /* background: #fff; */
+    padding: 20px 30px;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1); */
+    margin: 30px auto;
 }
 .reservations table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
     width: 100%;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 } 
 .th, .td {
     text-align: left;
@@ -18,7 +21,7 @@
     border-bottom: 1px solid #ddd;
 }
 .th {
-    background-color: #9da09f;
+    background-color: var(--orange);
     color: white;
 }
 .td a{

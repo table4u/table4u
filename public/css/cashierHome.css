@@ -9,7 +9,7 @@
 body {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   font-family: "Poppins",sans-serif;
   background: conic-gradient(from 140deg at 100% 60.31%, rgba(37, 37, 37, 0) -20deg, #0E0E0E 20deg, rgba(14, 14, 14, 0) 700deg, #0E0E0E -10deg), url("../images/background.png");
   background-size: cover;
@@ -17,211 +17,33 @@ body {
 
 .logo {
 position: relative;
-width: 350px;
-height: 40px;
-left: 4%;
-top: 40px;
+width: 30%;
+margin-top: 3%;
+margin-left: 5%;
 font-size: 200%;
 color: #a1a0a0;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 7px;  
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
 }
 
 .logo i {
-padding-right: .5rem;
+padding-right: 2%;
 color: #E1651F;
 }
-
-/* Header - Navigation */
-.desktop-nav {
-  position: absolute;
-  width: 350px;
-  height: 40px;
-  left: 39%;
-  top: 50px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 7px;
-  
-}
-
-.desktop-nav .calendar {
-  position: absolute;
-  width: 45px;
-  height: 35px;
-  left: 10px;
-  top: 3px;
-}
-
-.desktop-nav .clock {
-  position: absolute;
-  width: 78px;
-  height: 78px;
-  left: 200px;
-  top: -18px;
-}
-
-.desktop-nav .date {
-  position: absolute;
-  width: 10px;
-  height: 15px;
-  left: 65px;
-  top: 4px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 19px;
-  color: #000000;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  
-}
-
-.desktop-nav .day {
-  position: absolute;
-  width: 10px;
-  height: 15px;
-  left: 65px;
-  top: 24px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 15px;
-  color: #000000;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Start calander */
-
-.Mycalender{
-  visibility: hidden;
-  position: absolute;
-  width: 350px;
-  height: 200px;
-  left: -65px;
-  top: 40px;
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.month {
-  padding: 10px 25px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
-}
-
-.month ul {
-  margin: 0;
-  padding: 0;
-}
-
-.month ul li {
-  display: inline-block;
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.month .prev {
-  float: left;
-  padding-top: 10px;
-}
-
-.month .next {
-  float: right;
-  padding-top: 10px;
-}
-
-.weekdays {
-  margin: 0;
-  padding: 3px 0;
-  background-color: rgb(226, 221, 221);
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13%;
-  color: rgb(71, 67, 67);
-  text-align: center;
-}
-
-.days {
-  padding: 10px 0;
-  background: rgb(194, 235, 199);
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #1abc9c;
-  color: white !important
-}
-
-/* End of calender */
-
-.date .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-.day .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-.desktop-nav .time {
-  position: absolute;
-  width: 64.77px;
-  height: 22px;
-  top: 6px;
-  left: 270px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 30px;
-
-  color: #000000;
-}
-/* End of Header - Navigation */
 
 /* Buttons */
 
 
 .btn1 {
   position: absolute;
-  width: 205px;
-  height: 355px;
+  width: 13.5%;
+  height: 750%;
   background: #F4E8DF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  left: 20%;
-  top:500%;
+  left: 10%;
+  top:60%;
   cursor: pointer;
-  margin: 10px;
+  margin: 10%;
 }
 
 .btn1:hover {background-color:  #f3d6bf}
@@ -233,15 +55,15 @@ color: #E1651F;
 
 .btn2 {
   position: absolute;
-  width: 205px;
-  height: 355px;
+  width: 13.5%;
+  height: 750%;
   background: #F4E8DF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  left: 36%;
-  top:500%;
+  left: 27%;
+  top:60%;
   cursor: pointer;
-  margin: 10px;
+  margin: 10%;
 }
 
 .btn2:hover {background-color:  #f3d6bf}
@@ -253,15 +75,15 @@ color: #E1651F;
 
 .btn3 {
   position: absolute;
-  width: 205px;
-  height: 355px;
+  width: 13.5%;
+  height: 750%;
   background: #F4E8DF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  left: 52%;
-  top:500%;
+  left: 44%;
+  top:60%;
   cursor: pointer;
-  margin: 10px;
+  margin: 10%;
 }
 
 .btn3:hover {background-color:  #f3d6bf}
@@ -273,15 +95,15 @@ color: #E1651F;
 
 .btn4 {
   position: absolute;
-  width: 205px;
-  height: 355px;
+  width: 13.5%;
+  height: 750%;
   background: #F4E8DF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
-  left: 68%;
-  top:500%;
+  left: 61%;
+  top:60%;
   cursor: pointer;
-  margin: 10px;
+  margin: 10%;
 }
 
 .btn4:hover {background-color:  #f3d6bf}
@@ -361,7 +183,7 @@ color: #E1651F;
   bottom: 25%;
   font-style: normal;
   font-weight: bold;
-  font-size: 33px;
+  font-size: 32px;
   line-height: 52px;
   text-decoration: none;
   color: #000000;
@@ -371,14 +193,15 @@ color: #E1651F;
   position: absolute;
   width: 150px;
   height: 50px;
-  left: 20%;
+  left: 7%;
   bottom: 25%;
   font-style: normal;
   font-weight: bold;
-  font-size: 33px;
+  font-size: 31px;
   line-height: 52px;
   text-decoration: none;
   color: #000000;
+  /* visibility: hidden; */
 }
 
 
@@ -387,26 +210,23 @@ color: #E1651F;
 /* Profile */
 .profile .name{
   position: absolute;
-  width: 210px;
-  height: 50px;
-  right: 3%;
-  top: 60px;
+  right: 6%;
+  top: 30%;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 90%;
   text-align: center;
-  color: #FFFFFF;
+  color: #f5eded;
 }
 
 .pfBtn {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  background: #E1651F;
-  border-radius: 40px;
+  width: 3%;
+  height: 100%;
+  background: #fdfcfb;
+  border-radius: 80px;
   right: 2%;
-  top: 40px;
+  top: 5%;
   display: inline-block;
   cursor: pointer;
   -webkit-user-select: none;
@@ -463,8 +283,15 @@ color: #E1651F;
   left: 36%;
   width: 70px;
   height: 70px;
-  background: #E1651F;
+  background: #fdfcfb;
   border-radius: 50px;
+}
+
+.profileimage{
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+
 }
 
 .gotopf{
@@ -479,7 +306,7 @@ h8{
   position: absolute;
   color: #000000;
   top: 150%;
-  left: 22%;
+  left: 35%;
 }
  
 .logout{

@@ -44,30 +44,38 @@ class Login extends Controller
                     // Validated
                     // Check and set logged in user
                     $loggedInUser = $this->selfRegisteredModel->loginCustomer($data['username'], $data['password']);
-                    $_SESSION['user_id'] = $loggedInUser->customerID;
-                    
                     // print_r($loggedInUser);
                     // echo gettype($_SESSION['verified']);
                     // die($_SESSION['user_id']);
-                    if($loggedInUser->verified == '1'){
-                        if ($loggedInUser) {
+                    // die("insdide customer");
+
+                    if ($loggedInUser) {
+                        if ($loggedInUser->verified == '1') {
+
                             // Create Session
+                            $_SESSION['user_id'] = $loggedInUser->customerID;
                             $_SESSION['user_role'] = 'Customer';
+                            // $_SESSION['reservation_id'] = $this->selfRegisteredModel->getNextReservationID() + 1;
+                            $_SESSION['order_id'] = $this->selfRegisteredModel->getNextOrderID() + 1;
+                            $_SESSION['isTableReserved'] = false;
                             $this->createUserSession($loggedInUser);
-                            // die($_SESSION['user_role']);
+
                             header("Location: " . URLROOT . '/customerHome');
                         } else {
-                            $data['pw_err'] = 'Password incorrect';
+                            $_SESSION['notVerified'] = "Please verify your email address to login";
                             $this->view('login', $data);
                         }
-                    }
-                    else{
-                        $_SESSION['verified'] = "Please verify your email address to login";
+                        //  else {
+                        //     $_SESSION['notVerified'] = "Please verify your email address to login";
+                        //     $this->view('login', $data);
+                    } else {
+                        $_SESSION['notVerified'] = "Something went wrong. Please try again";
+
                         $this->view('login', $data);
                     }
-                    
                 } else {
                     // Load view with errors
+                    $data['pw_err'] = 'Password incorrect';
                     $this->view('login', $data);
                 }
             }
@@ -87,7 +95,7 @@ class Login extends Controller
                         //assign role type
                         if ($loggedInUser->empType == 'Cashier') {
                             $_SESSION['user_role'] = 'Cashier';
-                            header("Location: " . URLROOT . '/cashierHome');
+                            header("Location: " . URLROOT . '/cashierReserveTable');
                         } else if ($loggedInUser->empType == 'Kitchen Manager') {
                             $_SESSION['user_role'] = 'Kitchen Manager';
                             // print_r($loggedInUser);
@@ -144,5 +152,52 @@ class Login extends Controller
         $_SESSION['user_name'] = $user->name;
         // header("Location: " . URLROOT . '/customerHome');
 
+    }
+
+    public function resetPassword()
+    {
+        $this->view("customerResetPW");
+    }
+
+    public function resetRequest()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $selector = bin2hex(random_bytes(8));
+            $token = random_bytes(32);
+
+            $htoken = bin2hex($token);
+            $url = "http://localhost/gp1/login/createNewPassword/$selector/$htoken";
+
+            $expires = date("U") + 1800;
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'email' => trim($_POST['username']),
+                'selector' => $selector,
+                'token' => password_hash($token, PASSWORD_DEFAULT),
+                'expire' => $expires
+            ];
+            if ($this->selfRegisteredModel->resetPassword($data)) {
+                //semd reset mail
+                $mail = new Mailer();
+                $subject = "Password Reset Mail";
+                $body = "<p> We received a password reset request. The link to reset your password is geiven below. 
+                            If you did not make thos request, you can igmore this mail 
+                        </p>
+                        <br><br>
+                        <p> Here is your password reset link:
+                        <a href='$url'>Password reset link</a>
+                        </br></br>
+                        Best Regards, </br>
+                        Team Table4U
+                    ";
+
+                $mail->mailto($subject, $data['email'], $body);
+            }
+        } else {
+            // Load view
+            $this->view("customerResetPW");
+        }
     }
 }

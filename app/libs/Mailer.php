@@ -44,3 +44,4 @@ class Mailer
         echo 'Message has been sent successfuly';
     }
 }
+

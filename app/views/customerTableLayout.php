@@ -35,17 +35,11 @@
         <body>
         <?php endif; ?>
 
-        <header>
-            <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-            <div id="menu-bar" class="fas fa-bars"></div>
-            <nav class="navbar">
-                <a href="<?php echo URLROOT ?>/customerHome">Home</a>
-                <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-                <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-            </nav>
-        </header>
+        <?php
+        require APPROOT . '/views/customer/header.php';
+        ?>
 
-        <form class="res-details" method="POST" action="<?php echo URLROOT ?>/reservations/verifyDateAndTime">
+        <form class="res-details" method="POST" action="<?php echo URLROOT ?>/customerReservations/verifyDateAndTime">
             <div class="form-group">
                 <label for="">Date </label>
                 <input required name="date" class="date" type="date" class="input-field" id="" placeholder="" value="<?php echo $data['date']; ?>">
@@ -65,64 +59,61 @@
                 <h3 class="heading">Table Layout</h3>
                 <hr>
                 <div class="table-layout">
-                    <div class="table" id="t1">
-                        Table 1
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                    <div class="table" id="t2">
-                        Table 2
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                    <div class="table" id="t3">
-                        Table 3
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                    <div class="table" id="t4">
-                        Table 4
-                        <div class="covers">
-                            Max: 16
-                            <br>
-                            Min: 10
-                        </div>
-                    </div>
-                    <div class="table" id="t5">
-                        Table 5
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                    <div class="table" id="t6">
-                        Table 6
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                    <div class="table" id="t7">
-                        Table 7
-                        <div class="covers">
-                            Max: 5
-                            <br>
-                            Min: 2
-                        </div>
-                    </div>
-                </div>
+                    <?php
+                    $j = 0;
 
+                    $rowcount = count($data['tableDetails']);
+                    $rowcountD = $rowcount;
+                    $TotalTables = 20;
+                    // print_r($data);
+
+                    for ($j = 1; $j <= $TotalTables; $j++) {
+                        $loopcheck = 0;
+                        $i = 0;
+
+                        while ($i < $rowcountD) {
+                            // print_r($data['tableDetails'][$i]->tableNo);
+                            // echo '<br>';
+                            if ($data['tableDetails'][$i]->tableID == "TL-" . $j) {
+
+                                if ($data['tableDetails'][$i]->availability == 1) {
+                                    // echo $data['time'];
+                                    echo "<button class = 'table available' id = 'table-" . $data['tableDetails'][$i]->tableNo . "'
+                                     onclick = 'tableDetails(" . $data['tableDetails'][$i]->tableNo . ",  \" " . $data['date'] . "\",\"" . $data['time'] . "\")'> 
+                                        
+                                      Table " . $data['tableDetails'][$i]->tableNo .
+                                        "<div class = 'covers'>
+                                      Max: " . $data['tableDetails'][$i]->maxCover . "<br>
+                                      Min: " . $data['tableDetails'][$i]->minCover . "</div></button>";
+                                } else if ($data['tableDetails'][$i]->availability == 0) {
+
+                                    echo "<button class = 'table unavailable' id = 'table-" . $data['tableDetails'][$i]->tableNo . "'
+                                     onclick = 'tableDetails(" . $data['tableDetails'][$i]->tableNo . ",  \" " . $data['date'] . "\",\"" . $data['time'] . "\",\"" . $data['tableDetails'][$i]->nextAvailableTime . "\")'> 
+                                    Table " . $data['tableDetails'][$i]->tableNo .
+                                        "<div class = 'covers'>
+                                      Max: " . $data['tableDetails'][$i]->maxCover . "<br>
+                                      Min: " . $data['tableDetails'][$i]->minCover . "</div></button>";
+                                }
+
+                                $loopcheck = $loopcheck + 1;
+                            }
+                            $i = $i + 1;
+                        }
+                        if ($loopcheck == 0) {
+                            echo "<div class='table'></div>";
+                        }
+                        // echo 'TL-'.$j;
+
+                    }
+
+                    ?>
+
+                    <?php $rowcount = count($data);
+                    $rowcountD = $rowcount;
+                    $a = 0;
+
+                    ?>
+                </div>
 
             </div>
             <div class="">
@@ -130,102 +121,38 @@
                 <hr>
                 <div class="table-det-main">
                     <div class="t1 table-det inactive">
-                        <h3>
-                            Table 1
+                        <h3 id='table-heading' class='table-heading'>
+                            <!-- Table 1 -->
                         </h3>
                         <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span class="label">Availability </span><span class="val">Available</span></div>
+                            <div>
+                                <span class="label">Maximum Covers </span>
+                                <span class="val" id='max-cover'>
+                                    <!-- 5 -->
+                                </span>
+                            </div>
+                            <div>
+                                <span class="label">Minimum Covers </span>
+                                <span class="val" id='min-cover'>
+                                    <!-- 2 -->
+                                </span>
+                            </div>
+                            <div>
+                                <span class="label">Availability </span>
+                                <span class="val" id='table-availability'>
+                                    <!-- Available -->
+                                </span>
+                            </div>
                         </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
+                        <div id='bookNowBtn'>
+                            <button class="btn bookNow">
+                                Book Now
+                            </button>
+                        </div>
+
                     </div>
 
-                    <div class="t2 table-det inactive">
-                        <h3>
-                            Table 2
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span class="label">Availability </span><span class="val">Available</span></div>
-                        </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
-                    </div>
 
-                    <div class="t3 table-det inactive">
-                        <h3>
-                            Table 3
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span class="label">Availability </span><span class="val">Available</span></div>
-                        </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
-                    </div>
-
-                    <div class="t4 table-det inactive">
-                        <h3>
-                            Table 4
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">16</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">10</span></div>
-                            <div><span disabled class="label">Availability </span><span class="val">Unvailable</span></div>
-                        </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
-                    </div>
-
-                    <div class="t5 table-det inactive">
-                        <h3>
-                            Table 5
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span class="label">Availability </span><span class="val">Available</span></div>
-                        </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
-                    </div>
-
-                    <div class="t6 table-det inactive">
-                        <h3>
-                            Table 6
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span class="label">Availability </span><span class="val">Available</span></div>
-                        </div>
-                        <button class="btn bookNow">
-                            Book Now
-                        </button>
-                    </div>
-
-                    <div class="t7 table-det inactive">
-                        <h3>
-                            Table 7
-                        </h3>
-                        <div class="table-info">
-                            <div><span class="label">Maximum Covers </span><span class="val">5</span></div>
-                            <div><span class="label">Minimum Covers </span><span class="val">2</span></div>
-                            <div><span disabled class="label">Availability </span><span class="val">Unavailable</span></div>
-                        </div>
-                        <button class="btn bookNow" id="">
-                            Book Now
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -238,27 +165,40 @@
             <div class="close fas fa-times"></div>
             <h3 class="heading">Reserve Table</h3>
             <hr>
-            <form action="<?php echo URLROOT ?>/reservations/makeReservations" method="POST">
+            <form action="<?php echo URLROOT ?>/customerReservations/makeReservations" method="POST">
+                <div class="form-group" id="clickedTable"></div>
                 <div class="form-group">
                     <label for="">Date: </label>
-                    <input name="date" type="date" required class="input-field" id="" placeholder="" value="<?php echo $data['date']; ?>" >
+                    <input name="date" type="date" readonly class="input-field" id="" placeholder="" value="<?php echo $data['date']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="">Time: </label>
-                    <input name="time" type="time" required class="input-field" id="" placeholder="" value="<?php echo $data['time']; ?>" >
+                    <input name="time" type="time" readonly class="input-field" id="" placeholder="" value="<?php echo $data['time']; ?>">
+                </div>
+                <div class="form-group" id='covers'>
+                    <!-- <label for="">Covers: <span class="star">*</span></label>
+                    <input name="covers" type="number" min=2 max=6 required class="input-field" id="" placeholder="Covers" value=""> -->
+
                 </div>
                 <div class="form-group">
-                    <label for="">Covers: <span class="star">*</span></label>
-                    <input name="covers" type="number" min=2 max=6 required class="input-field" id="" placeholder="Covers" value="">
+                    <label for="">Purpose: </label>
+                    <select name="purpose" id="purpose">
+                        <option class="input-field" value="other">Select</option>
+                        <option class="input-field" value="family">Friends & Family</option>
+                        <option class="input-field" value="business">Business</option>
+                        <option class="input-field" value="other">Other</option>
+                    </select>
                 </div>
-                <div class="form-group" style="width:  115%;">
+                <!-- <div class="form-group" style="width:  115%;">
                     <label for="">Food Ordering? <span class="star">*</span></label>
                     <input name="food" type="radio" required class="radio-btn" id="yes" class="radio-btn" placeholder="" value="Yes"> <label for="yes" style="margin-left: 0.25rem;">Yes</label>
                     <input name="food" type="radio" required class="radio-btn" id="no" class="radio-btn" placeholder="" value="No"> <label for="no" style="margin-left: 0.5rem;">No</label>
-                </div>
+                </div> -->
                 <button class="btn" id="confirm-btn" type=submit>
                     Confirm
                 </button>
+                <div id="tableID">
+                </div>
             </form>
         </div>
         <script src="<?php echo URLROOT ?>/public/js/customerTable.js"></script>

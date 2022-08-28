@@ -7,6 +7,7 @@
   <script src="https://kit.fontawesome.com/aad62703ad.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/sidebar.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/navbar.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/main.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/orders.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/dashboard.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>/public/css/menu.css">

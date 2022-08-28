@@ -91,146 +91,129 @@
     </style>
 </head>
 
-<body>
-    <!-- navigation menu -->
-    <header>
-        <a href="#" class="logo"> <i class="fas fa-utensils"></i> Hotel De Luna</a>
-        <div id="menu-bar" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <!-- <a href="#appetizers">Menu</a> -->
-            <a href="<?php echo URLROOT ?>/customerMenu/menu">Menu</a>
-            <a href="<?php echo URLROOT ?>/reservations/reservationDetails">Reservations</a>
-            <a href="<?php echo URLROOT ?>/customerFoodpackage/index">Food Package</a>
-            <a href="<?php echo URLROOT ?>/login/logout">Logout</a>
-            <a href="#"><i class="fas fa-bell"></i></a>
-            <a href="<?php echo URLROOT ?>/customerProfile/profile"><i class="fas fa-user"></i></a>
-        </nav>
-    </header>
+<?php if (isset($_SESSION['unsuccess'])) : ?>
 
-    <section>
-        <div class="main">
-            <div class="box box1 cur">
-                <a href="">Upcoming Reservations</a>
-            </div>
-            <div class="box box2">
-                <a href="#">Food Packages</a>
-            </div>
-        </div>
+    <body onload="Toast.show('<?php echo $_SESSION['unsuccess']; ?>' , 'error')">
+        <?php unset($_SESSION['unsuccess']); ?>
 
+    <?php
+else : ?>
 
-        <div class="content">
-            <div class="reservations" style="align-items: center; justify-items: center;">
-                <div class="rev" style="width: 60%;">
-                    <div class="date">Date</div>
-                    <div class="time">Time</div>
-                    <div class="guests">No of guests</div>
-                    <div class="food">Food ordered</div>
+        <body>
+        <?php endif; ?>
+        <!-- navigation menu -->
+        <?php
+        require APPROOT . '/views/customer/header.php';
+        ?>
+
+        <section>
+            <div class="main">
+                <div class="box box1 cur">
+                    <a href="">Upcoming Reservations</a>
                 </div>
+            </div>
 
-                <!-- <div class="rev">
-                    <div class="date">Date</div>
-                    <div class="time">Time</div>
-                    <div class="guests">No of guests</div>
-                    <div class="food">Food ordered</div>
-                </div> -->
 
-                <!-- <div class="rev">
+            <div class="content">
+                <div class="reservations" style="align-items: center; justify-items: center;">
+                    <div class="rev" style="width: 60%;">
+                        <?php
+                        $t = 0;
+                        // print_r($data);
+
+                        foreach ($data['resDetails'] as $d) :
+                            // print_r($d);
+                            if (($d->_date > date("Y-m-d") and $d->status != 'Cancel') || ($d->_date == date("Y-m-d") and $d->reservationTime >= date("H:i:s", $_SERVER['REQUEST_TIME']) and $d->status != 'Cancel')) :
+                                $t = 1;
+                        ?>
+                                <div class="date">
+                                    <b>Date: </b>
+                                    <?php echo date("l, jS \of F Y", strtotime($d->_date)); ?>
+                                </div>
+
+                                <div class="time">
+                                    <b>Time: </b>
+                                    <?php echo date("g:i A ", strtotime($d->reservationTime)); ?>
+                                </div>
+
+                                <div class="guests"><b>No of Guests: </b>
+                                    <?php echo $d->noOfGuests; ?>
+
+                                </div>
+                                <div class="guests"><b>Table Number: </b>
+                                    <?php echo $d->tableNo; ?>
+
+                                </div>
+
+                                <!-- <div class="food">Food ordered</div> -->
+                    </div>
+                    <?php break; ?>
+                <?php else : continue; ?>
+
+                <?php endif;
+                        endforeach;
+                        if ($t == 0) : ?>
+                <div class="rev">
                     <div class="date">No upcoming reservations</div>
-                </div> -->
-
-            </div>
-            <div class="foodpackage">
-                <div class="pkg hide">
-                    <h1>Food package Name </h1>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <a href="<?php echo URLROOT ?>/customerMenu/menu" class="btn">Order Now</a>
-                    <a class="btn delete deleteBtn">Delete</a>
                 </div>
-                <div class="pkg hide">
-                    <h1>Food package Name </h1>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <div class="menuitem">
-                        <span>Food name: </span>
-                        <span># of servings</span>
-                    </div>
-                    <a href="<?php echo URLROOT ?>/customerMenu/menu" class="btn">Order Now</a>
-                    <a class="btn delete deleteBtn">Delete</a>
+            <?php endif; ?>
                 </div>
 
             </div>
-        </div>
 
-        <div class="buttons" style="padding-top:0;padding-bottom:1rem">
-            <a href="<?php echo URLROOT ?>/customerMenu/menu"><button class="btn">Order Food</button></a>
-            <a href="<?php echo URLROOT ?>/reservations/showReservations"><button class="btn">Make Reservation</button></a>
-            <!-- <button class="btn">Make Reservation</button> -->
+            <div class="buttons" style="padding-top:0;padding-bottom:1rem">
+                <a href="<?php echo URLROOT ?>/customerMenu/menu"><button class="btn">Order Food</button></a>
+                <a href="<?php echo URLROOT ?>/customerReservations/showReservations"><button class="btn">Make Reservation</button></a>
+                <!-- <button class="btn">Make Reservation</button> -->
+            </div>
+        </section>
+        <div class="bg inactive"></div>
+        <div class="delete-popup modal inactive">
+            <div class="close fas fa-times"></div>
+            <div class="modal-content">
+                Are you sure to remove this package?
+            </div>
+            <div class="modal-buttons">
+                <a href="" class="modal-btn">No</a>
+                <a href="" class="modal-btn">Yes</a>
+            </div>
         </div>
-    </section>
-    <div class="bg inactive"></div>
-    <div class="delete-popup modal inactive">
-        <div class="close fas fa-times"></div>
-        <div class="modal-content">
-            Are you sure to remove this package?
-        </div>
-        <div class="modal-buttons">
-            <a href="" class="modal-btn">No</a>
-            <a href="" class="modal-btn">Yes</a>
-        </div>
-    </div>
-    <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
-    <script src="<?php echo URLROOT ?>/public/js/customerHome.js"></script>
+        <script src="<?php echo URLROOT ?>/public/js/home.js"></script>
+        <script src="<?php echo URLROOT ?>/public/js/customerHome.js"></script>
 
-    <script>
-        const tabs = document.querySelectorAll(".box")
-        let deleteBtn = document.querySelectorAll(".deleteBtn");
-        let modal = document.querySelector(".modal");
-        let bg = document.querySelector(".bg");
-        let close = document.querySelector(".close");
+        <script>
+            const tabs = document.querySelectorAll(".box")
+            let deleteBtn = document.querySelectorAll(".deleteBtn");
+            let modal = document.querySelector(".modal");
+            let bg = document.querySelector(".bg");
+            let close = document.querySelector(".close");
 
-        tabs.forEach((t, index) => {
-            t.addEventListener("click", () => {
-                tabs.forEach((t) => t.classList.remove("cur"))
+            tabs.forEach((t, index) => {
+                t.addEventListener("click", () => {
+                    tabs.forEach((t) => t.classList.remove("cur"))
 
-                t.classList.add("cur")
+                    t.classList.add("cur")
+                })
             })
-        })
 
-        for (let i = 0; i < deleteBtn.length; i++) {
-            deleteBtn[i].addEventListener("click", function() {
-                console.log("clicked");
-                modal.classList.add("active");
-                bg.classList.add("active");
-                modal.classList.remove("inactive");
-                bg.classList.remove("inactive");
-            });
-        }
+            for (let i = 0; i < deleteBtn.length; i++) {
+                deleteBtn[i].addEventListener("click", function() {
+                    console.log("clicked");
+                    modal.classList.add("active");
+                    bg.classList.add("active");
+                    modal.classList.remove("inactive");
+                    bg.classList.remove("inactive");
+                });
+            }
 
-        close.addEventListener("click", function() {
-            console.log("close")
-            modal.classList.remove("active");
-            bg.classList.remove("active");
-            modal.classList.add("inactive");
-            bg.classList.add("inactive");
-        })
-    </script>
-</body>
+            close.addEventListener("click", function() {
+                console.log("close")
+                modal.classList.remove("active");
+                bg.classList.remove("active");
+                modal.classList.add("inactive");
+                bg.classList.add("inactive");
+            })
+        </script>
+        </body>
 
 </html>

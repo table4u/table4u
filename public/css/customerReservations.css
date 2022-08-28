@@ -24,7 +24,8 @@ html {
 }
 
 body {
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
+    background: #ff6961;
     /* background: black;
     background: url(../images/bg2.jpg);
     background-size: contain;
@@ -108,7 +109,7 @@ header .navbar a:hover {
     padding: 0.8rem 3rem;
     border: .01rem solid green;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.5rem;
     /*font-weight: 600;*/
     border-radius: 0.5rem;
     position: relative;
@@ -163,10 +164,54 @@ button {
     justify-content: center;
     flex-direction: row;
     color: rgb(102, 102, 102);
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 
 .content .rev div {
     padding: 1rem;
+}
+
+table thead th {
+    /* border-radius: 1rem; */
+    width: 100%;
+    font-size: 1.75rem;
+    text-align: left;
+    background-color: var(--orange);
+    color: #ffffff;
+    padding: 1rem;
+    /* padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem; */
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+    /*border-radius: 2rem;*/
+    /*text-align: left;*/
+}
+
+table td {
+    padding: 2rem;
+    font-size: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+table {
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2.5rem;
+    /* border-radius: 1rem; */
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+tr {
+    /* border-bottom: 0.15rem solid var(--orange); */
+    border-bottom: 1px solid #ddd;
+    margin: 1rem;
 }
 
 /* modal */

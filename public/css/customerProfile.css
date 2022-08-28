@@ -87,7 +87,7 @@ header .navbar a:hover {
 }
 
 .container .profile {
-    height: 50rem;
+    height: fit-content;
     background: white;
     width: 100%;
     box-shadow: 0.5rem .5rem 1rem rgba(0, 0, 0, 0.1);
@@ -107,7 +107,10 @@ header .navbar a:hover {
     color: rgb(102, 102, 102);
     /* margin-bottom: 25px; */
 }
-
+.pw-reset{
+    font-size: 1.5rem;
+    color: rgb(102, 102, 102);
+}
 hr {
     margin: auto;
     justify-content: center;

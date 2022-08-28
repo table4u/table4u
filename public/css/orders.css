@@ -1,55 +1,154 @@
-.main_section .content{
-      display: flex;
-      justify-content: center;
-    align-items: center;
-      width: 100%;
-      height: calc(100% - 200px);;
-      padding: 20px 30px;
+
+  .date{
+    padding-bottom: 20px;
+    display: flex;
+    float:right;
+    position: top;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
   }
+  /* .dateF{
+    padding-right: 20px;
+  } */
+  .date .input_date{
+    float:right;
+    padding: 0.7rem;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: bold;
+    margin-right: 20px;
+    color: var(--orange);
+    border:solid var(--orange);
+  }
+
   /* Order table */
  .orders{
-      width: 100%;
-      height: auto;
-      background: #fff;
-      padding: 20px 30px;
-      margin: 0 20px 20px 20px;
-      border-radius: 12px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    justify-self: top;
+    width: auto;
+    /* background: #fff; */
+    padding: 20px 30px;
+    height: auto;
+    border-radius: 12px;
+    /* box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1); */
+    margin: 10px auto;
+      
+  }
+  .tab {
+    overflow: hidden;
+    /* border: 1px solid #ccc; */
+    /* background-color:#fff; */
+  }
+  
+  .tab button{
+    background-color: inherit;
+    border: 1px solid gray;
+    float: left;
+    border-bottom: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    background-color: #ddd;
+  }
+  
+  .tab button:hover {
+    background-color: #fff;
+  }
+  
+  .tab button .active {
+    background-color: #fff;
+  }
+ .notf{
+    /* position:sticky; */
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  }
+  .orders .order{
+      display: none;
+  padding: 6px 12px;
+  border: 1px solid gray;
+  background: #fff ;
+  /* border-top: none; */
   }
   .orders table{
       margin-top: 20px;
       width: 100%;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+      /* background: #fff; */
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);   */
   }
     table {
       border-collapse: collapse;
       width: 100%;
   } 
+  .ID{
+    padding-left: 30px;
+}
+
   th, td {
       text-align: left;
       padding: 8px;
       border-bottom: 1px solid #ddd;
   }
   th {
-      background-color: #9da09f;
+      background-color: var(--orange);
       color: white;
+      font-size: 1.7rem;
   }
+
   td a{
     display: block;
     text-decoration: none;
-    color: rgb(32, 32, 32);
-    font-weight: 400;
+    color:black;
+    font-weight: 400;  
+}
+.rowcolor{
+  background-color: rgb(240, 238, 238);
+}
+.changeStatus{  
+  color: var(--orange);
+  font-size: 15px;
+  padding: 14px 20px;
+  background-color: #fff;
+  border: .01rem solid var(--orange);
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.changeStatus:hover{
+  color: #fff;
+  background-color: var(--orange);
+}
+/* .ID{
+  color: var(--orange);
+  padding: 5px 5px;
+  background-color: #fff;
+  border: .01rem solid var(--orange);
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+} */
+.ID:hover{
+  /* color: #fff;
+  background-color: var(--orange); */
+  color: red;
+}
+.tdI:hover{
+  background-color: #ddd;
 }
   /*Order details*/
   .main_section .content .order_details{
-      width: auto;
+      width: 50%;
       height: auto;
       display: grid;
       background: #fff;
       padding: 20px 30px;
-      margin: 0 20px 0 0;
+      margin: 20px auto;
       border-radius: 12px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+      justify-self: center;
   }
   .order_details .list{
       margin-top: 10px;
@@ -80,6 +179,9 @@
       align-items: center;
       text-decoration: none;
   }
+  .f_details .food_item:hover{
+    color: red;
+}
   .f_details .food_item{
       display: block;
       padding-bottom: 15px;
@@ -101,16 +203,19 @@
       color:red;
   }
   .order_details .title , .orders .title{
-      background-color: #9da09f;
+      background-color: var(--orange);
       color: white;
       text-align: center;
       padding: 8px;
       font-size: 20px;
       font-weight: 500;
+      justify-content: center;
       border-bottom: 1px solid #ddd;
+      margin-top: 10px;
+      margin-bottom: 10px;
   }
   .order_details .table_status{
-      position: relative;
+      /* position: relative; */
       display: block;
       width: 100%;
       padding: 8px;
@@ -119,22 +224,26 @@
       overflow: hidden;
       border-bottom: 1px solid #ddd;
   }
-  select {
-      position: relative;
+  .table_status input{
+      margin-left: 10px;
+  }
+   select {
+      /* position: relative; */
       padding: 10px;
-      background: rgb(248, 246, 246);
+      /* background: #fff; */
       border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.15);
+      border: 1px solid var(--orange);
       box-shadow: 0 1px 1px rgba(50,50,50,0.1);
       cursor: pointer;
       outline: none;
       font-weight: bold;
-      color: #545854;    
+      color: var(--orange);    
   }
   .order_details .cancel {
-    display: flex;
-    position: bottom;
+    /* display: flex; */
+    /* position: bottom; */
     align-items: left;
-    padding-left: 60px;
+    padding-left: 30px;
     padding-top: 50px;
+    padding-bottom: 30px;
   }

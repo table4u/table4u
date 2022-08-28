@@ -17,7 +17,7 @@
 <body>
 
 <div class="header">
-    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome/index">
+    <a class="btnHome"  href="<?php echo URLROOT ?>/CashierHome">
       <img class="iconHome" src="<?php echo URLROOT ?>/public/images/home.svg" alt=""/>
       <div class="logo">
         <i class="fas fa-utensils"></i> Hotel De Luna
@@ -130,7 +130,7 @@
       <img src="<?php echo URLROOT ?>/public/images/guest.svg">
     </div>
 
-    <a class="btn1"  href="<?php echo URLROOT ?>/CashierGuests/addCustomer">
+    <a class="btn1"  href="<?php echo URLROOT ?>/CashierGuests/loadAddCustomer">
       <h2>Add Customer</h2>
     </a>
 
@@ -149,10 +149,10 @@
    <!-- End of Menu Bar -->
  
   <div class="pageBackground">
-    <!-- <form>
-      <input type="text" placeholder="Search" name="search">
-      <input type="submit" value="" src="<?php echo URLROOT ?>/public/images/search.svg"> 
-    </form> -->
+    <form class="search" action="<?php echo URLROOT ?>/CashierGuests/searchFromAll">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
 
     <!-- Start of Section2 -->
 

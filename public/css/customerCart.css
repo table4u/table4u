@@ -1,0 +1,377 @@
+:root {
+    --orange: #FF6000;
+}
+
+section {
+    padding: 10rem 9%;
+    /* display: grid;
+    grid-template-columns: 60% 40%; */
+}
+
+section .price-details {
+    /* background-color: red; */
+    /* height: 100vh; */
+}
+
+section .cart {
+    /* height: 100vh; */
+    /* background-color: yellow; */
+}
+
+.heading {
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+    color: rgb(102, 102, 102);
+}
+
+hr {
+    margin: auto;
+    padding: 1rem;
+    justify-content: center;
+    height: 30px;
+    width: 150px;
+    border-style: solid;
+    border-color: var(--orange);
+    border-width: 3px 0 0 0;
+    /* border-radius: 20px; */
+}
+
+
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.25fr 0.35fr 0.4fr;
+    margin: 0;
+    padding: 0;
+    grid-column-gap: 1.5rem;
+
+}
+
+.box .title {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.75rem;
+    color: rgb(102, 102, 102);
+
+}
+
+.box .sizes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem;
+    /* margin-bottom: 5rem; */
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.15); */
+}
+
+.box .sp-instructions textarea {
+    width: 100%;
+    height: 15rem;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 1.5rem;
+    resize: none;
+}
+
+.box .sizes .lbl-radio {
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+}
+
+.box .last {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
+/* .box .last form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} */
+
+.box .sizes label .display-box .size {
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.box .sizes label .display-box .price {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input[type=radio]:checked+.lbl-radio {
+    border-color: var(--orange);
+}
+
+.box .title .star {
+    color: red;
+}
+
+.box .sizes {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.box .sizes label div {
+    padding-left: 0.5rem;
+    font-size: 1.5rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.veg {
+    background-color: #d2e7d6 !important;
+}
+
+.container .box .btn {
+    align-items: center;
+}
+
+.box .last #addToCart .addToCart:hover {
+    color: #fff;
+    background-color: var(--orange);
+
+}
+
+.box .last #addToCart btn {
+    background-color: white;
+}
+
+.container .box {
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    border: 0.1rem sold rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    /* text-align: center; */
+    /* flex: 1 1 30rem; */
+    position: relative;
+    /* flex-basis: 30rem;
+	flex-grow: 0;
+	flex-shrink: 0; */
+}
+
+.container .box img {
+    height: 25rem;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.container .box .price {
+    /* margin-right: 0;
+    margin-left: auto;
+    color: var(--orange);
+    font-size: 2.5rem;
+    padding-top: 1rem;
+    font-weight: bolder; */
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    /* text-align: right; */
+}
+
+.container .box h3 {
+    color: rgb(102, 102, 102);
+    font-size: 2.5rem;
+    padding-top: 1rem;
+}
+
+
+
+.popular {
+    padding-top: 0.5rem;
+}
+
+.container .box .content-container {
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.container .box .description {
+    font-size: 1.5rem;
+    text-align: justify;
+    text-justify: inter-word;
+    padding-bottom: 1rem;
+}
+
+
+.hidebtn {
+    display: none;
+}
+
+* {
+    font-family: 'Poppins',
+        sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    padding: 2rem;
+}
+
+:root {
+    --orange: #FF6000;
+}
+
+body {
+    background: #f7f7f7;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    border: .3rem solid var(--orange);
+    color: var(--orange);
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.btn:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: var(--orange);
+}
+
+/*cart items*/
+.container .box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.container .box .cart-info {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0.25rem;
+
+}
+
+.container .box .cart-info img {
+    height: 2.5rem;
+    object-fit: cover;
+    width: 20%;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.container .box th {
+    text-align: left;
+    padding: 0.25rem;
+    font-size: 1.5rem;
+    color: rgb(102, 102, 102);
+}
+
+.container .box td {
+    /* padding: 0.5rem 0.25rem; */
+    font-size: 1.25rem;
+
+}
+
+.container .box td input {
+    width: 70px;
+    height: 30px;
+    /* padding: 0.5rem; */
+    border: none;
+    border-radius: 25%;
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.container .box .checkout {
+    background-color: #181818;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    width: 100%;
+    box-shadow: 0 0 1rem #222222;
+
+}
+
+.container .box .checkout:hover {
+    transform: scale(1.01);
+}
+
+.container .box .total-price {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container .box .total-price table {
+    border-top: 3px solid orangered;
+    width: 55%;
+}
+
+.container .box td:last-child,
+.container .box th:last-child {
+    text-align: right;
+    padding: 0.25rem;
+    font-size: 1.5rem;
+}
+
+.container .box .cart-info div button {
+    background: white;
+    padding: .5rem;
+    color: red;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    border: none;
+}
+
+.container .box .cart-info div button:hover {
+    color: #fff;
+    background-color: red;
+}
+
+.box .small-container table tbody tr {
+    margin: 2rem;
+}
+
+.box .small-container table tbody tr td input {
+    text-align: center;
+    width: 5rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    /* padding:15px 0 0 15px; */
+}
